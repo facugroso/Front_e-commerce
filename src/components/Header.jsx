@@ -1,12 +1,19 @@
+import { Link } from "react-router-dom";
+import "./Header.css";
+
 function Header() {
   return (
     <>
       <header>
-        <div>
-          <img
-            src="https://hardzone.es/app/uploads-hardzone.es/2023/05/nuevos-auriculares-hyperx-cloud-iii.jpg"
-            alt="Image header"
-          />
+        <div className="main container-fluid bg-image">
+          <div className="d-flex flex-column justify-content-center h-100">
+            <div className="bg-white mainHeadset d-flex flex-column justify-content-between">
+              <h1 className="fw-bold">CLOUD III</h1>
+              <p>A Legend Reborn</p>
+              <Link className="shopLink">SHOP NOW</Link>
+            </div>
+            <div className="divShape"></div>
+          </div>
         </div>
       </header>
     </>
