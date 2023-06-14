@@ -1,57 +1,85 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import "./FeaturedItem.css";
 
 function FeaturedItem() {
+  const [productInfo, setProductInfo] = useState(null);
+  useEffect(() => {
+    async function getProducts() {
+      const response = await axios({
+        method: "get",
+        url: "http://localhost:3000/products",
+      });
+      setProductInfo(response.data);
+    }
+    getProducts();
+  }, []);
+
   return (
     <>
-      <div className="d-flex">
-        <div className="d-flex flex-column justify-content-center">
-          <div>
-            <p className=" fw-semibold">
-              Immersive Sound Featuring DTS Headphone:X
-            </p>
-            <h2 className="fw-bold fs-1 w-50">Cloud Stinger 2 Wireless</h2>
-            <p className="fs-5 w-75">
-              Enjoy signature Cloud comfort paired with the freedom of a
-              reliable 2.4GHZ wireless connection.
-            </p>
-            <button className="btn rounded-0 btn-danger">LEARN MORE</button>
-          </div>
-        </div>
+      {productInfo && (
         <div>
-          <img
-            className="featuredItemImage"
-            src="https://row.hyperx.com/cdn/shop/files/HyperX_Cloud_Stinger_2_Wireless_1_main_540x.png?v=1677182589"
-            alt="Cloud Stinger 2 Wireless image"
-          />
-          <div className="itemDivShape"></div>
-          <div className="itemBackground"></div>
-          <div className="itemDivShapeVariant"></div>
-        </div>
-      </div>
+          <>
+            <div className="d-flex">
+              <div className="d-flex flex-column justify-content-center">
+                <div>
+                  <p className="fw-semibold">Lorem ipsum dolor sit amet.</p>
+                  <h2 className="fw-bold fs-1 w-50 modelTitle">
+                    {productInfo[0].name}
+                  </h2>
+                  <p className="fs-5 w-75 featuredItemDescriptionText">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+                    laborum esse ipsum repellat magnam iste ipsam omnis nostrum
+                    natus qui.
+                  </p>
+                  <button className="btn rounded-0 btn-danger">
+                    LEARN MORE
+                  </button>
+                </div>
+              </div>
+              <div>
+                <img
+                  className="featuredItemImage hide-bg"
+                  src={productInfo[0].image}
+                  alt="Cloud Stinger 2 Wireless image"
+                />
+                <div className="itemDivShape"></div>
+                <div className="itemBackground"></div>
+                <div className="itemDivShapeVariant"></div>
+              </div>
+            </div>
 
-      <div className="d-flex secondItemDiv">
-        <div className="featuredItemDescription">
-          <img
-            className="featuredItemImageVariant"
-            src="https://row.hyperx.com/cdn/shop/files/Haste_top_image_540x.png?v=1632720552"
-            alt="Pulsefire Haste image"
-          />
-          <div className="secondItemDivShape"></div>
-          <div className="secondItemBackground"></div>
-          <div className="secondDivShapeVariant"></div>
+            <div className="d-flex secondItemDiv">
+              <div className="featuredItemDescription">
+                <img
+                  className="featuredItemImageVariant hide-bg"
+                  src={productInfo[1].image}
+                  alt="Pulsefire Haste image"
+                />
+                <div className="secondItemDivShape"></div>
+                <div className="secondItemBackground"></div>
+                <div className="secondDivShapeVariant"></div>
+              </div>
+              <div className="d-flex flex-column justify-content-center">
+                <div>
+                  <p className="fw-semibold">Lorem ipsum dolor sit amet.</p>
+                  <h2 className="fw-bold fs-1 w-75 modelTitle">
+                    {productInfo[1].name}
+                  </h2>
+                  <p className="fs-5 w-75 featuredItemDescriptionText">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Aliquam similique facere sint, repellat impedit ut ipsum
+                    magnam quis ipsam dolorem.
+                  </p>
+                  <button className="btn rounded-0 btn-danger">
+                    LEARN MORE
+                  </button>
+                </div>
+              </div>
+            </div>
+          </>
         </div>
-        <div className="d-flex flex-column justify-content-center">
-          <div>
-            <p className="fw-semibold">Ultra-light hex shell design</p>
-            <h2 className="fw-bold fs-1 w-50">Pulsefire Haste</h2>
-            <p className="fs-5 w-75">
-              Aim quicker, game better. With the help of this full-featured
-              gaming mouse, weighing in at 59 grams.
-            </p>
-            <button className="btn rounded-0 btn-danger">LEARN MORE</button>
-          </div>
-        </div>
-      </div>
+      )}
     </>
   );
 }

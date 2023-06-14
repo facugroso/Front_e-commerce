@@ -8,8 +8,8 @@ function Header() {
         <div className="main container-fluid bg-image">
           <div className="d-flex flex-column justify-content-center h-100">
             <div className="bg-white mainHeadset d-flex flex-column justify-content-between">
-              <h1 className="fw-bold">CLOUD III</h1>
-              <p>A Legend Reborn</p>
+              <h1 className="modelTitle">CLOUD III</h1>
+              <p className="modelSubtitle">A Legend Reborn</p>
               <Link className="shopLink">SHOP NOW</Link>
             </div>
             <div className="divShape"></div>

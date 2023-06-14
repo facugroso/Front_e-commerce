@@ -24,6 +24,21 @@
 }
 
 .shopLink {
+  font-family: "RBNo3.1";
   text-decoration: none;
   color: black;
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+}
+
+.modelTitle {
+  font-family: "RBNo3.1";
+  font-weight: 900;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.modelSubtitle {
+  font-family: "RBNo3.1";
+  font-size: 1.2rem;
 }
