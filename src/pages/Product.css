@@ -1,0 +1,19 @@
+.product-desc {
+  border: 1px solid lightsteelblue;
+  padding: 1rem;
+}
+.description-container {
+  background-color: #f7f7f7;
+}
+.product-img {
+  max-height: 700px;
+  max-width: 700px;
+}
+.btn-image {
+  max-width: 50px;
+  max-width: 50px;
+  margin-right: 2px;
+}
+.btn-image:hover {
+  border: 1px solid black;
+}

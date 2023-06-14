@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap");
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/figtree/v4/_Xms-HUzqDCFdgfMm4q9DbZs.woff2)
+    format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
+    U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/figtree/v4/_Xms-HUzqDCFdgfMm4S9DQ.woff2)
+    format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191,
+    U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "RBNo3.1";
+  src: url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Medium.eot?v=25383986999413939321629347126);
+  src: url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Medium.eot?%23iefix&v=25383986999413939321629347126)
+      format("embedded-opentype"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Medium.woff2?v=180452882004172245631629347142)
+      format("woff2"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Medium.woff?v=170672254405048785561629347132)
+      format("woff"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Medium.ttf?v=85874282025003928561629347144)
+      format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RBNo3.1";
+  src: url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-MediumItalic.eot?v=100186952010786928171629347138);
+  src: url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-MediumItalic.eot?%23iefix&v=100186952010786928171629347138)
+      format("embedded-opentype"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-MediumItalic.woff2?v=176905574120940723081629347157)
+      format("woff2"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-MediumItalic.woff?v=58874020323083678721629347123)
+      format("woff"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-MediumItalic.ttf?v=52945031478825654531629347150)
+      format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "RBNo3.1";
+  src: url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Bold.eot?v=20323978379275344301629347152);
+  src: url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Bold.eot?%23iefix&v=20323978379275344301629347152)
+      format("embedded-opentype"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Bold.woff2?v=142595270620556649121629347116)
+      format("woff2"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Bold.woff?v=20225467400649121401629347154)
+      format("woff"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Bold.ttf?v=1178258291393807931629347117)
+      format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RBNo3.1";
+  src: url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-BoldItalic.eot?v=120733190548991407691629347156);
+  src: url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-BoldItalic.eot?%23iefix&v=120733190548991407691629347156)
+      format("embedded-opentype"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-BoldItalic.woff2?v=119034123807694370031629347157)
+      format("woff2"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-BoldItalic.woff?v=42636786484259565661629347114)
+      format("woff"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-BoldItalic.ttf?v=146186962803580794591629347150)
+      format("truetype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "RBNo3.1";
+  src: url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Ultra.eot?v=170975979501602263311629347140);
+  src: url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Ultra.eot?%23iefix&v=170975979501602263311629347140)
+      format("embedded-opentype"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Ultra.woff2?v=173159949443263318801629347128)
+      format("woff2"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Ultra.woff?v=112840781650287979461629347139)
+      format("woff"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-Ultra.ttf?v=58545622631351968721629347135)
+      format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RBNo3.1";
+  src: url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-UltraItalic.eot?v=58312150261618834171629347129);
+  src: url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-UltraItalic.eot?%23iefix&v=58312150261618834171629347129)
+      format("embedded-opentype"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-UltraItalic.woff2?v=144516526542497831961629347110)
+      format("woff2"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-UltraItalic.woff?v=44187627836584539551629347127)
+      format("woff"),
+    url(//cdn.shopify.com/s/files/1/0561/8345/5901/t/2/assets/RBNo31-UltraItalic.ttf?v=23223964495056685851629347124)
+      format("truetype");
+  font-weight: 800;
+  font-style: italic;
+}
