@@ -1,0 +1,67 @@
+.itemBackground {
+  background-color: rgb(153, 43, 226);
+  width: 596px;
+  height: 396px;
+}
+
+.itemDivShape {
+  transform: scaleX(1);
+  width: 596px;
+  height: 0;
+  border-bottom: 100px solid rgb(153, 43, 226);
+  border-left: 100px solid transparent;
+}
+
+.itemDivShapeVariant {
+  transform: scaleY(-1);
+  width: 596px;
+  height: 0;
+  border-bottom: 100px solid rgb(153, 43, 226);
+  border-right: 100px solid transparent;
+}
+
+.featuredItemImage {
+  position: absolute;
+  z-index: 1;
+  width: 536px;
+  height: 536px;
+  right: 450px;
+}
+
+.featuredItemImageVariant {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  z-index: 1;
+  left: 400px;
+}
+
+.secondItemBackground {
+  background-color: rgb(161, 46, 46);
+  width: 596px;
+  height: 396px;
+}
+
+.secondItemDivShape {
+  transform: scaleX(1);
+  width: 596px;
+  height: 0;
+  border-bottom: 100px solid rgb(161, 46, 46);
+  border-left: 100px solid transparent;
+}
+
+.secondDivShapeVariant {
+  transform: scaleY(-1);
+  width: 596px;
+  height: 0;
+  border-bottom: 100px solid rgb(161, 46, 46);
+  border-right: 100px solid transparent;
+}
+
+.featuredItemDescription {
+  margin-right: 8rem;
+}
+
+.secondItemDiv {
+  margin-top: 8rem;
+}
