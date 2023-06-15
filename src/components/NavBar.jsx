@@ -16,7 +16,6 @@ function NavBar() {
   const hideDropdown = () => {
     setShow(false);
   };
-
   return (
     <>
       <div id="announcement_bar">
