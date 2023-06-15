@@ -30,7 +30,6 @@
   font: 400 16px Figtree, Arial, Helvetica, sans-serif;
   color: #000000;
   border-left: 1px solid #e6ebf0;
-  transition: padding 0.2s ease-out;
   align-items: center;
   display: flex;
   margin: 0;
@@ -54,6 +53,13 @@
   background-color: #f5f6f7;
   font-size: 16px;
   min-width: 664px;
+}
+.dropdown:hover {
+  background-color: #f5f6f7;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
 }
 #responsive-navbar-nav .dropdown div ul li {
   list-style-type: none;
@@ -83,9 +89,19 @@
 }
 .category_icon {
   margin-right: 0.75rem;
+  display: inline-block;
+  width: 24px;
+}
+.category_icon img {
+  width: 100%;
 }
 .category_arrow {
+  transition: transform 0.2s linear;
   margin-left: auto;
+  transform: rotate(0);
+}
+li:hover .category_arrow {
+  transform: rotate(45deg);
 }
 .icon {
   display: inline-block;
