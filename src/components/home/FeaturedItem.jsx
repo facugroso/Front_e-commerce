@@ -24,7 +24,7 @@ function FeaturedItem() {
               <div className="d-flex flex-column justify-content-center">
                 <div>
                   <p className="fw-semibold">Lorem ipsum dolor sit amet.</p>
-                  <h2 className="fw-bold fs-1 w-50 modelTitle">
+                  <h2 className="fw-bold fs-1 w-50 modelTitle" id="itemTitle">
                     {productInfo[0].name}
                   </h2>
                   <p className="fs-5 w-75 featuredItemDescriptionText">
@@ -43,6 +43,8 @@ function FeaturedItem() {
                   src={productInfo[0].image}
                   alt="Cloud Stinger 2 Wireless image"
                 />
+              </div>
+              <div>
                 <div className="itemDivShape"></div>
                 <div className="itemBackground"></div>
                 <div className="itemDivShapeVariant"></div>
@@ -63,10 +65,16 @@ function FeaturedItem() {
               <div className="d-flex flex-column justify-content-center">
                 <div>
                   <p className="fw-semibold">Lorem ipsum dolor sit amet.</p>
-                  <h2 className="fw-bold fs-1 w-75 modelTitle">
+                  <h2
+                    id="secondItemTitle"
+                    className="fw-bold fs-1 w-75 modelTitle"
+                  >
                     {productInfo[13].name}
                   </h2>
-                  <p className="fs-5 w-75 featuredItemDescriptionText">
+                  <p
+                    id="sencodItemDesc"
+                    className="fs-5 w-75 featuredItemDescriptionText"
+                  >
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Aliquam similique facere sint, repellat impedit ut ipsum
                     magnam quis ipsam dolorem.

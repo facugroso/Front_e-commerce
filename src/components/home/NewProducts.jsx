@@ -5,8 +5,9 @@ import { setProducts } from "../../redux/productSlice";
 import axios from "axios";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { FreeMode, Pagination } from "swiper";
 import "swiper/css";
+import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "./NewProducts.css";
 
@@ -39,19 +40,27 @@ function NewProducts() {
             </Button>
           </div>
           <Swiper
-            slidesPerView={4}
-            spaceBetween={10}
+            slidesPerView={3}
+            spaceBetween={0}
+            freeMode={true}
             pagination={{
               clickable: true,
             }}
-            modules={[Pagination]}
+            modules={[FreeMode, Pagination]}
             className="mySwiper"
           >
             {products.map((item) => (
               <SwiperSlide className="pb-5">
-                <div className="productCard p-3 border d-flex flex-column justify-content-between">
-                  <div className="p-4">
-                    <img className="img-fluid" src={item.image} alt="" />
+                <div
+                  key={item.id}
+                  className="productCard p-3 border d-flex flex-column justify-content-between"
+                >
+                  <div>
+                    <img
+                      className="img-fluid"
+                      src={item.image}
+                      alt={`${item.name} image`}
+                    />
                   </div>
                   <div>
                     <h3 className="fs-6">{item.name}</h3>

@@ -1,4 +1,19 @@
 .categoryCard {
-  width: 308px;
+  width: 291px;
   height: 410px;
+}
+
+.categoryImage {
+  width: 291px;
+}
+
+@media (max-width: 1024px) {
+  .categoryCard {
+    width: 250px;
+    height: 300px;
+    margin-right: 1rem;
+  }
+  .categoryImage {
+    width: 250px;
+  }
 }

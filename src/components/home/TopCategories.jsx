@@ -12,7 +12,7 @@ function TopCategories() {
         <div className="categoryCard">
           <div className="mb-2 mx-2">
             <img
-              width={291}
+              className="categoryImage"
               src="https://row.hyperx.com/cdn/shop/files/HX-shop_category-tiles_monitors_360x.jpg?v=1674118027"
               alt=""
             />
@@ -22,7 +22,7 @@ function TopCategories() {
         <div className="categoryCard">
           <div className="mb-2 mx-2">
             <img
-              width={291}
+              className="categoryImage"
               src="https://row.hyperx.com/cdn/shop/files/HX-shop_category-tiles_headsets_360x.jpg?v=1674118026"
               alt=""
             />
@@ -32,7 +32,7 @@ function TopCategories() {
         <div className="categoryCard">
           <div className="mb-2 mx-2">
             <img
-              width={291}
+              className="categoryImage"
               src="https://row.hyperx.com/cdn/shop/files/HX-shop_category-tiles_keyboards_360x.jpg?v=1674118027"
               alt=""
             />
