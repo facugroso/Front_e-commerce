@@ -81,7 +81,6 @@ function FeaturedItem() {
                   </button>
                 </div>
               </div>
-              <input type="text" />
             </div>
           </>
         </div>
