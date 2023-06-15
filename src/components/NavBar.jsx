@@ -33,7 +33,7 @@ function NavBar() {
       </div>
       <Navbar id="navbar" collapseOnSelect expand="lg">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <Logo />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -172,14 +172,14 @@ function NavBar() {
                   </div>
                 </div>
               </NavDropdown>
-              <Nav.Link href="#">CLOUD III</Nav.Link>
-              <Nav.Link href="#">About</Nav.Link>
+              <Nav.Link href="/product">CLOUD III</Nav.Link>
+              <Nav.Link href="/about-us">About</Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link href="#">
                 <SearchIcon />
               </Nav.Link>
-              <Nav.Link eventKey={2} href="#">
+              <Nav.Link eventKey={2} href="/cart">
                 <BagIcon />
               </Nav.Link>
             </Nav>
