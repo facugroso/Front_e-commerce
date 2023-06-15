@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { Col, Container, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./NavBar.css";
@@ -8,6 +9,14 @@ import Logo from "../assets/icons/Logo";
 import ArrowIcon from "../assets/icons/ArrowIcon";
 
 function NavBar() {
+  const [show, setShow] = useState(false);
+  const showDropdown = () => {
+    setShow(!show);
+  };
+  const hideDropdown = () => {
+    setShow(false);
+  };
+
   return (
     <>
       <div id="announcement_bar">
@@ -33,6 +42,10 @@ function NavBar() {
               <NavDropdown
                 title="Shop by Category"
                 id="collasible-nav-dropdown"
+                show={show}
+                onMouseEnter={showDropdown}
+                onMouseLeave={hideDropdown}
+                renderMenuOnMount={true}
               >
                 <div id="category_dropdown">
                   <div className="row">
