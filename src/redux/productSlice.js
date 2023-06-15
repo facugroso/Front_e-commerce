@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const productSlice = createSlice({
-  name: "product",
+  name: "products",
   initialState: [],
   reducers: {
-    // setTweets(state, action) {
-    //   return action.payload;
-    // },
+    setProducts(state, action) {
+      return action.payload;
+    },
     // setNewTweets(state, action) {
     //   const user = action.payload;
     //   const tweetsToCompare = action.payload.tweets.map((tweet) => {
@@ -41,12 +41,12 @@ const productSlice = createSlice({
     //   state.push(action.payload);
     // },
 
-    deleteProduc(state, action) {
+    deleteProducts(state, action) {
       return state.filter((product) => product._id !== action.payload);
     },
   },
 });
 
 const { actions, reducer } = productSlice;
-export const { deleteProduct } = actions;
+export const { deleteProduct, setProducts } = actions;
 export default reducer;

@@ -1,14 +1,18 @@
 import Button from "react-bootstrap/Button";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts } from "../../redux/productSlice";
+import axios from "axios";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper";
-import axios from "axios";
 import "./NewProducts.css";
 
 function NewProducts() {
-  const [productInfo, setProductInfo] = useState(null);
+  const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function getProducts() {
@@ -16,14 +20,14 @@ function NewProducts() {
         method: "get",
         url: "http://localhost:3000/products",
       });
-      setProductInfo(response.data);
+      response.data && dispatch(setProducts(response.data));
     }
     getProducts();
   }, []);
 
   return (
     <>
-      {productInfo && (
+      {products.length > 0 && (
         <div className="d-flex">
           <div className="descriptionBox">
             <h2 className="fw-bold fs-3 mb-3 modelTitle">New Products</h2>
@@ -43,7 +47,7 @@ function NewProducts() {
             modules={[Pagination]}
             className="mySwiper"
           >
-            {productInfo.map((item) => (
+            {products.map((item) => (
               <SwiperSlide className="pb-5">
                 <div className="productCard p-3 border d-flex flex-column justify-content-between">
                   <div className="p-4">
