@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import "./App.css";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
-
+import Footer from "./components/Footer"
 import NavBar from "./components/NavBar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+      <Footer />
     </>
   );
 }
