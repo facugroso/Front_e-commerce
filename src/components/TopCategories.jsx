@@ -4,7 +4,9 @@ function TopCategories() {
   return (
     <>
       <div>
-        <h2 className="text-center mb-4 fs-3 fw-bold">Top Categories</h2>
+        <h2 className="text-center mb-4 fs-3 fw-bold modelTitle">
+          Top Categories
+        </h2>
       </div>
       <div className="d-flex">
         <div className="categoryCard">

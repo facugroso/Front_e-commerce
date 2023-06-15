@@ -25,7 +25,7 @@
   z-index: 1;
   width: 536px;
   height: 536px;
-  right: 450px;
+  right: 400px;
 }
 
 .featuredItemImageVariant {
@@ -33,7 +33,7 @@
   width: 500px;
   height: 500px;
   z-index: 1;
-  left: 400px;
+  left: 300px;
 }
 
 .secondItemBackground {
@@ -60,6 +60,10 @@
 
 .featuredItemDescription {
   margin-right: 8rem;
+}
+
+.featuredItemDescriptionText {
+  font-family: "Figtree";
 }
 
 .secondItemDiv {
