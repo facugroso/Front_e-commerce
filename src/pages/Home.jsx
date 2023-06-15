@@ -1,7 +1,7 @@
-import Header from "../components/Header";
-import NewProducts from "../components/NewProducts";
-import TopCategories from "../components/TopCategories";
-import FeaturedItem from "../components/FeaturedItem";
+import Header from "../components/home/Header";
+import NewProducts from "../components/home/NewProducts";
+import TopCategories from "../components/home/TopCategories";
+import FeaturedItem from "../components/home/FeaturedItem";
 import "./Home.css";
 
 function Home() {
