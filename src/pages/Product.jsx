@@ -11,7 +11,7 @@ function Product() {
     <>
       <div className="container">
         <div className="row m-4">
-          <div className="col">
+          <div className="col-12 col-sm-6 order-md-1 order-2">
             <img
               onClick={() =>
                 setImg(
@@ -48,12 +48,12 @@ function Product() {
               className="btn-image"
               src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_iii_red_66x0049_angle_2_720x.jpg?v=1686682119"
             ></img>
-            <img className="product-img" src={img}></img>
+            <img className="img-fluid" src={img}></img>
           </div>
-          <div className="col p-4">
-            <h1>HyperX Cloud III - Gaming Headset</h1>
+          <div className="col-12 col-sm-6 p-4 order-md-2 order-1">
+            <h1 className="fs-2">HyperX Cloud III - Gaming Headset</h1>
             <p className="fs-4">$99.99</p>
-            <ul>
+            <ul className="d-none d-md-block">
               <li>HyperX Signature Comfort and Durability</li>
               <li>Angled 53mm Drivers, Tuned for Impeccable Audio</li>
               <li>
@@ -77,8 +77,8 @@ function Product() {
       <section className="mt-3 pt-3 description-container">
         <div className="container">
           <div className="row">
-            <div className="col">
-              <h1 className="mb-3">A Legend Reborn.</h1>
+            <div className="col-12 col-sm-6">
+              <h2 className="mb-3 fs-1">A Legend Reborn.</h2>
               <p>
                 The HyperX Cloud III is an evolution of our legendary Cloud II,
                 which is known for its comfort, sound quality and durability.
@@ -95,7 +95,7 @@ function Product() {
                 favorite platforms.
               </p>
             </div>
-            <div className="col gap-0">
+            <div className="col-12 col-sm-6">
               <div className="row">
                 <div className="col-6">
                   <p className="product-desc">
