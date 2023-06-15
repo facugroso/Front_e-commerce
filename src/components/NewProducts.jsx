@@ -1,5 +1,9 @@
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper";
 import axios from "axios";
 import "./NewProducts.css";
 
@@ -30,17 +34,28 @@ function NewProducts() {
               LEARN MORE
             </Button>
           </div>
-
-          {productInfo.map((item) => (
-            <div className="productCard p-3 border mx-2 d-flex flex-column justify-content-between">
-              <div className="p-4">
-                <img className="img-fluid" src={item.image} alt="" />
-              </div>
-              <div>
-                <h3 className="fs-6">{item.name}</h3>
-              </div>
-            </div>
-          ))}
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={10}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            className="mySwiper"
+          >
+            {productInfo.map((item) => (
+              <SwiperSlide>
+                <div className="productCard p-3 border d-flex flex-column justify-content-between">
+                  <div className="p-4">
+                    <img className="img-fluid" src={item.image} alt="" />
+                  </div>
+                  <div>
+                    <h3 className="fs-6">{item.name}</h3>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       )}
     </>

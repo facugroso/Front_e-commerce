@@ -53,7 +53,7 @@ function FeaturedItem() {
               <div className="featuredItemDescription">
                 <img
                   className="featuredItemImageVariant hide-bg"
-                  src={productInfo[1].image}
+                  src={productInfo[3].image}
                   alt="Pulsefire Haste image"
                 />
                 <div className="secondItemDivShape"></div>
