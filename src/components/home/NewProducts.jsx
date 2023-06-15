@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../../redux/productSlice";
 import axios from "axios";
+import ArrowIcon from "../../assets/icons/ArrowIcon";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper";
@@ -35,9 +36,12 @@ function NewProducts() {
             <p className="mb-5 featuredItemDescriptionText fs-5">
               Check Our New Gaming Tech!
             </p>
-            <Button className="rounded-0" variant="outline-dark">
+            <button id="button-style" className="btn rounded-0 px-3 py-2">
               LEARN MORE
-            </Button>
+              <span className="button_arrow">
+                <ArrowIcon />
+              </span>
+            </button>
           </div>
           <Swiper
             slidesPerView={3}

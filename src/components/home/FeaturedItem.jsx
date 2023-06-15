@@ -65,15 +65,12 @@ function FeaturedItem() {
               <div className="d-flex flex-column justify-content-center">
                 <div>
                   <p className="fw-semibold">Lorem ipsum dolor sit amet.</p>
-                  <h2
-                    id="secondItemTitle"
-                    className="fw-bold fs-1 w-75 modelTitle"
-                  >
+                  <h2 id="secondItemTitle" className="fw-bold fs-1 modelTitle">
                     {productInfo[13].name}
                   </h2>
                   <p
                     id="sencodItemDesc"
-                    className="fs-5 w-75 featuredItemDescriptionText"
+                    className="fs-5 featuredItemDescriptionText"
                   >
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Aliquam similique facere sint, repellat impedit ut ipsum

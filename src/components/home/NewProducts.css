@@ -4,10 +4,39 @@
   margin-right: 1rem;
 }
 
+.btn-text:hover .category_arrow {
+  font-size: 0.9rem;
+  margin-right: 1rem;
+  font-family: "RBNo3.1";
+  color: #e01637;
+}
+
+.button_arrow {
+  transition: transform 0.2s linear;
+  margin-left: auto;
+  transform: rotate(0);
+}
+
 .descriptionBox {
   padding: 40px 40px 0 40px;
   width: 368px;
   height: 368px;
+}
+
+#button-style {
+  border: 1px solid black;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+  font-family: "RBNo3.1";
+}
+
+#button-style:hover {
+  border-color: #e01637;
+  color: #e01637;
+}
+
+#button-style:hover .button_arrow {
+  transform: rotate(45deg);
 }
 
 .swiper-slide {

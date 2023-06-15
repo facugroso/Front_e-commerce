@@ -1,19 +1,18 @@
-import { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { Link } from "react-bootstrap/lib/Navbar";
+import { useState } from "react";
 
-function cart({ cart, ...props }) {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+function CartOffCanvas({ cart, show, handleClose, ...props }) {
+  const [count, setCount] = useState(1);
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+  const handleDecrement = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
   return (
     <>
-      <Button variant="success" onClick={handleShow} className="me-2">
-        👜
-      </Button>
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>My Bag</Offcanvas.Title>
@@ -26,10 +25,13 @@ function cart({ cart, ...props }) {
                 <img src="" alt="imagen del producto" />{" "}
               </div>
               <div className="col">
-                <Link to="../pages/cart">HyperX SoloCast - USB Microphone</Link>
                 <span>Color: Black</span>
                 <p>$ price</p>
-                <input> (-) contador (+)</input>
+                <div className="d-flex border">
+                  <i className="bi bi-dash" onClick={handleDecrement}></i>
+                  <p className="d-block px-3 m-0"> {count}</p>
+                  <i className="bi bi-plus" onClick={handleIncrement}></i>
+                </div>
                 <button> remove </button>
               </div>
             </div>
@@ -45,4 +47,4 @@ function cart({ cart, ...props }) {
   );
 }
 
-export default cart;
+export default CartOffCanvas;
