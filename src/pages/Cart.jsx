@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import { Link } from "react-router-dom";
+import "./Cart.css";
 
 function Cart() {
   const [count, setCount] = useState(1);
@@ -15,48 +14,44 @@ function Cart() {
   };
   return (
     <>
-      <div className="row">
-        <div className="col no-margin bg-grey text-center">
-          <h1>My Bag</h1>
+      <div className="container ">
+        <h1 className="fw-bold fs-5">My Bag</h1>
+        <div className="row">
+          <div className="col">
+            <div className=" no-margin  d-flex align-items-center ">
+              <div className="image p-3">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_iii_red_66x0049_main_1_588d9fec-b439-4046-bcae-4d38df96053e_900x.jpg?v=1686682119"
+                  alt="imagen del producto"
+                  className="productCart border"
+                />
+              </div>
+              <div className="text-blak ">
+                <p className="fw-bold fs-6">HyperX SoloCast - USB Microphone</p>
+                <span>Color: Black-Red</span>
+                <p>$99.99</p>
 
-          <div className="col col-sm-6 no-margin bg-grey text-center">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_iii_red_66x0049_main_1_588d9fec-b439-4046-bcae-4d38df96053e_900x.jpg?v=1686682119"
-              alt="imagen del producto"
-            />{" "}
+                <div className="d-flex justify-content-between">
+                  <div className="d-flex border">
+                    <i className="bi bi-dash" onClick={handleDecrement}></i>
+                    <p className="d-block px-3 m-0"> {count}</p>
+                    <i className="bi bi-plus" onClick={handleIncrement}></i>
+                  </div>
+                  <div>
+                    <i className="bi bi-trash3 text-end"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <Link to="">HyperX SoloCast - USB Microphone</Link>
-            <span>Color: Black</span>
-            <p>$ price</p>
-
-            <Container>
-              <Row>
-                <Col>
-                  <h1>Contador: {count}</h1>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <Button variant="primary" onClick={handleIncrement}>
-                    Sumar
-                  </Button>
-                </Col>
-                <Col>
-                  <Button variant="danger" onClick={handleDecrement}>
-                    Restar
-                  </Button>
-                </Col>
-              </Row>
-            </Container>
-
-            <button> remove </button>
+          <div className="col d-flex align-items-center justify-content-center ">
+            <div className="bg-white text-center bg-body-tertiary p-4 w-50">
+              <p>Subtotal:price</p>
+              <button className="btn btn-danger rounded-0 w-100">
+                CHECKOUT
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div>
-          <p>Subtotal:price</p>
-          <button>VIEW BAG</button>
         </div>
       </div>
     </>
