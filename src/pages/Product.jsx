@@ -64,12 +64,12 @@ function Product() {
             </ul>
             <button
               type="button"
-              className="btn btn-danger col-12 d-flex justify-content-between p-2"
+              className="btn btn-danger col-12 d-flex justify-content-between p-3"
               onMouseOver={() => setOver(true)}
               onMouseLeave={() => setOver(false)}
             >
               <span>Add to cart</span>
-              <i className={over ? "bi bi-cart-plus" : "bi bi-cart"}></i>
+              <i className={over ? "bi bi-bag-plus-fill" : "bi bi-bag"}></i>
             </button>
           </div>
         </div>
