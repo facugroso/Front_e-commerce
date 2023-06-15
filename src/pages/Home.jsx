@@ -10,13 +10,13 @@ function Home() {
       <section>
         <Header />
       </section>
-      <section className="defaultSection">
+      <section className="container defaultSection">
         <NewProducts />
       </section>
-      <section className="defaultSection">
+      <section className="container defaultSection">
         <TopCategories />
       </section>
-      <section className="defaultSection">
+      <section className="container defaultSection">
         <FeaturedItem />
       </section>
     </>

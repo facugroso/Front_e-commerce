@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <>
+      <NavBar />
       <Routes>
         <Route path="/product" element={<Product />} />
         <Route path="/" element={<Home />} />
