@@ -11,7 +11,7 @@ function cart({ cart, ...props }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow} className="me-2">
+      <Button variant="success" onClick={handleShow} className="me-2">
         👜
       </Button>
       <Offcanvas show={show} onHide={handleClose} {...props}>
@@ -22,11 +22,11 @@ function cart({ cart, ...props }) {
           Your cart is currently empty.
           <div>
             <div className="row no-margin bg-grey">
-              <div>
+              <div className="col">
                 <img src="" alt="imagen del producto" />{" "}
               </div>
-              <div>
-                <Link to="">HyperX SoloCast - USB Microphone</Link>
+              <div className="col">
+                <Link to="../pages/cart">HyperX SoloCast - USB Microphone</Link>
                 <span>Color: Black</span>
                 <p>$ price</p>
                 <input> (-) contador (+)</input>
