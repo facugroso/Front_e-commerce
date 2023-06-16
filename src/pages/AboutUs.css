@@ -36,6 +36,18 @@
   width: 50px;
   margin: 0 auto;
 }
+#team h6 {
+  font-family: "RBNo3.1";
+}
+#team i {
+  color: #000000;
+  font-size: 20px;
+}
+#team i:hover {
+  color: #e01637;
+}
+#team:hover {
+}
 
 @media screen and (min-width: 992px) {
   #about_header {
