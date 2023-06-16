@@ -1,13 +1,14 @@
 import CartOffCanvas from "../../components/CartOffCanvas";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setShow } from "../../redux/offCanvasSlice";
 
 function BagIcon() {
+  const dispatch = useDispatch();
+
   const handleShow = () => {
     dispatch(setShow(true));
     console.log("bagicon");
   };
-  const dispatch = useDispatch();
   return (
     <svg
       className="icon"

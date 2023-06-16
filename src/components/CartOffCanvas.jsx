@@ -2,6 +2,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setShow } from "../redux/offCanvasSlice";
+import { Link } from "react-router-dom";
 
 function CartOffCanvas({ cart, ...placement }) {
   const show = useSelector((state) => state.offcanvas);
@@ -56,7 +57,10 @@ function CartOffCanvas({ cart, ...placement }) {
 
             <div>
               <p>Subtotal:price</p>
-              <button className="btn btn-light border w-50">VIEW BAG</button>
+              <Link to="/cart">
+                <button className="btn btn-light border w-50">VIEW BAG</button>
+              </Link>
+              <button className="btn btn-danger border w-50">CHECK OUT</button>
             </div>
           </div>
         </Offcanvas.Body>
