@@ -19,6 +19,10 @@
   transform: rotate(0);
 }
 
+#button-style:hover .button_arrow .icon {
+  fill: #e01637;
+}
+
 .descriptionBox {
   padding: 40px 40px 0 40px;
   width: 368px;

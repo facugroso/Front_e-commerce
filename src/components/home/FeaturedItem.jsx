@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ArrowIcon from "../../assets/icons/ArrowIcon";
 import "./FeaturedItem.css";
 
 function FeaturedItem() {
@@ -32,8 +33,13 @@ function FeaturedItem() {
                     laborum esse ipsum repellat magnam iste ipsam omnis nostrum
                     natus qui.
                   </p>
-                  <button className="btn rounded-0 btn-danger">
-                    LEARN MORE
+                  <button id="button-style" className="btn rounded-0 px-3 py-2">
+                    <div className="d-flex align-items-center">
+                      <span>LEARN MORE</span>
+                      <span className="d-inline-block ms-3 button_arrow">
+                        <ArrowIcon />
+                      </span>
+                    </div>
                   </button>
                 </div>
               </div>
@@ -73,8 +79,13 @@ function FeaturedItem() {
                     Aliquam similique facere sint, repellat impedit ut ipsum
                     magnam quis ipsam dolorem.
                   </p>
-                  <button className="btn rounded-0 btn-danger">
-                    LEARN MORE
+                  <button id="button-style" className="btn rounded-0 px-3 py-2">
+                    <div className="d-flex align-items-center">
+                      <span>LEARN MORE</span>
+                      <span className="d-inline-block ms-3 button_arrow">
+                        <ArrowIcon />
+                      </span>
+                    </div>
                   </button>
                 </div>
               </div>
