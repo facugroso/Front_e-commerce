@@ -178,7 +178,7 @@ function NavBar() {
               <Nav.Link href="#">
                 <SearchIcon />
               </Nav.Link>
-              <Nav.Link eventKey={2} href="/cart">
+              <Nav.Link eventKey={2}>
                 <BagIcon />
               </Nav.Link>
             </Nav>

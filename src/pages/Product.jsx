@@ -1,30 +1,18 @@
 import { useState } from "react";
-import CartOffCanvas from "../components/CartOffCanvas";
 import "./Product.css";
 
 function Product() {
   const [over, setOver] = useState(false);
   const [img, setImg] = useState(
-    "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_iii_red_66x0049_main_1_588d9fec-b439-4046-bcae-4d38df96053e_720x.jpg?v=1686682119"
+    "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_iii_red_66x0049_angle_4_1512x.jpg?v=1686682119"
   );
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   return (
     <>
-      <button onClick={() => setShow(true)}>+</button>
-      <CartOffCanvas show={show} handleClose={handleClose} placement={"end"} />
       <div className="container">
         <div className="row m-4">
           <div className="col-12 col-sm-6 order-md-1 order-2">
-            <img
-              onClick={() =>
-                setImg(
-                  "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_iii_red_66x0049_main_1_588d9fec-b439-4046-bcae-4d38df96053e_720x.jpg?v=1686682119"
-                )
-              }
-              className="btn-image"
-              src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_iii_red_66x0049_main_1_588d9fec-b439-4046-bcae-4d38df96053e_720x.jpg?v=1686682119"
-            ></img>
             <img
               onClick={() =>
                 setImg(
