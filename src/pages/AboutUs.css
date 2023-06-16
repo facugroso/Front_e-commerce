@@ -1,0 +1,45 @@
+#about_header {
+  background: url("https://cdn.shopify.com/s/files/1/0561/8345/5901/files/collabs-homepage-ducky2.jpg?v=7514170502004170002");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+}
+#about_header h1 {
+  font-family: "RBNo3.1";
+  font-weight: 800;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+#about_header p {
+  font-family: Figtree, Arial, Helvetica, sans-serif;
+}
+#technologies h2,
+#team h2 {
+  font-family: "RBNo3.1";
+  font-weight: 700;
+  font-size: 2.25rem;
+}
+#technologies ul {
+  min-width: 68%;
+}
+#technologies li {
+  font-family: Figtree, Arial, Helvetica, sans-serif;
+  list-style-type: none;
+  font-size: 1.2rem;
+  transition: transform 250ms;
+}
+#technologies li:hover {
+  transform: translateY(-10px);
+}
+#technologies img {
+  display: block;
+  width: 50px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 992px) {
+  #about_header {
+    background-position: right 50%;
+    background-size: 100%;
+  }
+}
