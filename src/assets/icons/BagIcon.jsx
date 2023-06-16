@@ -7,7 +7,6 @@ function BagIcon() {
 
   const handleShow = () => {
     dispatch(setShow(true));
-    console.log("bagicon");
   };
   return (
     <>

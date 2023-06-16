@@ -18,7 +18,6 @@ function CartOffCanvas({ cart, ...placement }) {
   };
   const handleClose = () => {
     dispatch(setShow(false));
-    console.log("cartOffCanvas");
   };
   return (
     <>
@@ -55,8 +54,7 @@ function CartOffCanvas({ cart, ...placement }) {
               </div>
             </div>
 
-            <div>
-              <p>Subtotal:price</p>
+            <div className="mt-3">
               <Link to="/cart">
                 <button
                   className="btn btn-light border w-50"
