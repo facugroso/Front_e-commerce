@@ -37,8 +37,8 @@ function NewProducts() {
               Check Our New Gaming Tech!
             </p>
             <button id="button-style" className="btn rounded-0 px-3 py-2">
-              LEARN MORE
-              <span className="button_arrow">
+              <span>LEARN MORE</span>
+              <span className="d-inline-block ms-3 button_arrow">
                 <ArrowIcon />
               </span>
             </button>
