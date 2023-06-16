@@ -1,0 +1,13 @@
+/* .options {
+  font-family: "Proxima Nova", sans-serif;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 776px) {
+  .row {
+    flex-direction: row;
+  }
+} */
