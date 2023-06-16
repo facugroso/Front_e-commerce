@@ -1,4 +1,3 @@
-import Button from "react-bootstrap/Button";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../../redux/productSlice";
@@ -37,10 +36,12 @@ function NewProducts() {
               Check Our New Gaming Tech!
             </p>
             <button id="button-style" className="btn rounded-0 px-3 py-2">
-              <span>LEARN MORE</span>
-              <span className="d-inline-block ms-3 button_arrow">
-                <ArrowIcon />
-              </span>
+              <div className="d-flex align-items-center">
+                <span>LEARN MORE</span>
+                <span className="d-inline-block ms-3 button_arrow">
+                  <ArrowIcon />
+                </span>
+              </div>
             </button>
           </div>
           <Swiper
