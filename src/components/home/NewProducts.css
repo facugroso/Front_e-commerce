@@ -10,6 +10,14 @@
   font-family: "RBNo3.1";
   color: #e01637;
 }
+#button-style:hover .button_arrow {
+  transform: rotate(45deg);
+}
+#button-style .button_arrow {
+  transition: transform 0.2s linear;
+  margin-left: auto;
+  transform: rotate(0);
+}
 
 .descriptionBox {
   padding: 40px 40px 0 40px;
@@ -33,10 +41,6 @@
 #button-style:hover {
   border-color: #e01637;
   color: #e01637;
-}
-
-#button-style:hover .button_arrow {
-  transform: rotate(45deg);
 }
 
 .swiper-slide {
