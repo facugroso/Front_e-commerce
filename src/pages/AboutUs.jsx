@@ -7,6 +7,8 @@ import expressIcon from "../assets/icons/expressIcon.svg";
 import mysqlIcon from "../assets/icons/mysqlIcon.svg";
 import sequelizeIcon from "../assets/icons/sequelizeIcon.svg";
 import gitHubIcon from "../assets/icons/gitHubIcon.svg";
+import Avatar1 from "../assets/img/585e4bcdcb11b227491c3396.png";
+import Avatar2 from "../assets/img/585e4bc4cb11b227491c3395.png";
 
 function AboutUs() {
   return (
@@ -74,35 +76,23 @@ function AboutUs() {
           </div>
         </div>
         <div id="team" className="mb-5">
-          <h2>Team</h2>
+          <h2 className="mb-3">Team</h2>
           <div className="row">
             <div className="col-lg-3 col-md-6">
-              <img
-                width={250}
-                src="https://assets.stickpng.com/images/585e4bcdcb11b227491c3396.png"
-                alt=""
-              />
+              <img width={250} src={Avatar1} alt="" />
+              <h6>Facundo Groso</h6>
             </div>
             <div className="col-lg-3 col-md-6">
-              <img
-                width={240}
-                src="https://assets.stickpng.com/images/585e4bc4cb11b227491c3395.png"
-                alt=""
-              />
+              <img width={250} src={Avatar1} alt="" />
+              <h6>Iván Paredes</h6>
             </div>
             <div className="col-lg-3 col-md-6">
-              <img
-                width={250}
-                src="https://assets.stickpng.com/images/585e4bcdcb11b227491c3396.png"
-                alt=""
-              />
+              <img width={250} src={Avatar1} alt="" />
+              <h6>Guzmán García</h6>
             </div>
             <div className="col-lg-3 col-md-6">
-              <img
-                width={250}
-                src="https://assets.stickpng.com/images/585e4bcdcb11b227491c3396.png"
-                alt=""
-              />
+              <img width={240} src={Avatar2} alt="" />
+              <h6>Valentina Le Rose</h6>
             </div>
           </div>
         </div>
