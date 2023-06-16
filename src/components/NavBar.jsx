@@ -171,7 +171,7 @@ function NavBar() {
                   </div>
                 </div>
               </NavDropdown>
-              <Nav.Link href="/product">CLOUD III</Nav.Link>
+              <Nav.Link href="/products">CLOUD III</Nav.Link>
               <Nav.Link href="/about-us">About</Nav.Link>
             </Nav>
             <Nav>
