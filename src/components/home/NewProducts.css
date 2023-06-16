@@ -11,12 +11,6 @@
   color: #e01637;
 }
 
-.button_arrow {
-  transition: transform 0.2s linear;
-  margin-left: auto;
-  transform: rotate(0);
-}
-
 .descriptionBox {
   padding: 40px 40px 0 40px;
   width: 368px;
@@ -28,6 +22,12 @@
   font-size: 0.9rem;
   margin-right: 1rem;
   font-family: "RBNo3.1";
+}
+
+.button_arrow {
+  transition: transform 0.2s linear;
+  margin-left: auto;
+  transform: rotate(0);
 }
 
 #button-style:hover {
