@@ -32,6 +32,12 @@
   font-family: "RBNo3.1";
 }
 
+.button_arrow {
+  transition: transform 0.2s linear;
+  margin-left: auto;
+  transform: rotate(0);
+}
+
 #button-style:hover {
   border-color: #e01637;
   color: #e01637;

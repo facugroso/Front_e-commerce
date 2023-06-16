@@ -68,10 +68,7 @@ function FeaturedItem() {
                   <h2 id="secondItemTitle" className="fw-bold fs-1 modelTitle">
                     {productInfo[13].name}
                   </h2>
-                  <p
-                    id="sencodItemDesc"
-                    className="fs-5 featuredItemDescriptionText"
-                  >
+                  <p id="sencodItemDesc" className="fs-5 description">
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Aliquam similique facere sint, repellat impedit ut ipsum
                     magnam quis ipsam dolorem.

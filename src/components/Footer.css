@@ -11,3 +11,28 @@
     flex-direction: row;
   }
 } */
+
+.social-icon:hover {
+  fill: red;
+}
+
+.font-text {
+  font-family: "Figtree";
+}
+
+.footer-background {
+  background-image: url(https://i.postimg.cc/nVPLg5b5/Hyper-X-Logo-2002.png);
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  filter: brightness(1.4);
+}
+
+.description {
+  backdrop-filter: blur(10px);
+}
+
+.footer-logo {
+  filter: brightness(0.8);
+}
