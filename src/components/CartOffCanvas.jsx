@@ -58,7 +58,12 @@ function CartOffCanvas({ cart, ...placement }) {
             <div>
               <p>Subtotal:price</p>
               <Link to="/cart">
-                <button className="btn btn-light border w-50">VIEW BAG</button>
+                <button
+                  className="btn btn-light border w-50"
+                  onClick={handleClose}
+                >
+                  VIEW BAG
+                </button>
               </Link>
               <button className="btn btn-danger border w-50">CHECK OUT</button>
             </div>

@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setShow } from "../redux/offCanvasSlice";
 import "./Product.css";
 
 function Product() {
+  const dispatch = useDispatch();
   const [over, setOver] = useState(false);
   const [img, setImg] = useState(
     "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_iii_red_66x0049_angle_4_1512x.jpg?v=1686682119"
   );
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const handleShow = () => {
+    dispatch(setShow(true));
+  };
   return (
     <>
       <div className="container">
@@ -61,6 +65,7 @@ function Product() {
               className="btn btn-danger col-12 d-flex justify-content-between p-3"
               onMouseOver={() => setOver(true)}
               onMouseLeave={() => setOver(false)}
+              onClick={handleShow}
             >
               <span className="description">Add to cart</span>
               <i className={over ? "bi bi-bag-plus-fill" : "bi bi-bag"}></i>
