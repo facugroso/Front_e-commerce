@@ -9,6 +9,7 @@ import sequelizeIcon from "../assets/icons/sequelizeIcon.svg";
 import gitHubIcon from "../assets/icons/gitHubIcon.svg";
 import Avatar1 from "../assets/img/585e4bcdcb11b227491c3396.png";
 import Avatar2 from "../assets/img/585e4bc4cb11b227491c3395.png";
+import { Link } from "react-router-dom";
 
 function AboutUs() {
   return (
@@ -16,7 +17,10 @@ function AboutUs() {
       <div id="about_header">
         <div className="container mb-5 py-5">
           <div className="row">
-            <div className="col-lg-6 offset-lg-3">
+            <div
+              className="col-lg-6 offset-lg-3"
+              transition-style="in:wipe:left"
+            >
               <h1 className="text-centered pt-4">About this project</h1>
               <p className="text-justified pb-4">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -81,18 +85,30 @@ function AboutUs() {
             <div className="col-lg-3 col-md-6">
               <img width={250} src={Avatar1} alt="" />
               <h6>Facundo Groso</h6>
+              <Link>
+                <i class="bi bi-linkedin"></i>
+              </Link>
             </div>
             <div className="col-lg-3 col-md-6">
               <img width={250} src={Avatar1} alt="" />
               <h6>Iván Paredes</h6>
+              <Link>
+                <i class="bi bi-linkedin"></i>
+              </Link>
             </div>
             <div className="col-lg-3 col-md-6">
               <img width={250} src={Avatar1} alt="" />
               <h6>Guzmán García</h6>
+              <Link>
+                <i class="bi bi-linkedin"></i>
+              </Link>
             </div>
             <div className="col-lg-3 col-md-6">
               <img width={240} src={Avatar2} alt="" />
               <h6>Valentina Le Rose</h6>
+              <Link>
+                <i class="bi bi-linkedin"></i>
+              </Link>
             </div>
           </div>
         </div>
