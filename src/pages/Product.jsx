@@ -43,9 +43,11 @@ function Product() {
             <img className="img-fluid" src={img}></img>
           </div>
           <div className="col-12 col-sm-6 p-4 order-md-2 order-1">
-            <h1 className="fs-2">HyperX Cloud III - Gaming Headset</h1>
-            <p className="fs-4">$99.99</p>
-            <ul className="d-none d-md-block">
+            <h1 className="fs-2 modelSubtitle">
+              HyperX Cloud III - Gaming Headset
+            </h1>
+            <p className="fs-5 description">$99.99</p>
+            <ul className="description d-none d-md-block">
               <li>HyperX Signature Comfort and Durability</li>
               <li>Angled 53mm Drivers, Tuned for Impeccable Audio</li>
               <li>
@@ -60,18 +62,20 @@ function Product() {
               onMouseOver={() => setOver(true)}
               onMouseLeave={() => setOver(false)}
             >
-              <span>Add to cart</span>
+              <span className="description">Add to cart</span>
               <i className={over ? "bi bi-bag-plus-fill" : "bi bi-bag"}></i>
             </button>
           </div>
         </div>
       </div>
       <section className="mt-3 pt-3 description-container">
-        <div className="container">
+        <div className="container mt-5 pb-5">
           <div className="row">
             <div className="col-12 col-sm-6">
-              <h2 className="mb-3 fs-1">A Legend Reborn.</h2>
-              <p>
+              <h2 className="mb-2 fs-2 modelTitle fw-bolder">
+                A Legend Reborn.
+              </h2>
+              <p className="description">
                 The HyperX Cloud III is an evolution of our legendary Cloud II,
                 which is known for its comfort, sound quality and durability.
                 With plush HyperX signature memory foam in the headband and ear
@@ -90,22 +94,24 @@ function Product() {
             <div className="col-12 col-sm-6">
               <div className="row">
                 <div className="col-6">
-                  <p className="product-desc">
+                  <p className="product-desc description">
                     HyperX Signature Comfort and Durability
                   </p>
-                  <p className="product-desc">
+                  <p className="product-desc description">
                     Ultra-Clear Mic with LED Mute Indicator
                   </p>
-                  <p className="product-desc">Onboard Audio and Mic Controls</p>
+                  <p className="product-desc description">
+                    Onboard Audio and Mic Controls
+                  </p>
                 </div>
                 <div className="col-6">
-                  <p className="product-desc">
+                  <p className="product-desc description">
                     Angled 53mm Drivers, Tuned for Impeccable Audio
                   </p>
-                  <p className="product-desc">
+                  <p className="product-desc description">
                     DTS® Headphone:X® Spatial Audio
                   </p>
-                  <p className="product-desc">
+                  <p className="product-desc description">
                     Compatible with: PC, PS5, PS4, Xbox Series X|S, Xbox One,
                     Nintendo Switch, Mobile
                   </p>
