@@ -19,7 +19,7 @@ function AboutUs() {
           <div className="row">
             <div
               className="col-lg-6 offset-lg-3"
-              transition-style="in:wipe:left"
+              transition-style="in:wipe:down"
             >
               <h1 className="text-centered pt-4">About this project</h1>
               <p className="text-justified pb-4">
