@@ -1,12 +1,16 @@
+import "./Err404.css";
+
 function Err404() {
   return (
-    <div>
+    <div id="error">
       <h1>Woops, somethin went wrong!</h1>
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg02trB5KR7VduldOTe1CIbUT7iPLZbrepRQ&usqp=CAU"
+        src="https://img.freepik.com/vector-gratis/ilustracion-concepto-uy-error-404-robot-roto_114360-1932.jpg?w=2000"
         alt="404 page error"
-        className="img-fluid"
       />
+      <span className="fs-4 fw-semibold">
+        The page you are looking for does not seem to be right
+      </span>
     </div>
   );
 }

@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setShow } from "../redux/offCanvasSlice";
+import axios from "axios";
+
+import AddToCartButton from "../components/AddToCartButton";
+
 import "./Product.css";
 
 function Product() {
@@ -26,11 +28,6 @@ function Product() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleShow = () => {
-    dispatch(setShow(true));
-  };
-  //product === undefined ? console.log("Loading") : console.log(product);
-  console.log(params);
   return (
     <>
       {product === undefined ? (
@@ -60,16 +57,7 @@ function Product() {
                     <li key={idx}>{feature}</li>
                   ))}
                 </ul>
-                <button
-                  type="button"
-                  className="btn btn-danger col-12 d-flex justify-content-between p-3"
-                  onMouseOver={() => setOver(true)}
-                  onMouseLeave={() => setOver(false)}
-                  onClick={handleShow}
-                >
-                  <span className="description">Add to cart</span>
-                  <i className={over ? "bi bi-bag-plus-fill" : "bi bi-bag"}></i>
-                </button>
+                <AddToCartButton />
               </div>
             </div>
           </div>

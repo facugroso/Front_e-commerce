@@ -1,0 +1,29 @@
+#error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  position: relative;
+}
+#error img {
+  width: 55rem;
+  height: 42rem;
+  z-index: 1;
+  object-position: 0px -70px;
+}
+.img-error {
+  width: 700px;
+  height: 700px;
+}
+.footer {
+  display: none;
+}
+.footer-background {
+  display: none;
+}
+/* #announcement_bar {
+  display: none;
+}
+#navbar {
+  display: none;
+} */
