@@ -86,28 +86,28 @@ function AboutUs() {
               <img width={250} src={Avatar1} alt="" />
               <h6>Facundo Groso</h6>
               <Link>
-                <i class="bi bi-linkedin"></i>
+                <i className="bi bi-linkedin"></i>
               </Link>
             </div>
             <div className="col-lg-3 col-md-6">
               <img width={250} src={Avatar1} alt="" />
               <h6>Iván Paredes</h6>
               <Link>
-                <i class="bi bi-linkedin"></i>
+                <i className="bi bi-linkedin"></i>
               </Link>
             </div>
             <div className="col-lg-3 col-md-6">
               <img width={250} src={Avatar1} alt="" />
               <h6>Guzmán García</h6>
               <Link>
-                <i class="bi bi-linkedin"></i>
+                <i className="bi bi-linkedin"></i>
               </Link>
             </div>
             <div className="col-lg-3 col-md-6">
               <img width={240} src={Avatar2} alt="" />
               <h6>Valentina Le Rose</h6>
               <Link>
-                <i class="bi bi-linkedin"></i>
+                <i className="bi bi-linkedin"></i>
               </Link>
             </div>
           </div>

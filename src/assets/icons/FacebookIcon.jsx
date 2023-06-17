@@ -1,7 +1,7 @@
 function FacebookIcon() {
   return (
     <svg
-      class="icon icon__facebook"
+      className="icon icon__facebook"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >

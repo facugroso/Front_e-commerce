@@ -55,11 +55,8 @@ function NewProducts() {
             className="mySwiper"
           >
             {products.map((item) => (
-              <SwiperSlide className="pb-5">
-                <div
-                  key={item.id}
-                  className="productCard p-3 border d-flex flex-column justify-content-between"
-                >
+              <SwiperSlide className="pb-5" key={item.id}>
+                <div className="productCard p-3 border d-flex flex-column justify-content-between">
                   <div>
                     <img
                       className="img-fluid"

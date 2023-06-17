@@ -1,7 +1,7 @@
 function DiscordIcon() {
   return (
     <svg
-      class="icon icon__discord"
+      className="icon icon__discord"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >

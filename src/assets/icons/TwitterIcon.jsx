@@ -1,7 +1,7 @@
 function TwitterIcon() {
   return (
     <svg
-      class="icon icon__twitter"
+      className="icon icon__twitter"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >

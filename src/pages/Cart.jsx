@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button, Container, Row, Col } from "react-bootstrap";
 import ArrowIcon from "../assets/icons/ArrowIcon";
 import "./Cart.css";
 
