@@ -193,6 +193,66 @@
   }
 }
 
+@media (max-width: 990px) {
+  .featuredItemImage {
+    position: absolute;
+    z-index: 1;
+    width: 300px;
+    height: 300px;
+    right: 170px;
+  }
+  .featuredItemImageVariant {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    z-index: 1;
+    left: 130px;
+  }
+  .itemBackground {
+    background-color: rgb(153, 43, 226);
+    width: 330px;
+    height: 180px;
+  }
+
+  .itemDivShape {
+    transform: scaleX(1);
+    width: 330px;
+    height: 0;
+    border-bottom: 70px solid rgb(153, 43, 226);
+    border-left: 70px solid transparent;
+  }
+
+  .itemDivShapeVariant {
+    transform: scaleY(-1);
+    width: 330px;
+    height: 0;
+    border-bottom: 70px solid rgb(153, 43, 226);
+    border-right: 70px solid transparent;
+  }
+
+  .secondItemBackground {
+    background-color: rgb(161, 46, 46);
+    width: 330px;
+    height: 180px;
+  }
+
+  .secondItemDivShape {
+    transform: scaleX(1);
+    width: 330px;
+    height: 0;
+    border-bottom: 70px solid rgb(161, 46, 46);
+    border-left: 70px solid transparent;
+  }
+
+  .secondDivShapeVariant {
+    transform: scaleY(-1);
+    width: 330px;
+    height: 0;
+    border-bottom: 70px solid rgb(161, 46, 46);
+    border-right: 70px solid transparent;
+  }
+}
+
 @media (max-width: 768px) {
   .featuredItemImage {
     position: absolute;
@@ -211,45 +271,45 @@
   .itemBackground {
     background-color: rgb(153, 43, 226);
     width: 330px;
-    height: 130px;
+    height: 180px;
   }
 
   .itemDivShape {
     transform: scaleX(1);
     width: 330px;
     height: 0;
-    border-bottom: 100px solid rgb(153, 43, 226);
-    border-left: 100px solid transparent;
+    border-bottom: 70px solid rgb(153, 43, 226);
+    border-left: 70px solid transparent;
   }
 
   .itemDivShapeVariant {
     transform: scaleY(-1);
     width: 330px;
     height: 0;
-    border-bottom: 100px solid rgb(153, 43, 226);
-    border-right: 100px solid transparent;
+    border-bottom: 70px solid rgb(153, 43, 226);
+    border-right: 70px solid transparent;
   }
 
   .secondItemBackground {
     background-color: rgb(161, 46, 46);
     width: 330px;
-    height: 130px;
+    height: 180px;
   }
 
   .secondItemDivShape {
     transform: scaleX(1);
     width: 330px;
     height: 0;
-    border-bottom: 100px solid rgb(161, 46, 46);
-    border-left: 100px solid transparent;
+    border-bottom: 70px solid rgb(161, 46, 46);
+    border-left: 70px solid transparent;
   }
 
   .secondDivShapeVariant {
     transform: scaleY(-1);
     width: 330px;
     height: 0;
-    border-bottom: 100px solid rgb(161, 46, 46);
-    border-right: 100px solid transparent;
+    border-bottom: 70px solid rgb(161, 46, 46);
+    border-right: 70px solid transparent;
   }
 
   #itemTitle {
