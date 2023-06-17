@@ -80,13 +80,13 @@ function NewProducts() {
                     >
                       <div>
                         <img
-                          className="img-fluid"
+                          className="img-fluid product-image"
                           src={item.image}
                           alt={`${item.name} image`}
                         />
                       </div>
                       <div>
-                        <h3 className="fs-6">{item.name}</h3>
+                        <h3 className="fs-6 product-name">{item.name}</h3>
                       </div>
                     </Link>
                   </div>

@@ -2,6 +2,25 @@
   width: 300px;
   height: 370px;
   margin-right: 1rem;
+  transition: background 1s;
+}
+
+.productCard:hover {
+  background: rgba(236, 236, 236, 0.808);
+}
+
+.product-name {
+  position: relative;
+  z-index: 1;
+}
+
+.product-image {
+  transition: all 0.2s ease-in-out;
+  mix-blend-mode: multiply;
+}
+
+.productCard:hover .product-image {
+  transform: scale(1.1);
 }
 
 .style-min {
