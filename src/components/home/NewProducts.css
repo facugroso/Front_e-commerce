@@ -3,7 +3,6 @@
   height: 370px;
   margin-right: 1rem;
 }
-
 .btn-text:hover .category_arrow {
   font-size: 0.9rem;
   margin-right: 1rem;
@@ -76,4 +75,8 @@
     height: 300px;
     margin-right: 1rem;
   }
+}
+a {
+  text-decoration: none !important;
+  color: black !important;
 }

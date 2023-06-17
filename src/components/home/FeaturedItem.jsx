@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ArrowIcon from "../../assets/icons/ArrowIcon";
+import { Link } from "react-router-dom";
 import "./FeaturedItem.css";
 
 function FeaturedItem() {
@@ -33,14 +34,19 @@ function FeaturedItem() {
                     laborum esse ipsum repellat magnam iste ipsam omnis nostrum
                     natus qui.
                   </p>
-                  <button id="button-style" className="btn rounded-0 px-3 py-2">
-                    <div className="d-flex align-items-center">
-                      <span>LEARN MORE</span>
-                      <span className="d-inline-block ms-3 button_arrow">
-                        <ArrowIcon />
-                      </span>
-                    </div>
-                  </button>
+                  <Link to={`/products/${productInfo[0].slug}`}>
+                    <button
+                      id="button-style"
+                      className="btn rounded-0 px-3 py-2"
+                    >
+                      <div className="d-flex align-items-center">
+                        <span>LEARN MORE</span>
+                        <span className="d-inline-block ms-3 button_arrow">
+                          <ArrowIcon />
+                        </span>
+                      </div>
+                    </button>
+                  </Link>
                 </div>
               </div>
               <div>
@@ -79,14 +85,19 @@ function FeaturedItem() {
                     Aliquam similique facere sint, repellat impedit ut ipsum
                     magnam quis ipsam dolorem.
                   </p>
-                  <button id="button-style" className="btn rounded-0 px-3 py-2">
-                    <div className="d-flex align-items-center">
-                      <span>LEARN MORE</span>
-                      <span className="d-inline-block ms-3 button_arrow">
-                        <ArrowIcon />
-                      </span>
-                    </div>
-                  </button>
+                  <Link to={`/products/${productInfo[13].slug}`}>
+                    <button
+                      id="button-style"
+                      className="btn rounded-0 px-3 py-2"
+                    >
+                      <div className="d-flex align-items-center">
+                        <span>LEARN MORE</span>
+                        <span className="d-inline-block ms-3 button_arrow">
+                          <ArrowIcon />
+                        </span>
+                      </div>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

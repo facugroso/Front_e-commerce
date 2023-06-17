@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../../redux/productSlice";
 import axios from "axios";
 import ArrowIcon from "../../assets/icons/ArrowIcon";
+import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper";
@@ -57,16 +58,18 @@ function NewProducts() {
             {products.map((item) => (
               <SwiperSlide className="pb-5" key={item.id}>
                 <div className="productCard p-3 border d-flex flex-column justify-content-between">
-                  <div>
-                    <img
-                      className="img-fluid"
-                      src={item.image}
-                      alt={`${item.name} image`}
-                    />
-                  </div>
-                  <div>
-                    <h3 className="fs-6">{item.name}</h3>
-                  </div>
+                  <Link to={`/products/${item.slug}`}>
+                    <div>
+                      <img
+                        className="img-fluid"
+                        src={item.image}
+                        alt={`${item.name} image`}
+                      />
+                    </div>
+                    <div>
+                      <h3 className="fs-6">{item.name}</h3>
+                    </div>
+                  </Link>
                 </div>
               </SwiperSlide>
             ))}
