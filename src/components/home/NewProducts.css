@@ -15,12 +15,12 @@
 }
 
 .product-image {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   mix-blend-mode: multiply;
 }
 
 .productCard:hover .product-image {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .style-min {
