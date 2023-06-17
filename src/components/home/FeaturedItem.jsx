@@ -22,85 +22,98 @@ function FeaturedItem() {
       {productInfo && (
         <div>
           <>
-            <div className="d-flex">
-              <div className="d-flex flex-column justify-content-center">
-                <div>
-                  <p className="fw-semibold">Lorem ipsum dolor sit amet.</p>
-                  <h2 className="fw-bold fs-1 w-50 modelTitle" id="itemTitle">
-                    {productInfo[0].name}
-                  </h2>
-                  <p className="fs-5 w-75 featuredItemDescriptionText">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                    laborum esse ipsum repellat magnam iste ipsam omnis nostrum
-                    natus qui.
-                  </p>
-                  <Link to={`/products/${productInfo[0].slug}`}>
-                    <button
-                      id="button-style"
-                      className="btn rounded-0 px-3 py-2"
-                    >
-                      <div className="d-flex align-items-center">
-                        <span>LEARN MORE</span>
-                        <span className="d-inline-block ms-3 button_arrow">
-                          <ArrowIcon />
-                        </span>
-                      </div>
-                    </button>
-                  </Link>
+            <div className="row">
+              <div className="col-lg-7">
+                <div className="d-flex flex-column h-100 justify-content-center">
+                  <div className="item-description">
+                    <p className="fw-semibold">Lorem ipsum dolor sit amet.</p>
+                    <h2 className="fw-bold fs-1 modelTitle">
+                      {productInfo[0].name}
+                    </h2>
+                    <p className="fs-5 ">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Et laborum esse ipsum repellat magnam iste ipsam omnis
+                      nostrum natus qui.
+                    </p>
+                  </div>
+                  <div>
+                    <Link to={`/products/${productInfo[0].slug}`}>
+                      <button
+                        id="button-style"
+                        className="btn rounded-0 px-3 py-2"
+                      >
+                        <div className="d-flex align-items-center">
+                          <span>LEARN MORE</span>
+                          <span className="d-inline-block ms-3 button_arrow">
+                            <ArrowIcon />
+                          </span>
+                        </div>
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-              <div>
-                <img
-                  className="featuredItemImage hide-bg"
-                  src={productInfo[0].image}
-                  alt="Cloud Stinger 2 Wireless image"
-                />
-              </div>
-              <div>
-                <div className="itemDivShape"></div>
-                <div className="itemBackground"></div>
-                <div className="itemDivShapeVariant"></div>
+              <div className="col-lg-5">
+                <div className="background-container">
+                  <div className="itembackground-top"></div>
+                  <div className="itembackground-body">
+                    <img
+                      className="itemimage-first hide-bg"
+                      src={productInfo[0].image}
+                      alt="Cloud Stinger 2 Wireless image"
+                    />
+                  </div>
+                  <div className="itembackground-bottom"></div>
+                </div>
               </div>
             </div>
 
-            <div className="d-flex secondItemDiv">
-              <div className="featuredItemDescription">
-                <img
-                  className="featuredItemImageVariant hide-bg"
-                  src={productInfo[13].image}
-                  alt="Pulsefire Haste image"
-                />
-                <div className="secondItemDivShape"></div>
-                <div className="secondItemBackground"></div>
-                <div className="secondDivShapeVariant"></div>
-              </div>
-              <div className="d-flex flex-column justify-content-center">
-                <div>
-                  <p className="fw-semibold">Lorem ipsum dolor sit amet.</p>
-                  <h2 id="secondItemTitle" className="fw-bold fs-1 modelTitle">
-                    {productInfo[13].name}
-                  </h2>
-                  <p id="sencodItemDesc" className="fs-5 description">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Aliquam similique facere sint, repellat impedit ut ipsum
-                    magnam quis ipsam dolorem.
-                  </p>
-                  <Link to={`/products/${productInfo[13].slug}`}>
-                    <button
-                      id="button-style"
-                      className="btn rounded-0 px-3 py-2"
-                    >
-                      <div className="d-flex align-items-center">
-                        <span>LEARN MORE</span>
-                        <span className="d-inline-block ms-3 button_arrow">
-                          <ArrowIcon />
-                        </span>
-                      </div>
-                    </button>
-                  </Link>
+            <section className="second-featured-item">
+              <div className="row">
+                <div className="col-lg-5">
+                  <div>
+                    <div className="second-itembackground-top"></div>
+                    <div className="second-itembackground-body">
+                      <img
+                        className="itemimage-second hide-bg"
+                        src={productInfo[13].image}
+                        alt="Pulsefire Haste image"
+                      />
+                    </div>
+                    <div className="second-itembackground-bottom"></div>
+                  </div>
+                </div>
+
+                <div className="col-lg-7">
+                  <div className="d-flex flex-column h-100 justify-content-center second-item-description">
+                    <div>
+                      <p className="fw-semibold">Lorem ipsum dolor sit amet.</p>
+                      <h2 className="fw-bold fs-1 modelTitle">
+                        {productInfo[13].name}
+                      </h2>
+                      <p className="fs-5 description ">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing
+                        elit. Aliquam similique facere sint, repellat impedit ut
+                        ipsum magnam quis ipsam dolorem.
+                      </p>
+                      <Link to={`/products/${productInfo[13].slug}`}>
+                        <button
+                          id="button-style"
+                          className="btn rounded-0 px-3 py-2"
+                        >
+                          <div className="d-flex align-items-center">
+                            <span>LEARN MORE</span>
+                            <span className="d-inline-block ms-3 button_arrow">
+                              <ArrowIcon />
+                            </span>
+                          </div>
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </section>
           </>
         </div>
       )}
