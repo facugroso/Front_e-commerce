@@ -1,9 +1,66 @@
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Logo from "../assets/icons/logofooter.svg";
 import "./Login.css";
+import { useState } from "react";
+import { setToken } from "../redux/userSlice";
+
+import { useDispatch } from "react-redux";
 
 function Login() {
+  const [firstnameValue, setFirstname] = useState("");
+  const [lastnameValue, setLastname] = useState("");
+  const [emailValue, setEmail] = useState("");
+  const [passwordValue, setPassword] = useState("");
+  const [phoneValue, setPhone] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const isLoginPage = location.pathname === "/login";
+
+  async function handleLogin(event) {
+    event.preventDefault();
+
+    const response = await axios({
+      method: "POST",
+      url: "http://localhost:3000/token",
+      data: {
+        email: emailValue,
+        password: passwordValue,
+      },
+    });
+
+    const token = response.data.token;
+    if (token) {
+      dispatch(setToken(response.data));
+      navigate("/");
+    } else {
+      navigate("/login");
+    }
+  }
+
+  async function handleSignup(event) {
+    event.preventDefault();
+
+    const userData = {
+      firstname: firstnameValue,
+      lastname: lastnameValue,
+      email: emailValue,
+      password: passwordValue,
+      phone: phoneValue,
+    };
+
+    const response = await axios({
+      method: "POST",
+      url: "http://localhost:3000/users",
+      data: userData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    await handleLogin(event, emailValue);
+  }
+
   return (
     <div id="login_box" className="bg-dark">
       <img src={Logo} className="d-block pt-3" alt="Logo" />
@@ -13,13 +70,21 @@ function Login() {
             <h2 className="text-white">Sign In</h2>
           </div>
 
-          <form className="mt-4">
+          <form
+            className="mt-4"
+            action="/login"
+            method="POST"
+            onSubmit={handleLogin}
+          >
             <div className="form-group">
               <input
                 name="email"
                 type="email"
                 className="form-control form-control-sm bg-light mb-2"
                 placeholder="Email"
+                value={emailValue}
+                onChange={(event) => setEmail(event.target.value)}
+                required
               />
             </div>
 
@@ -29,6 +94,8 @@ function Login() {
                 type="password"
                 className="form-control form-control-sm bg-light"
                 placeholder="Password"
+                value={passwordValue}
+                onChange={(event) => setPassword(event.target.value)}
               />
             </div>
 
@@ -63,13 +130,16 @@ function Login() {
             <h2 className="text-white">Sign Up</h2>
           </div>
 
-          <form className="mt-4">
+          <form className="mt-4" method="POST" onSubmit={handleSignup}>
             <div className="form-group">
               <input
                 name="firstname"
                 type="text"
                 className="form-control form-control-sm bg-light mb-2"
                 placeholder="First Name"
+                value={firstnameValue}
+                onChange={(event) => setFirstname(event.target.value)}
+                required
               />
             </div>
             <div className="form-group">
@@ -78,6 +148,9 @@ function Login() {
                 type="text"
                 className="form-control form-control-sm bg-light mb-2"
                 placeholder="Last Name"
+                value={lastnameValue}
+                onChange={(event) => setLastname(event.target.value)}
+                required
               />
             </div>
             <div className="form-group">
@@ -86,6 +159,9 @@ function Login() {
                 type="email"
                 className="form-control form-control-sm bg-light mb-2"
                 placeholder="Email"
+                value={emailValue}
+                onChange={(event) => setEmail(event.target.value)}
+                required
               />
             </div>
 
@@ -95,6 +171,9 @@ function Login() {
                 type="password"
                 className="form-control form-control-sm bg-light mb-2"
                 placeholder="Password"
+                value={passwordValue}
+                onChange={(event) => setPassword(event.target.value)}
+                required
               />
             </div>
             <div className="form-group">
@@ -103,6 +182,9 @@ function Login() {
                 type="tel"
                 className="form-control form-control-sm bg-light"
                 placeholder="Phone Number"
+                value={phoneValue}
+                onChange={(event) => setPhone(event.target.value)}
+                required
               />
             </div>
             <div className="mt-4 mb-3 text-center">
