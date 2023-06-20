@@ -12,6 +12,7 @@
 .product-name {
   position: relative;
   z-index: 1;
+  text-align: initial;
 }
 
 .product-image {
