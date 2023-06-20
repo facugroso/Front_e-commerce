@@ -30,8 +30,13 @@ function Login() {
               />
             </div>
 
-            <div className="mt-5">
-              <button className="btn btn-sm btn-light col">Login</button>
+            <div className="mt-4 mb-3 text-center">
+              <button
+                className="btn btn-sm btn-light col"
+                style={{ width: "40%" }}
+              >
+                Login
+              </button>
             </div>
 
             <div className="text-center mt-2">
@@ -98,8 +103,13 @@ function Login() {
                 placeholder="Phone Number"
               />
             </div>
-            <div className="mt-4 mb-2 text-center">
-              <button className="btn btn-sm btn-light col">Register</button>
+            <div className="mt-4 mb-3 text-center">
+              <button
+                className="btn btn-sm btn-light col"
+                style={{ width: "40%" }}
+              >
+                Register
+              </button>
             </div>
 
             <div className="text-center mt-2">
