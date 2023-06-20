@@ -12,12 +12,12 @@ import Err404 from "./pages/Err404";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const hideSidebarAndNavBar =
+  const hideFooterAndNavBar =
     window.location.pathname === "/login" ||
     window.location.pathname === "/register";
   return (
     <>
-      {!hideSidebarAndNavBar && <NavBar />}
+      {!hideFooterAndNavBar && <NavBar />}
       <Routes>
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/products/:slug" element={<Product />} />
@@ -27,7 +27,7 @@ function App() {
         <Route path="/register" element={<Login />} />
         <Route path="*" element={<Err404 />} />
       </Routes>
-      {!hideSidebarAndNavBar && <Footer />}
+      {!hideFooterAndNavBar && <Footer />}
     </>
   );
 }
