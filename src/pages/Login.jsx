@@ -16,6 +16,7 @@ function Login() {
           <form className="mt-4">
             <div className="form-group">
               <input
+                name="email"
                 type="email"
                 className="form-control form-control-sm bg-light mb-2"
                 placeholder="Email"
@@ -24,6 +25,7 @@ function Login() {
 
             <div className="form-group">
               <input
+                name="password"
                 type="password"
                 className="form-control form-control-sm bg-light"
                 placeholder="Password"
