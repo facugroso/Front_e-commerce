@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setProducts } from "../../redux/productSlice";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import ArrowIcon from "../../assets/icons/ArrowIcon";
 import { Link } from "react-router-dom";
@@ -13,8 +11,7 @@ import "swiper/css/pagination";
 import "./NewProducts.css";
 
 function NewProducts() {
-  const products = useSelector((state) => state.products);
-  const dispatch = useDispatch();
+  const [products, setProducts] = useState();
 
   useEffect(() => {
     async function getProducts() {
@@ -22,14 +19,14 @@ function NewProducts() {
         method: "get",
         url: "http://localhost:3000/products",
       });
-      response.data && dispatch(setProducts(response.data));
+      setProducts(response.data);
     }
     getProducts();
   }, []);
 
   return (
     <>
-      {products.length > 0 && (
+      {products && (
         <>
           <div className="descriptionbox-min">
             <h2 className="fw-bold fs-3 mb-3 modelTitle">New Products</h2>
