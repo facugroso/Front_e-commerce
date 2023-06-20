@@ -1,11 +1,32 @@
 .categoryCard {
-  width: 291px;
-  height: 410px;
-  margin-right: 1.2rem;
+  width: 250px;
+  margin-right: 1rem;
 }
 
 .categoryImage {
-  width: 291px;
+  width: 200px;
+}
+
+.swiper-styles {
+  padding-bottom: 6rem;
+}
+
+.productCard:hover .button_arrow {
+  transform: rotate(45deg);
+}
+
+#link-style:hover .icon {
+  fill: #e01637;
+}
+
+#link-style:hover .swiper-text {
+  color: #e01637;
+}
+
+.productCard .button_arrow {
+  transition: transform 0.2s linear;
+  margin-left: auto;
+  transform: rotate(0);
 }
 
 @media (max-width: 1024px) {

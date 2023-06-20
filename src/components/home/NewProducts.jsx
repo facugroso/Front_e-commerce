@@ -112,7 +112,7 @@ function NewProducts() {
                     >
                       <div>
                         <img
-                          className="img-fluid"
+                          className="img-fluid product-image"
                           src={item.image}
                           alt={`${item.name} image`}
                         />
