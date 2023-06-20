@@ -57,7 +57,7 @@ function Product() {
                     <li key={idx}>{feature}</li>
                   ))}
                 </ul>
-                <AddToCartButton />
+                <AddToCartButton product={product} />
               </div>
             </div>
           </div>

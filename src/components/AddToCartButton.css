@@ -2,3 +2,7 @@
   background-color: #c8102e;
   color: white;
 }
+#add-to-cart:hover {
+  background-color: #ac0e28;
+  color: white;
+}

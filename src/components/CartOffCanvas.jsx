@@ -1,23 +1,47 @@
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setShow } from "../redux/offCanvasSlice";
+import {
+  removeFromCart,
+  incrementQuantity,
+  decrementQuantity,
+} from "../redux/cartSlice";
 import { Link } from "react-router-dom";
 
-function CartOffCanvas({ cart, ...placement }) {
+function CartOffCanvas({ ...placement }) {
+  const cart = useSelector((state) => state.cart);
   const show = useSelector((state) => state.offcanvas);
   const dispatch = useDispatch();
-  const [count, setCount] = useState(1);
-  const handleIncrement = () => {
-    setCount(count + 1);
+  const [subTotal, setSubTotal] = useState();
+
+  useEffect(() => {
+    const calculateSubTotal = () => {
+      const total = cart.reduce((accumulator, item) => {
+        accumulator = accumulator + item.totalPrice;
+        console.log(accumulator);
+        return accumulator;
+      }, 0);
+      setSubTotal(total);
+    };
+    calculateSubTotal();
+  }, [cart]);
+
+  const handleIncrement = (item) => {
+    dispatch(incrementQuantity(item));
   };
-  const handleDecrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
+
+  const handleDecrement = (item) => {
+    dispatch(decrementQuantity(item));
   };
+
   const handleClose = () => {
     dispatch(setShow(false));
+  };
+
+  const handleRemove = (item) => {
+    dispatch(removeFromCart(item));
   };
   return (
     <>
@@ -27,34 +51,50 @@ function CartOffCanvas({ cart, ...placement }) {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div>
-            <div className="row no-margin bg-grey">
-              <div className="col">
-                <img
-                  className="img-fluid border"
-                  src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_iii_red_66x0049_angle_4_720x.jpg?v=1686845842"
-                  alt="imagen del producto"
-                />{" "}
-              </div>
-              <div className="col">
-                <span className="fw-bold d-block">
-                  HyperX Cloud III - Gaming Headset
-                </span>
-                <span>Color: Black-Red</span>
-                <p>$99.99</p>
-                <div className="d-flex justify-content-between">
-                  <div className="d-flex border">
-                    <i className="bi bi-dash" onClick={handleDecrement}></i>
-                    <p className="d-block px-3 m-0"> {count}</p>
-                    <i className="bi bi-plus" onClick={handleIncrement}></i>
+            {cart.length === 0 ? (
+              <span>Your cart is currently empty.</span>
+            ) : (
+              <>
+                {cart.map((item) => (
+                  <div className="row no-margin bg-grey" key={item.id}>
+                    <div className="col">
+                      <img
+                        className="img-fluid border"
+                        src={item.image}
+                        alt="imagen del producto"
+                      />{" "}
+                    </div>
+                    <div className="col">
+                      <span className="fw-bold d-block">{item.name}</span>
+                      <span>Color: Black-Red</span>
+                      <p>{item.totalPrice}</p>
+                      <div className="d-flex justify-content-between">
+                        <div className="d-flex border">
+                          <i
+                            className="bi bi-dash"
+                            onClick={() => handleDecrement(item)}
+                          ></i>
+                          <p className="d-block px-3 m-0"> {item.quantity}</p>
+                          <i
+                            className="bi bi-plus"
+                            onClick={() => handleIncrement(item)}
+                          ></i>
+                        </div>
+                        <div>
+                          <i
+                            className="bi bi-trash3"
+                            onClick={() => handleRemove(item)}
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <i className="bi bi-trash3"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
+                ))}
+              </>
+            )}
 
             <div className="mt-3">
+              <span className="d-flex">{`Sub Total: ${subTotal}`}</span>
               <Link to="/cart">
                 <button
                   className="btn btn-light border w-50"

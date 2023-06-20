@@ -1,6 +1,8 @@
 import "./Err404.css";
 
 function Err404() {
+  window.scrollTo(0, 0);
+
   return (
     <div id="error">
       <h1>Woops, somethin went wrong!</h1>
