@@ -1,10 +1,7 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setCategories } from "../../redux/categorySlice";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import ArrowIcon from "../../assets/icons/ArrowIcon";
 import { Link } from "react-router-dom";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper";
 import "swiper/css";
@@ -13,8 +10,7 @@ import "swiper/css/pagination";
 import "./TopCategories.css";
 
 function TopCategories() {
-  const categories = useSelector((state) => state.categories);
-  const dispatch = useDispatch();
+  const [categories, setCategories] = useState();
 
   useEffect(() => {
     async function getCategories() {
@@ -22,7 +18,7 @@ function TopCategories() {
         method: "get",
         url: "http://localhost:3000/categories",
       });
-      response.data && dispatch(setCategories(response.data));
+      setCategories(response.data);
     }
     getCategories();
   }, []);
@@ -34,7 +30,7 @@ function TopCategories() {
           Top Categories
         </h2>
       </div>
-      {categories.length > 0 && (
+      {categories && (
         <>
           <Swiper
             slidesPerView={4}
