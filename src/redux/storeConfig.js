@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
 import offCanvasSlice from "./offCanvasSlice";
-import categorySlice from "./categorySlice";
 import cartReducer from "./cartSlice";
 
 import storage from "redux-persist/lib/storage";
@@ -20,7 +19,6 @@ const store = configureStore({
   reducer: {
     user: userReducer,
     offcanvas: offCanvasSlice,
-    categories: categorySlice,
     cart: cartReducer,
   },
 });
