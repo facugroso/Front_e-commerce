@@ -1,6 +1,8 @@
 import { useNavigate, Link } from "react-router-dom";
 import Logo from "../assets/icons/logofooter.svg";
 import "./Login.css";
+import axios from "axios";
+
 import { useState } from "react";
 import { setToken } from "../redux/userSlice";
 
@@ -22,7 +24,7 @@ function Login() {
 
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/token",
+      url: "http://localhost:3000/tokenUser",
       data: {
         email: emailValue,
         password: passwordValue,

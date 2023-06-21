@@ -1,4 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import offCanvasSlice from "./offCanvasSlice";
+import cartReducer from "./cartSlice";
+
+import storage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist";
 import thunk from "redux-thunk";
 import storage from "redux-persist/lib/storage";
