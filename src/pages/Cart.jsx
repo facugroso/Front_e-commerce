@@ -1,62 +1,107 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import {
+  removeFromCart,
+  incrementQuantity,
+  decrementQuantity,
+} from "../redux/cartSlice";
 import ArrowIcon from "../assets/icons/ArrowIcon";
+import { Link } from "react-router-dom";
 import "./Cart.css";
 
 function Cart() {
-  const [count, setCount] = useState(1);
-  const handleIncrement = () => {
-    setCount(count + 1);
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const [subTotal, setSubTotal] = useState();
+
+  useEffect(() => {
+    const calculateSubTotal = () => {
+      const total = cart.reduce((accumulator, item) => {
+        const price = parseFloat(item.totalPrice);
+        if (!isNaN(price)) {
+          accumulator += price;
+        }
+        return accumulator;
+      }, 0);
+      setSubTotal(parseFloat(total).toFixed(2));
+    };
+    calculateSubTotal();
+  }, [cart]);
+
+  const handleIncrement = (item) => {
+    dispatch(incrementQuantity(item));
   };
-  const handleDecrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
+
+  const handleDecrement = (item) => {
+    dispatch(decrementQuantity(item));
+  };
+
+  const handleRemove = (item) => {
+    dispatch(removeFromCart(item));
   };
   return (
     <>
       <div className="container my-5">
         <h1 className="modelSubtitle fs-5">My Bag</h1>
         <div className="row">
-          <div className="col">
-            <div className=" no-margin  d-flex align-items-center ">
-              <div className="image py-3">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_iii_red_66x0049_angle_4_720x.jpg?v=1686845842"
-                  alt="imagen del producto"
-                  className="productCart border"
-                />
-              </div>
-              <div className="px-3">
-                <p className="modelSubtitle fs-6">
-                  HyperX SoloCast - USB Microphone
-                </p>
-                <span className="description">Color: Black-Red</span>
-                <p className="description">$99.99</p>
-
-                <div className="d-flex justify-content-between">
-                  <div className="d-flex border">
-                    <i className="bi bi-dash" onClick={handleDecrement}></i>
-                    <p className="d-block px-3 m-0"> {count}</p>
-                    <i className="bi bi-plus" onClick={handleIncrement}></i>
+          {cart.length === 0 ? (
+            <span>Your cart is currently empty.</span>
+          ) : (
+            <div className="col">
+              <div className="row">
+                {cart.map((item) => (
+                  <div className="col">
+                    <div className=" no-margin  d-flex align-items-center ">
+                      <div className="image py-3">
+                        <img
+                          src={item.image}
+                          alt={`imagen ${item.name}`}
+                          className="productCart border"
+                        />
+                      </div>
+                      <div className="px-3">
+                        <p className="modelSubtitle fs-6">{item.name}</p>
+                        <p className="description">{item.totalPrice}</p>
+                        <div className="d-flex justify-content-between">
+                          <div className="d-flex border">
+                            <i
+                              className="bi bi-dash"
+                              onClick={() => handleDecrement(item)}
+                            ></i>
+                            <p className="d-block px-3 m-0"> {item.quantity}</p>
+                            <i
+                              className="bi bi-plus"
+                              onClick={() => handleIncrement(item)}
+                            ></i>
+                          </div>
+                          <div>
+                            <i
+                              className="bi bi-trash3"
+                              onClick={() => handleRemove(item)}
+                            ></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <i className="bi bi-trash3 text-end"></i>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
-          </div>
+          )}
           <div className="col d-flex align-items-center justify-content-center ">
             <div className="bg-white text-center bg-body-tertiary p-5 w-75">
               <span className="description">Subtotal:</span>
-              <span className="fs-5 modelSubtitle"> $99.99</span>
+              <span className="fs-5 modelSubtitle"> {subTotal}</span>
               <button className="btn btn-danger rounded-0 w-100 mt-3">
-                <div className="d-flex justify-content-between p-1 description">
-                  <div>CHECKOUT</div>
-                  <div>
-                    <ArrowIcon />
+                <Link to="/checkout">
+                  <div className="d-flex justify-content-between p-1 description">
+                    <div>CHECKOUT</div>
+                    <div>
+                      <ArrowIcon />
+                    </div>
                   </div>
-                </div>
+                </Link>
               </button>
             </div>
           </div>

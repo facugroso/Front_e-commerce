@@ -19,11 +19,13 @@ function CartOffCanvas({ ...placement }) {
   useEffect(() => {
     const calculateSubTotal = () => {
       const total = cart.reduce((accumulator, item) => {
-        accumulator = accumulator + item.totalPrice;
-        console.log(accumulator);
+        const price = parseFloat(item.totalPrice);
+        if (!isNaN(price)) {
+          accumulator += price;
+        }
         return accumulator;
       }, 0);
-      setSubTotal(total);
+      setSubTotal(parseFloat(total).toFixed(2));
     };
     calculateSubTotal();
   }, [cart]);
@@ -66,7 +68,6 @@ function CartOffCanvas({ ...placement }) {
                     </div>
                     <div className="col">
                       <span className="fw-bold d-block">{item.name}</span>
-                      <span>Color: Black-Red</span>
                       <p>{item.totalPrice}</p>
                       <div className="d-flex justify-content-between">
                         <div className="d-flex border">
@@ -103,7 +104,11 @@ function CartOffCanvas({ ...placement }) {
                   VIEW BAG
                 </button>
               </Link>
-              <button className="btn btn-danger border w-50">CHECK OUT</button>
+              <Link to="/checkout">
+                <button className="btn btn-danger border w-50">
+                  CHECK OUT
+                </button>
+              </Link>
             </div>
           </div>
         </Offcanvas.Body>

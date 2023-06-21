@@ -1,31 +1,29 @@
-import { configureStore } from "@reduxjs/toolkit";
-import offCanvasSlice from "./offCanvasSlice";
-import categorySlice from "./categorySlice";
-import cartReducer from "./cartSlice";
-
-import storage from "redux-persist/lib/storage";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
-// import userReducer from "./userSlice";
+import thunk from "redux-thunk";
+import storage from "redux-persist/lib/storage";
+import offCanvasSlice from "./offCanvasSlice";
+import cartReducer from "./cartSlice";
 import userReducer from "./userSlice";
 
-// const persistConfig = {
-//   key: "cart",
-//   version: 1,
-//   storage,
-// };
-
-// const persistedCartReducer = persistReducer(persistConfig, cartReducer);
-
-const store = configureStore({
-  reducer: {
-    user: userReducer,
-    offcanvas: offCanvasSlice,
-    categories: categorySlice,
-    cart: cartReducer,
-  },
+const persistConfig = {
+  key: "root",
+  version: 1,
+  storage,
+};
+const rootReducer = combineReducers({
+  user: userReducer,
+  offcanvas: offCanvasSlice,
+  cart: cartReducer,
 });
 
-// const persistor = persistStore(store);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// export { store, persistor };
-export default store;
+const store = configureStore({
+  reducer: persistedReducer,
+  middleware: [thunk],
+});
+
+const persistor = persistStore(store);
+
+export { store, persistor };
