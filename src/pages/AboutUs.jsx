@@ -23,17 +23,23 @@ function AboutUs() {
             >
               <h1 className="text-centered pt-4">About this project</h1>
               <p className="text-justified pb-4">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Similique qui modi in doloremque assumenda, optio iusto odio
-                beatae recusandae explicabo unde laboriosam tempore culpa, id
-                quis soluta pariatur neque facilis? Lorem ipsum dolor sit, amet
-                consectetur adipisicing elit. Similique qui modi in doloremque
-                assumenda, optio iusto odio beatae recusandae explicabo unde
-                laboriosam tempore culpa, id quis soluta pariatur neque facilis?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Similique qui modi in doloremque assumenda, optio iusto odio
-                beatae recusandae explicabo unde laboriosam tempore culpa, id
-                quis soluta pariatur neque facilis?
+                Durante las últimas tres semanas del Coding Bootcamp de Hack
+                Academy, un curso intensivo de más de 600 horas de trabajo, se
+                desarrolló HyperX, nuestro proyecto de e-commerce. Inspirado por
+                la amplia disponibilidad de productos y la demanda en el
+                mercado, decidimos tomar como base una tienda de accesorios para
+                gaming.
+              </p>
+              <p>
+                HyperX se compone de una tienda en línea, un área de
+                administración y un servidor back-end. La tienda, una aplicación
+                React con Redux, permite a los usuarios realizar compras y se
+                comunica con el servidor utilizando Axios. El área de
+                administración, también en React y Redux, ofrece funcionalidades
+                de creación, lectura, actualización y eliminación de productos,
+                categorías y administradores, así como acceso al registro de
+                ordenes. El servidor, basado en Node.js, se conecta a una base
+                de datos mySQL utilizando Sequelize.
               </p>
             </div>
           </div>
