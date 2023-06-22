@@ -24,7 +24,7 @@ function Login() {
 
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/tokenUser",
+      url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/tokenUser`,
       data: {
         email: emailValue,
         password: passwordValue,
@@ -53,7 +53,7 @@ function Login() {
 
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/users",
+      url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/users`,
       data: userData,
       headers: {
         "Content-Type": "multipart/form-data",
