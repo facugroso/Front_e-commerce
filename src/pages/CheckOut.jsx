@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
-import PaymentMethod from "../components/PaymentMethod";
+import axios from "axios";
 
 import "./CheckOut.css";
 
@@ -10,7 +10,29 @@ function CheckOut() {
   const cart = useSelector((state) => state.cart);
 
   const [subTotal, setSubTotal] = useState();
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [phone, setPhone] = useState("");
+  const [fullAddress, setFullAddress] = useState(null);
+  const [paymentData, setPaymentData] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await axios({
+      method: "POST",
+      url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/orders`,
+      data: {
+        firstname,
+        lastname,
+        address: fullAddress,
+        phone,
+        payment: paymentMethod,
+        products: cart,
+        status: "Sin pagar",
+      },
+    });
+  }
 
   useEffect(() => {
     const calculateSubTotal = () => {
@@ -26,70 +48,150 @@ function CheckOut() {
     calculateSubTotal();
   }, [cart]);
 
+  console.log(fullAddress);
+
   return (
     <div className="container">
       <div className="row">
         <div className="col">
-          <span className="fs-4 fw-bold">Shipping Address</span>
-          <div className="row">
-            <div className="col">
-              <input className="w-100 m-2" placeholder="First Name"></input>
+          <form method="POST" onSubmit={handleSubmit} className="mt-4">
+            <span className="fs-4 fw-bold">Shipping Address</span>
+            <div className="row">
+              <div className="col">
+                <input
+                  type="text"
+                  className="w-100 m-2"
+                  name="firstname"
+                  value={firstname}
+                  onChange={(event) => setFirstname(event.target.value)}
+                  placeholder="First Name"
+                ></input>
+              </div>
+              <div className="col">
+                <input
+                  type="text"
+                  className="w-100 m-2"
+                  name="lastname"
+                  value={lastname}
+                  onChange={(event) => setLastname(event.target.value)}
+                  placeholder="Last Name"
+                ></input>
+              </div>
             </div>
-            <div className="col">
-              <input className="w-100 m-2" placeholder="Last Name"></input>
+            <input
+              type="text"
+              className="w-100 m-2"
+              name="address"
+              onChange={(event) =>
+                setFullAddress((prevState) => ({
+                  ...prevState,
+                  address: event.target.value,
+                }))
+              }
+              placeholder="Address"
+            ></input>
+            <div className="row">
+              <div className="col">
+                <input
+                  type="text"
+                  className="w-100 m-2"
+                  onChange={(event) =>
+                    setFullAddress((prevState) => ({
+                      ...prevState,
+                      city: event.target.value,
+                    }))
+                  }
+                  placeholder="City"
+                ></input>
+              </div>
+              <div className="col">
+                <input
+                  type="text"
+                  className="w-100 m-2"
+                  placeholder="Zip Code"
+                  onChange={(event) =>
+                    setFullAddress((prevState) => ({
+                      ...prevState,
+                      zipcode: event.target.value,
+                    }))
+                  }
+                ></input>
+              </div>
             </div>
-          </div>
-          <input className="w-100 m-2" placeholder="Address"></input>
-          <input className="w-100 m-2" placeholder="Aparment"></input>
-          <div className="row">
-            <div className="col">
-              <input className="w-100 m-2" placeholder="City"></input>
+            <input
+              type="text"
+              className="w-100 m-2"
+              name="phone"
+              value={phone}
+              onChange={(event) => setPhone(event.target.value)}
+              placeholder="Phone"
+            ></input>
+            <span className="fs-4 fw-bold">Payment method</span>
+            <ul>
+              <li>
+                <input
+                  type="radio"
+                  name="payment-method"
+                  id="credit-card"
+                  value="credit-card"
+                  onClick={() => setPaymentMethod("Crédito")}
+                ></input>
+                <label className="ms-4">Credit card</label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="payment-method"
+                  id="paypal"
+                  value="paypal"
+                  onClick={() => setPaymentMethod("PayPal")}
+                ></input>
+                <label className="ms-4">Paypal</label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="payment-method"
+                  id="mercado-pago"
+                  value="mercado-pago"
+                  onClick={() => setPaymentMethod("MercadoPago")}
+                ></input>
+                <label className="ms-4">Mercado Pago</label>
+              </li>
+            </ul>
+            {paymentMethod === "" ? (
+              <></>
+            ) : (
+              <div className="row">
+                <div className="col">
+                  <input
+                    className="w-100 mb-2"
+                    placeholder="Card number"
+                  ></input>
+                  <input
+                    className="w-100 mb-2"
+                    placeholder="First name"
+                  ></input>
+                  <input className="w-100 mb-2" placeholder="Last name"></input>
+                  <input className="w-100 mb-2" placeholder="CI"></input>
+                  <div className="d-flex">
+                    <input
+                      className="w-50 me-2"
+                      placeholder="Expiration date"
+                      type="month"
+                      min="2023-06"
+                    ></input>
+                    <input className="w-50" placeholder="CVV"></input>
+                  </div>
+                </div>
+              </div>
+            )}
+            <div className="d-flex justify-content-end">
+              <button type="submit" className="my-3">
+                BUY
+              </button>
             </div>
-            <div className="col">
-              <input className="w-100 m-2" placeholder="State"></input>
-            </div>
-            <div className="col">
-              <input className="w-100 m-2" placeholder="Zip Code"></input>
-            </div>
-          </div>
-          <input className="w-100 m-2" placeholder="Phone"></input>
-          <span className="fs-4 fw-bold">Payment method</span>
-          <ul>
-            <li>
-              <input
-                type="radio"
-                name="payment-method"
-                id="credit-card"
-                value="credit-card"
-                onClick={() => setPaymentMethod("credit-card")}
-              ></input>
-              <label className="ms-4">Credit card</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="payment-method"
-                id="paypal"
-                value="paypal"
-                onClick={() => setPaymentMethod("paypal")}
-              ></input>
-              <label className="ms-4">Paypal</label>
-            </li>
-            <li>
-              <input
-                type="radio"
-                name="payment-method"
-                id="mercado-pago"
-                value="mercado-pago"
-                onClick={() => setPaymentMethod("mercado-pago")}
-              ></input>
-              <label className="ms-4">Mercado Pago</label>
-            </li>
-          </ul>
-          <PaymentMethod method={paymentMethod} />
-          <div className="d-flex justify-content-end">
-            <button className="my-3">BUY</button>
-          </div>
+          </form>
         </div>
         <div className="col">
           {cart.map((item) => (
