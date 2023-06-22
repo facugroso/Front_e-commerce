@@ -13,8 +13,8 @@ const cartSlice = createSlice({
           name: newProduct.name,
           image: newProduct.image,
           quantity: 1,
-          price: newProduct.price,
-          totalPrice: newProduct.price,
+          price: Number(newProduct.price),
+          totalPrice: Number(newProduct.price),
         });
       }
     },
@@ -35,13 +35,13 @@ const cartSlice = createSlice({
       const item = state.find((item) => item.id === productId);
       if (item) {
         item.quantity--;
-        if (item.quantity > 0) {
+        if (item.quantity >= 1) {
           item.totalPrice = parseFloat(
             (item.totalPrice - item.price).toFixed(2)
           );
         } else {
-          item.totalPrice = 0;
-          item.quantity = 0;
+          item.totalPrice = item.price;
+          item.quantity = 1;
         }
       }
     },

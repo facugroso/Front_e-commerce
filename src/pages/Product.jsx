@@ -19,7 +19,9 @@ function Product() {
     async function getProducts() {
       const res = await axios({
         method: "get",
-        url: `http://localhost:3000/products/${params.slug}`,
+        url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/products/${
+          params.slug
+        }`,
       });
       setProduct(res.data);
       setImg(res.data.image);

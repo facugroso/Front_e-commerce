@@ -1,3 +1,6 @@
 .check-out-product img {
   max-height: 6rem;
 }
+ul {
+  list-style: none;
+}

@@ -15,7 +15,9 @@ function Category() {
     async function getCategory() {
       const res = await axios({
         method: "get",
-        url: `http://localhost:3000/categories/${params.slug}`,
+        url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/categories/${
+          params.slug
+        }`,
       });
       setCategory(res.data);
     }
@@ -27,7 +29,7 @@ function Category() {
     async function getProducts() {
       const response = await axios({
         method: "get",
-        url: "http://localhost:3000/products",
+        url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/products`,
       });
       setProducts(response.data);
     }
