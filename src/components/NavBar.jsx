@@ -22,9 +22,11 @@ function NavBar() {
         <Container>
           <Row>
             <Col className="d-flex justify-content-end">
-              <Link to="#">
-                <span>Uruguay</span>
-                <span>EN</span>
+              <Link to="/login">
+                <span>Login</span>
+              </Link>
+              <Link to="/register">
+                <span>Register</span>
               </Link>
             </Col>
           </Row>

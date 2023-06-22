@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import "./App.css";
 import Product from "./pages/Product";
@@ -14,12 +14,12 @@ import CheckOut from "./pages/CheckOut";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const hideFooterAndNavBar =
-    window.location.pathname === "/login" ||
-    window.location.pathname === "/register";
+  const location = useLocation();
+  const hideComponents = ["/login", "/register"];
+  const hideFooterAndNavBar = !hideComponents.includes(location.pathname);
   return (
     <>
-      {!hideFooterAndNavBar && <NavBar />}
+      {hideFooterAndNavBar && <NavBar />}
       <Routes>
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/products/:slug" element={<Product />} />
@@ -31,7 +31,7 @@ function App() {
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="*" element={<Err404 />} />
       </Routes>
-      {!hideFooterAndNavBar && <Footer />}
+      {hideFooterAndNavBar && <Footer />}
     </>
   );
 }
