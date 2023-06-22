@@ -78,7 +78,13 @@ function NewProducts() {
                       <div>
                         <img
                           className="img-fluid product-image"
-                          src={item.image}
+                          src={
+                            item.image.includes("https")
+                              ? item.image
+                              : `${
+                                  import.meta.env.VITE_IMAGE_CLOUD_DIRECTION
+                                }/${item.image}`
+                          }
                           alt={`${item.name} image`}
                         />
                       </div>
@@ -110,7 +116,13 @@ function NewProducts() {
                       <div>
                         <img
                           className="img-fluid product-image"
-                          src={item.image}
+                          src={
+                            item.image.includes("https")
+                              ? item.image
+                              : `${
+                                  import.meta.env.VITE_IMAGE_CLOUD_DIRECTION
+                                }/${item.image}`
+                          }
                           alt={`${item.name} image`}
                         />
                       </div>
