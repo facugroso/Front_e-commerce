@@ -44,10 +44,23 @@ function Product() {
                     key={idx}
                     onClick={() => setImg(image)}
                     className="btn-image"
-                    src={image}
+                    src={
+                      image.includes("https")
+                        ? image
+                        : `${
+                            import.meta.env.VITE_IMAGE_CLOUD_DIRECTION
+                          }/${image}`
+                    }
                   ></img>
                 ))}
-                <img className="img-fluid" src={img}></img>
+                <img
+                  className="img-fluid"
+                  src={
+                    img.includes("https")
+                      ? img
+                      : `${import.meta.env.VITE_IMAGE_CLOUD_DIRECTION}/${img}`
+                  }
+                ></img>
               </div>
               <div className="col-12 col-sm-6 p-4 order-md-2 order-1">
                 <h1 className="fs-2 modelSubtitle">{product.name}</h1>

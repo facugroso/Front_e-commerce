@@ -59,7 +59,13 @@ function FeaturedItem() {
                   <div className="itembackground-body">
                     <img
                       className="itemimage-first hide-bg"
-                      src={productInfo[0].image}
+                      src={
+                        productInfo[0].image.includes("https")
+                          ? productInfo[0].image
+                          : `${import.meta.env.VITE_IMAGE_CLOUD_DIRECTION}/${
+                              productInfo[0].image
+                            }`
+                      }
                       alt="Cloud Stinger 2 Wireless image"
                     />
                   </div>
@@ -76,7 +82,13 @@ function FeaturedItem() {
                     <div className="second-itembackground-body">
                       <img
                         className="itemimage-second hide-bg"
-                        src={productInfo[13].image}
+                        src={
+                          productInfo[13].image.includes("https")
+                            ? productInfo[13].image
+                            : `${import.meta.env.VITE_IMAGE_CLOUD_DIRECTION}/${
+                                productInfo[13].image
+                              }`
+                        }
                         alt="Pulsefire Haste image"
                       />
                     </div>
