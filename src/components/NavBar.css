@@ -68,7 +68,6 @@
   border: none;
   border-radius: 0;
   padding: 24px 0;
-  pointer-events: none;
   text-decoration: none;
 }
 #responsive-navbar-nav .dropdown div ul li:not(:last-child) {
