@@ -38,7 +38,10 @@ function Header() {
               to="/products/hyperx-cloud-iii-gaming-headset"
               className="shopLink"
             >
-              SHOP NOW
+              <span>SHOP NOW</span>
+              <span className="d-inline-block" id="arrow">
+                <ArrowIcon />
+              </span>
             </Link>
           </div>
         </div>
