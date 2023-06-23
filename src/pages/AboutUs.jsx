@@ -22,7 +22,7 @@ function AboutUs() {
               transition-style="in:wipe:down"
             >
               <h1 className="text-centered pt-4">About this project</h1>
-              <p className="text-justified pb-4" style={{ fontSize: "0.9rem" }}>
+              <p className="text-justified pb-4">
                 Durante las últimas tres semanas del Coding Bootcamp de Hack
                 Academy, un curso intensivo de más de 600 horas de trabajo, se
                 desarrolló HyperX, nuestro proyecto de e-commerce. Inspirado por
@@ -46,7 +46,7 @@ function AboutUs() {
         <div id="technologies" className="mb-5">
           <h2 className="mb-3">Technologies</h2>
           <div className="d-flex justify-content-center">
-            <ul className="d-flex flex-wrap justify-content-lg-between mx-4">
+            <ul className="d-flex flex-wrap justify-content-lg-between justify-content-evenly mx-4">
               <li className="me-3 me-lg-0 mb-3">
                 <img src={reactIcon} alt="React Icon" />
                 <span>React</span>

@@ -1,3 +1,7 @@
+.product-link:hover {
+  color: #e01637;
+}
+
 .item-card {
   /* width: 320px;*/
   height: 400px;
