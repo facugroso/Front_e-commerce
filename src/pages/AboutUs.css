@@ -1,5 +1,6 @@
 #about_header {
-  background: url("https://cdn.shopify.com/s/files/1/0561/8345/5901/files/collabs-homepage-ducky2.jpg?v=7514170502004170002");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://cdn.shopify.com/s/files/1/0561/8345/5901/files/collabs-homepage-ducky2.jpg?v=7514170502004170002");
   background-repeat: no-repeat;
   background-size: cover;
   color: #ffffff;

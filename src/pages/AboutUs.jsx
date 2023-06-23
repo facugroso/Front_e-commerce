@@ -46,7 +46,7 @@ function AboutUs() {
         <div id="technologies" className="mb-5">
           <h2 className="mb-3">Technologies</h2>
           <div className="d-flex justify-content-center">
-            <ul className="d-flex flex-wrap justify-content-lg-between mx-4">
+            <ul className="d-flex flex-wrap justify-content-lg-between justify-content-evenly mx-4">
               <li className="me-3 me-lg-0 mb-3">
                 <img src={reactIcon} alt="React Icon" />
                 <span>React</span>
