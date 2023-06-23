@@ -46,8 +46,6 @@
 #team i:hover {
   color: #e01637;
 }
-#team:hover {
-}
 
 @media screen and (min-width: 992px) {
   #about_header {

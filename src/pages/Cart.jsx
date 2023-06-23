@@ -55,7 +55,13 @@ function Cart() {
                     <div className=" no-margin  d-flex align-items-center ">
                       <div className="image py-3">
                         <img
-                          src={item.image}
+                          src={
+                            item.image.includes("https")
+                              ? item.image
+                              : `${
+                                  import.meta.env.VITE_IMAGE_CLOUD_DIRECTION
+                                }/${item.image}`
+                          }
                           alt={`imagen ${item.name}`}
                           className="productCart border"
                         />

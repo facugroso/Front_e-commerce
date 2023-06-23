@@ -61,8 +61,14 @@ function CartOffCanvas({ ...placement }) {
                   <div className="row no-margin bg-grey" key={item.id}>
                     <div className="col">
                       <img
-                        className="img-fluid border"
-                        src={item.image}
+                        className="img-fluid border mb-3"
+                        src={
+                          item.image.includes("https")
+                            ? item.image
+                            : `${import.meta.env.VITE_IMAGE_CLOUD_DIRECTION}/${
+                                item.image
+                              }`
+                        }
                         alt="imagen del producto"
                       />{" "}
                     </div>
