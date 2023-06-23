@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ArrowIcon from "../../assets/icons/ArrowIcon";
 import "./Header.css";
 
 function Header() {
@@ -17,7 +18,10 @@ function Header() {
                 to="/products/hyperx-cloud-iii-gaming-headset"
                 className="shopLink"
               >
-                SHOP NOW
+                <span>SHOP NOW</span>
+                <span className="d-inline-block" id="arrow">
+                  <ArrowIcon />
+                </span>
               </Link>
             </div>
             <div className="divShape"></div>
