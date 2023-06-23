@@ -21,7 +21,7 @@ function Category() {
     }
     getCategory();
     window.scrollTo(0, 0);
-  }, []);
+  }, [category]);
 
   useEffect(() => {
     async function getProducts() {
@@ -32,7 +32,7 @@ function Category() {
       setProducts(response.data);
     }
     getProducts();
-  }, []);
+  }, [products]);
 
   return (
     <>
