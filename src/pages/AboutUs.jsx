@@ -23,7 +23,7 @@ function AboutUs() {
               transition-style="in:wipe:down"
             >
               <h1 className="text-centered pt-4">About this project</h1>
-              <p className="text-justified pb-4" style={{ fontSize: "0.9rem" }}>
+              <p className="text-justified pb-4">
                 Durante las últimas tres semanas del Coding Bootcamp de Hack
                 Academy, un curso intensivo de más de 600 horas de trabajo, se
                 desarrolló HyperX, nuestro proyecto de e-commerce. Inspirado por
