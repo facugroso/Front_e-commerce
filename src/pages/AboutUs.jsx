@@ -22,16 +22,13 @@ function AboutUs() {
               transition-style="in:wipe:down"
             >
               <h1 className="text-centered pt-4">About this project</h1>
-              <p className="text-justified pb-4">
+              <p className="text-justified pb-4" style={{ fontSize: "0.9rem" }}>
                 Durante las últimas tres semanas del Coding Bootcamp de Hack
                 Academy, un curso intensivo de más de 600 horas de trabajo, se
                 desarrolló HyperX, nuestro proyecto de e-commerce. Inspirado por
                 la amplia disponibilidad de productos y la demanda en el
                 mercado, decidimos tomar como base una tienda de accesorios para
-                gaming.
-              </p>
-              <p>
-                HyperX se compone de una tienda en línea, un área de
+                gaming. HyperX se compone de una tienda en línea, un área de
                 administración y un servidor back-end. La tienda, una aplicación
                 React con Redux, permite a los usuarios realizar compras y se
                 comunica con el servidor utilizando Axios. El área de
