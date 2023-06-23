@@ -78,7 +78,7 @@ function Product() {
               <div className="row">
                 <div className="col-12 col-sm-6">
                   <h2 className="mb-2 fs-2 modelTitle fw-bolder">
-                    {product.descriptiontitle}
+                    {product.descriptionTitle}
                   </h2>
                   <p className="description">{product.description}</p>
                 </div>
