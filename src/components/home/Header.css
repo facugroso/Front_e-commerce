@@ -1,3 +1,7 @@
+#boxMin {
+  display: none;
+}
+
 .main {
   background-image: url("https://i.postimg.cc/mZc1vdpH/350527767-594345085873632-6165591538970085980-n.png");
   background-size: cover;
@@ -41,4 +45,14 @@
 .modelSubtitle {
   font-family: "RBNo3.1";
   font-size: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  #boxMin {
+    display: block !important;
+    background-color: #f7f7f7;
+  }
+  #boxMax {
+    display: none !important;
+  }
 }

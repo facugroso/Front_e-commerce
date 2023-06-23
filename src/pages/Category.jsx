@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Category.css";
@@ -9,7 +8,6 @@ function Category() {
   const params = useParams();
   const [category, setCategory] = useState();
   const [products, setProducts] = useState();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     async function getCategory() {
@@ -86,7 +84,14 @@ function Category() {
                                         <div>
                                           <img
                                             className="img-fluid product-image"
-                                            src={item.image}
+                                            src={
+                                              item.image.includes("https")
+                                                ? item.image
+                                                : `${
+                                                    import.meta.env
+                                                      .VITE_IMAGE_CLOUD_DIRECTION
+                                                  }/${item.image}`
+                                            }
                                             alt={`${item.name} image`}
                                           />
                                         </div>

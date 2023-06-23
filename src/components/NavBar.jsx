@@ -53,7 +53,7 @@ function NavBar() {
                     <div className="col-lg-6">
                       <ul>
                         <li>
-                          <Link to="/">
+                          <Link to="/categories/gaming-headsets">
                             <span>
                               <span className="category_icon">
                                 <img src="https://row.hyperx.com/cdn/shop/files/icon_headset.svg?v=16078609973338147091" />
@@ -66,7 +66,7 @@ function NavBar() {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/categories/gaming-keyboards">
                             <span>
                               <span className="category_icon">
                                 <img src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/icon_keyboard.svg?v=12269105994828386092" />
@@ -80,7 +80,7 @@ function NavBar() {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/categories/mouse-pads">
                             <span>
                               <span className="category_icon">
                                 <img src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/icon_pad.svg?v=1172903177911721644" />
@@ -94,7 +94,7 @@ function NavBar() {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/categories/gaming-controllers">
                             <span>
                               <span className="category_icon">
                                 <img src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/icon_controllers.svg?v=12197799583205238205" />
@@ -113,7 +113,7 @@ function NavBar() {
                       <ul>
                         {" "}
                         <li>
-                          <Link to="/">
+                          <Link to="/categories/gaming-monitors">
                             <span>
                               <span className="category_icon">
                                 <img src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/icon_monitors.svg?v=3743156472970974482" />
@@ -127,7 +127,7 @@ function NavBar() {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/categories/microphone">
                             <span>
                               <span className="category_icon">
                                 <img src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/icon_microphone.svg?v=9939938472022010292" />
@@ -141,7 +141,7 @@ function NavBar() {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/categories/gaming-mice">
                             <span>
                               <span className="category_icon">
                                 <img src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/icon_mice.svg?v=5195900237465443670" />
@@ -155,7 +155,7 @@ function NavBar() {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/">
+                          <Link to="/categories/all-categories">
                             <span>
                               <span className="category_icon">
                                 <img src="https://cdn.shopify.com/s/files/1/0561/8345/5901/files/icon_categories.svg?v=10674281858682028349" />

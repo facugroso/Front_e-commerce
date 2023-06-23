@@ -53,7 +53,13 @@ function TopCategories() {
                     <div>
                       <img
                         className="img-fluid categoryImage"
-                        src={category.image}
+                        src={
+                          category.image.includes("https")
+                            ? category.image
+                            : `${import.meta.env.VITE_IMAGE_CLOUD_DIRECTION}/${
+                                category.image
+                              }`
+                        }
                         alt={`${category.name} image`}
                       />
                     </div>
@@ -92,7 +98,13 @@ function TopCategories() {
                     <div>
                       <img
                         className="img-fluid categoryImage"
-                        src={category.image}
+                        src={
+                          category.image.includes("https")
+                            ? category.image
+                            : `${import.meta.env.VITE_IMAGE_CLOUD_DIRECTION}/${
+                                category.image
+                              }`
+                        }
                         alt={`${category.name} image`}
                       />
                     </div>
