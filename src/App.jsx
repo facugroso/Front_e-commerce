@@ -1,4 +1,5 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Home from "./pages/Home";
 import "./App.css";
 import Product from "./pages/Product";
@@ -17,6 +18,7 @@ function App() {
   const location = useLocation();
   const hideComponents = ["/login", "/register"];
   const hideFooterAndNavBar = !hideComponents.includes(location.pathname);
+  const user = useSelector((state) => state.user);
   return (
     <>
       {hideFooterAndNavBar && <NavBar />}
@@ -28,7 +30,16 @@ function App() {
         <Route path="/categories/:slug" element={<Category />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Login />} />
-        <Route path="/checkout" element={<CheckOut />} />
+        <Route
+          path="/checkout"
+          element={
+            user && user.token ? (
+              <CheckOut />
+            ) : (
+              <Navigate to="/login" replace={true} />
+            )
+          }
+        />
         <Route path="*" element={<Err404 />} />
       </Routes>
       {hideFooterAndNavBar && <Footer />}

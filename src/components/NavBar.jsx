@@ -7,27 +7,42 @@ import SearchIcon from "../assets/icons/SearchIcon";
 import BagIcon from "../assets/icons/BagIcon";
 import Logo from "../assets/icons/Logo";
 import ArrowIcon from "../assets/icons/ArrowIcon";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/userSlice";
 
 function NavBar() {
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
+  const user = useSelector((state) => state.user);
   const showDropdown = () => {
     setShow(!show);
   };
   const hideDropdown = () => {
     setShow(false);
   };
+
   return (
     <>
       <div id="announcement_bar">
         <Container>
           <Row>
             <Col className="d-flex justify-content-end">
-              <Link to="/login">
-                <span>Login</span>
-              </Link>
-              <Link to="/register">
-                <span>Register</span>
-              </Link>
+              {!user ? (
+                <>
+                  <Link to="/login">
+                    <span>Login</span>
+                  </Link>
+                  <Link to="/register">
+                    <span>Register</span>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link>
+                    <span onClick={() => dispatch(logout())}>Log out</span>
+                  </Link>
+                </>
+              )}
             </Col>
           </Row>
         </Container>

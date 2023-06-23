@@ -55,12 +55,9 @@ function Login() {
       method: "POST",
       url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/users`,
       data: userData,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
     });
 
-    await handleLogin(event, emailValue);
+    await handleLogin(event);
   }
 
   return (

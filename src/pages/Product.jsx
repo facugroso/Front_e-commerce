@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import axios from "axios";
 
 import AddToCartButton from "../components/AddToCartButton";
@@ -9,9 +8,7 @@ import AddToCartButton from "../components/AddToCartButton";
 import "./Product.css";
 
 function Product() {
-  const dispatch = useDispatch();
   const params = useParams();
-  const [over, setOver] = useState(false);
   const [product, setProduct] = useState();
   const [img, setImg] = useState();
 

@@ -1,6 +1,14 @@
 .check-out-product img {
   max-height: 6rem;
 }
+#buy {
+  background-color: #c8102e;
+  color: white;
+}
+#buy:hover {
+  background-color: #ac0e28;
+  color: white;
+}
 ul {
   list-style: none;
 }
