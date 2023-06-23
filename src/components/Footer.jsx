@@ -77,7 +77,7 @@ function Footer() {
       <div className="pt-5 footer-background">
         <div className="container">
           <div className="row">
-            <div className="col-2">
+            <div className="col-md-2">
               <h5 className="fs-5 fw-bold modelSubtitle">Suport</h5>
               <section className="description">
                 <p>Product Suport</p>
@@ -87,12 +87,9 @@ function Footer() {
                 <p>HP/HYPERX Visual Content Terms of Use</p>
               </section>
             </div>
-            <div className="col-2">
+            <div className="col-md-2">
               <h5 className="fs-5 fw-bold modelSubtitle">Company</h5>
-              <section
-                //   style={{ fontFamily: "Proxima Nova" }}
-                className="description"
-              >
+              <section className="description">
                 <p>About HyperX</p>
                 <p>About HP</p>
                 <p>Careers</p>
@@ -107,7 +104,7 @@ function Footer() {
                 <p>Refund policy</p>
               </section>
             </div>
-            <div className="col-2">
+            <div className="col-md-2">
               <h5 className="fs-5 fw-bold modelSubtitle">Other Resource</h5>
               <section className="description">
                 <p>NGENUITY Software</p>
@@ -116,7 +113,7 @@ function Footer() {
                 <p>Student Discount</p>
               </section>
             </div>
-            <div className="col-6">
+            <div className="col-md-6">
               <div className="d-flex justify-content-end">
                 <div className="footer-logo">
                   <img width={210} src={Logo} alt="" />
