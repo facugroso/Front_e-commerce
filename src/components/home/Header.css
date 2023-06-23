@@ -42,3 +42,17 @@
   font-family: "RBNo3.1";
   font-size: 1.2rem;
 }
+.shopLink:hover span {
+  color: #e01637;
+}
+.shopLink #arrow {
+  transition: transform 0.2s linear;
+  margin-left: 0.5rem;
+  transform: rotate(0);
+}
+.shopLink:hover #arrow {
+  transform: rotate(45deg);
+}
+.shopLink:hover span .icon {
+  fill: #e01637;
+}
