@@ -44,8 +44,8 @@ function Category() {
         <>
           <section>
             <div className="text-center mt-5">
-              <Link to="/" className="product-link">
-                Home
+              <Link to="/">
+                <span className="product-link">Home</span>
               </Link>
               <span> / {category.name}</span>
             </div>
