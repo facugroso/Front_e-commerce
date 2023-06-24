@@ -118,17 +118,17 @@ function CartOffCanvas({ ...placement }) {
             </div>
             <div className="d-flex justify-content-evenly mt-4">
               <Link to="/cart">
-                <div className="view-bag px-3" onClick={handleClose}>
+                <div id="view-bag" className="px-3" onClick={handleClose}>
                   <span className="me-5">VIEW BAG</span>
-                  <span>
+                  <span className="bag-arrow">
                     <ArrowIcon />
                   </span>
                 </div>
               </Link>
               <Link to="/checkout">
-                <div className="check-out px-3">
+                <div id="check-out" className="px-3">
                   <span className="me-5">CHECKOUT</span>
-                  <span>
+                  <span className="check-out-arrow">
                     <ArrowIcon />
                   </span>
                 </div>

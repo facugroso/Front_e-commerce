@@ -11,7 +11,7 @@
   transition: transform 0.2s linear !important;
 }
 
-.add-to-cart-arrow:hover {
+#add-to-cart:hover .add-to-cart-arrow {
   transform: rotate(45deg) !important;
 }
 
