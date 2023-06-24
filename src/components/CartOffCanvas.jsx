@@ -54,7 +54,9 @@ function CartOffCanvas({ ...placement }) {
     <>
       <Offcanvas show={show} onHide={handleClose} {...placement}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>My Bag</Offcanvas.Title>
+          <Offcanvas.Title>
+            <span className="my-bag">My Bag</span>
+          </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <div>
@@ -78,7 +80,9 @@ function CartOffCanvas({ ...placement }) {
                       />
                     </div>
                     <div className="col">
-                      <span className="fw-bold d-block">{item.name}</span>
+                      <span className="fw-bold d-block item-name">
+                        {item.name}
+                      </span>
                       <p>${item.totalPrice}</p>
                       <div className="d-flex justify-content-between">
                         <div className="d-flex border fs-5 fw-semibold">
@@ -110,7 +114,7 @@ function CartOffCanvas({ ...placement }) {
           <div className="mt-3">
             <div className="d-flex justify-content-end align-items-end me-3">
               <span className="me-2 fw-semibold">Subtotal:</span>
-              <span className="fw-bold fs-4">${subTotal}</span>
+              <span className="fs-4 price-tag">${subTotal}</span>
             </div>
             <div className="d-flex justify-content-evenly mt-4">
               <Link to="/cart">

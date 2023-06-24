@@ -1,6 +1,16 @@
-/* .card-container {
-  background-color: red;
-} */
-.card-container .icon {
+.credit-card-container .icon {
   padding: 0px 3px 0px 3px;
+  width: 40px;
+  height: 40px;
+}
+.credit-card-container .chat-bubble {
+  width: 80px;
+  height: 90px;
+}
+.credit-card-container p {
+  font-size: 12px;
+}
+.chat-bubble path,
+.chat-bubble circle {
+  fill: #c8102e;
 }

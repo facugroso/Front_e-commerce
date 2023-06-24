@@ -5,19 +5,31 @@ import Meta from "../assets/icons/CardIcons/Meta";
 import Gpay from "../assets/icons/CardIcons/Gpay";
 import MasterCard from "../assets/icons/CardIcons/MasterCard";
 import Visa from "../assets/icons/CardIcons/Visa";
+import ChatBubble from "../assets/icons/ChatBubble";
 
 import "./CardIconsOffCanvas.css";
 
 function CardIconsOffCanvas() {
   return (
-    <div className="card-container">
-      <Amex />
-      <ApplePay />
-      <Discover />
-      <Meta />
-      <Gpay />
-      <MasterCard />
-      <Visa />
+    <div className="credit-card-container row mt-3">
+      <div className="text-center col-9 p-0">
+        <span>
+          <Amex />
+          <ApplePay />
+          <Discover />
+          <Meta />
+          <Gpay />
+          <MasterCard />
+          <Visa />
+        </span>
+        <p className="ms-4">
+          Shipping, taxes, and discounts calculated at checkout. Orders will be
+          processed in USD.
+        </p>
+      </div>
+      <div className="col p-0">
+        <ChatBubble />
+      </div>
     </div>
   );
 }

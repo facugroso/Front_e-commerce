@@ -23,8 +23,6 @@ function AddToCartButton({ product }) {
         type="button"
         className="d-flex justify-content-between p-3 w-100"
         id="add-to-cart"
-        onMouseOver={() => setOver(true)}
-        onMouseLeave={() => setOver(false)}
         onClick={() => {
           handleShow(), handleAddToCart(product);
         }}

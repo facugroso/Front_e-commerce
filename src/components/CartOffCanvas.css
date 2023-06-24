@@ -4,10 +4,12 @@
 .view-bag {
   border: 1px solid black;
   padding: 10px 5px 10px 5px;
+  font-family: "RBNo3.1";
 }
 .view-bag:hover {
   border-color: #e01637;
   color: #e01637;
+  font-family: "RBNo3.1";
 }
 .check-out {
   background-color: #c8102e;
@@ -19,4 +21,14 @@
 }
 .check-out .icon {
   fill: white;
+}
+.item-name {
+  font-size: 13px;
+  font-family: "Figtree";
+}
+.my-bag {
+  font-family: "RBNo3.1";
+}
+.price-tag {
+  font-family: "RBNo3.1";
 }
