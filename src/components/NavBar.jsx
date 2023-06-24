@@ -192,7 +192,7 @@ function NavBar() {
                 </div>
               </NavDropdown>
               <Nav.Link href="/products">CLOUD III</Nav.Link>
-              <Nav.Link href="/about-us">About</Nav.Link>
+              <Nav.Link href="/about-us">About this project</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <Nav>

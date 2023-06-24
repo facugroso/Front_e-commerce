@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Err404 from "./pages/Err404";
 import Category from "./pages/Category";
 import CheckOut from "./pages/CheckOut";
+import AllCategories from "./pages/AllCategories";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/categories/:slug" element={<Category />} />
+        <Route path="/categories/all-categories" element={<AllCategories />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Login />} />
         <Route
