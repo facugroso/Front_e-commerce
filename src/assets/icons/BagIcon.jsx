@@ -1,9 +1,12 @@
 import CartOffCanvas from "../../components/CartOffCanvas";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setShow } from "../../redux/offCanvasSlice";
+
+import "./BagIcon.css";
 
 function BagIcon() {
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
 
   const handleShow = () => {
     dispatch(setShow(true));
@@ -21,6 +24,13 @@ function BagIcon() {
           stroke="currentColor"
         ></path>
       </svg>
+      {cart.length !== 0 ? (
+        <>
+          <span className="cart-number">{cart.length}</span>
+        </>
+      ) : (
+        <></>
+      )}
       <CartOffCanvas placement="end" />
     </>
   );

@@ -1,0 +1,22 @@
+.cart-offcanvas-actions {
+  background-color: #f7f7f7;
+}
+.view-bag {
+  border: 1px solid black;
+  padding: 10px 5px 10px 5px;
+}
+.view-bag:hover {
+  border-color: #e01637;
+  color: #e01637;
+}
+.check-out {
+  background-color: #c8102e;
+  color: white;
+  padding: 11px 5px 11px 5px;
+}
+.check-out:hover {
+  background-color: #ac0e28;
+}
+.check-out .icon {
+  fill: white;
+}
