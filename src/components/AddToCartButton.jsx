@@ -1,13 +1,13 @@
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setShow } from "../redux/offCanvasSlice";
 import { addToCart } from "../redux/cartSlice";
+
+import ArrowIcon from "../assets/icons/ArrowIcon";
 
 import "./AddToCartButton.css";
 
 function AddToCartButton({ product }) {
   const dispatch = useDispatch();
-  const [over, setOver] = useState(false);
 
   const handleShow = () => {
     dispatch(setShow(true));
@@ -30,7 +30,9 @@ function AddToCartButton({ product }) {
         }}
       >
         <span className="description">Add to cart</span>
-        <i className={over ? "bi bi-bag-plus" : "bi bi-bag"}></i>
+        <span className="add-to-cart-arrow">
+          <ArrowIcon />
+        </span>
       </span>
     </>
   );

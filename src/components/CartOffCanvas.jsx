@@ -10,6 +10,10 @@ import {
 } from "../redux/cartSlice";
 import { Link } from "react-router-dom";
 
+import CardIconsOffCanvas from "./CardIconsOffCanvas";
+import ArrowIcon from "../assets/icons/ArrowIcon";
+import "./CartOffCanvas.css";
+
 function CartOffCanvas({ ...placement }) {
   const cart = useSelector((state) => state.cart);
   const show = useSelector((state) => state.offcanvas);
@@ -45,6 +49,7 @@ function CartOffCanvas({ ...placement }) {
   const handleRemove = (item) => {
     dispatch(removeFromCart(item));
   };
+
   return (
     <>
       <Offcanvas show={show} onHide={handleClose} {...placement}>
@@ -70,18 +75,18 @@ function CartOffCanvas({ ...placement }) {
                               }`
                         }
                         alt="imagen del producto"
-                      />{" "}
+                      />
                     </div>
                     <div className="col">
                       <span className="fw-bold d-block">{item.name}</span>
-                      <p>{item.totalPrice}</p>
+                      <p>${item.totalPrice}</p>
                       <div className="d-flex justify-content-between">
-                        <div className="d-flex border">
+                        <div className="d-flex border fs-5 fw-semibold">
                           <i
                             className="bi bi-dash"
                             onClick={() => handleDecrement(item)}
                           ></i>
-                          <p className="d-block px-3 m-0"> {item.quantity}</p>
+                          <p className="d-block px-3 m-0">{item.quantity}</p>
                           <i
                             className="bi bi-plus"
                             onClick={() => handleIncrement(item)}
@@ -89,7 +94,7 @@ function CartOffCanvas({ ...placement }) {
                         </div>
                         <div>
                           <i
-                            className="bi bi-trash3"
+                            className="bi bi-trash3 me-2"
                             onClick={() => handleRemove(item)}
                           ></i>
                         </div>
@@ -99,25 +104,35 @@ function CartOffCanvas({ ...placement }) {
                 ))}
               </>
             )}
-
-            <div className="mt-3">
-              <span className="d-flex">{`Sub Total: ${subTotal}`}</span>
+          </div>
+        </Offcanvas.Body>
+        <div className="cart-offcanvas-actions mb-3">
+          <div className="mt-3">
+            <div className="d-flex justify-content-end align-items-end me-3">
+              <span className="me-2 fw-semibold">Subtotal:</span>
+              <span className="fw-bold fs-4">${subTotal}</span>
+            </div>
+            <div className="d-flex justify-content-evenly mt-4">
               <Link to="/cart">
-                <button
-                  className="btn btn-light border w-50"
-                  onClick={handleClose}
-                >
-                  VIEW BAG
-                </button>
+                <div className="view-bag px-3" onClick={handleClose}>
+                  <span className="me-5">VIEW BAG</span>
+                  <span>
+                    <ArrowIcon />
+                  </span>
+                </div>
               </Link>
               <Link to="/checkout">
-                <button className="btn btn-danger border w-50">
-                  CHECK OUT
-                </button>
+                <div className="check-out px-3">
+                  <span className="me-5">CHECKOUT</span>
+                  <span>
+                    <ArrowIcon />
+                  </span>
+                </div>
               </Link>
             </div>
           </div>
-        </Offcanvas.Body>
+          <CardIconsOffCanvas />
+        </div>
       </Offcanvas>
     </>
   );

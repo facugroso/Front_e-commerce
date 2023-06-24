@@ -4,5 +4,25 @@
 }
 #add-to-cart:hover {
   background-color: #ac0e28;
-  color: white;
+}
+.add-to-cart-arrow {
+  margin-left: auto;
+  transform: rotate(0) !important;
+  transition: transform 0.2s linear !important;
+}
+
+.add-to-cart-arrow:hover {
+  transform: rotate(45deg) !important;
+}
+
+.add-to-cart-arrow:hover .icon {
+  fill: #ffffff;
+}
+
+.add-to-cart-arrow .icon {
+  display: inline-block;
+  fill: #ffffff;
+  height: 24px;
+  vertical-align: middle;
+  width: 24px;
 }
