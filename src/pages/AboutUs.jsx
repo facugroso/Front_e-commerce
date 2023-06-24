@@ -87,7 +87,7 @@ function AboutUs() {
           <h2 className="mb-3">Team</h2>
           <div className="row">
             <div className="col-lg-3 col-md-6">
-              <img width={250} src={FacundoGroso} alt="" />
+              <img width={250} src={Avatar1} alt="" />
               <h6>Facundo Groso</h6>
               <Link>
                 <i className="bi bi-linkedin"></i>
