@@ -12,7 +12,10 @@ import "./Footer.css";
 function Footer() {
   return (
     <>
-      <div className="pt-5 pb-4 bg-black text-white text-center footer">
+      <div
+        id="footer"
+        className="pt-5 pb-4 bg-black text-white text-center footer"
+      >
         <div className="container footer-container">
           <h4 className="modelSubtitle fs-4">
             Join the #HyperXFamily on social!
