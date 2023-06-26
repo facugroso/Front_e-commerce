@@ -11,3 +11,21 @@ a {
   text-decoration: none !important ;
   color: black !important;
 }
+#check-out-cart {
+  background-color: #c8102e;
+  padding: 5px 8px 5px 8px;
+  color: white;
+  font-family: "RBNo3.1";
+}
+#check-out-cart:hover {
+  background-color: #ac0e28;
+}
+#check-out-cart .icon {
+  fill: white;
+  margin-left: auto;
+  transform: rotate(0) !important;
+  transition: transform 0.2s linear !important;
+}
+#check-out-cart:hover .icon {
+  transform: rotate(45deg) !important;
+}

@@ -9,10 +9,14 @@ import ChatBubble from "../assets/icons/ChatBubble";
 
 import "./CardIconsOffCanvas.css";
 
-function CardIconsOffCanvas() {
+function CardIconsOffCanvas({ showChat }) {
   return (
     <div className="credit-card-container row mt-3">
-      <div className="text-center col-9 p-0">
+      <div
+        className={
+          !showChat ? "text-center col-12 p-0" : "text-center col-9 p-0"
+        }
+      >
         <span>
           <Amex />
           <ApplePay />
@@ -27,9 +31,15 @@ function CardIconsOffCanvas() {
           processed in USD.
         </p>
       </div>
-      <div className="col p-0">
-        <ChatBubble />
-      </div>
+      {!showChat ? (
+        <></>
+      ) : (
+        <>
+          <div className="col p-0">
+            <ChatBubble />
+          </div>
+        </>
+      )}
     </div>
   );
 }
