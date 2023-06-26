@@ -15,6 +15,7 @@ import AllCategories from "./pages/AllCategories";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import InfoUser from "./pages/InfoUser";
+import AboutUSButton from "./components/AboutUSButton";
 
 function App() {
   const location = useLocation();
@@ -26,6 +27,7 @@ function App() {
       {hideFooterAndNavBar && <NavBar />}
       <Routes>
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/about-us" element={<AboutUSButton />} />
         <Route path="/products/:slug" element={<Product />} />
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />

@@ -11,8 +11,8 @@ function InfoUser() {
         <div className="info-user">
           <p className="border">{user.dataValues.firstname}</p>
           <p className="border">{user.dataValues.lastname}</p>
-          <p className="border ">{user.dataValues.email}</p>
-          <p className="border ">{user.dataValues.phone}</p>
+          <p className="border">{user.dataValues.email}</p>
+          <p className="border">{user.dataValues.phone}</p>
         </div>
       </div>
     </>

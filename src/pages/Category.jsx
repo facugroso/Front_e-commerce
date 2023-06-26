@@ -20,7 +20,6 @@ function Category() {
       setCategory(res.data);
     }
     getCategory();
-    window.scrollTo(0, 0);
   }, [category]);
 
   useEffect(() => {
