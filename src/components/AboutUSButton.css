@@ -1,0 +1,9 @@
+.link-lateral {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 999;
+  transform: rotate(270deg);
+  left: -60px;
+  top: 300px;
+}

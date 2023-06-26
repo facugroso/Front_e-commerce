@@ -25,6 +25,7 @@ function App() {
   return (
     <>
       {hideFooterAndNavBar && <NavBar />}
+      <AboutUSButton />
       <Routes>
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/about-us" element={<AboutUSButton />} />
