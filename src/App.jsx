@@ -12,6 +12,7 @@ import Err404 from "./pages/Err404";
 import Category from "./pages/Category";
 import CheckOut from "./pages/CheckOut";
 import AllCategories from "./pages/AllCategories";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import InfoUser from "./pages/InfoUser";
@@ -24,31 +25,36 @@ function App() {
   const user = useSelector((state) => state.user);
   return (
     <>
-      {hideFooterAndNavBar && <NavBar />}
-      <Routes>
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/about-us" element={<AboutUSButton />} />
-        <Route path="/products/:slug" element={<Product />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/categories/:slug" element={<Category />} />
-        <Route path="/categories/all-categories" element={<AllCategories />} />
-        <Route path="/user-info" element={<InfoUser />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Login />} />
-        <Route
-          path="/checkout"
-          element={
-            user && user.token ? (
-              <CheckOut />
-            ) : (
-              <Navigate to="/login" replace={true} />
-            )
-          }
-        />
-        <Route path="*" element={<Err404 />} />
-      </Routes>
-      {hideFooterAndNavBar && <Footer />}
+      <ParallaxProvider>
+        {hideFooterAndNavBar && <NavBar />}
+        <Routes>
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/about-us" element={<AboutUSButton />} />
+          <Route path="/products/:slug" element={<Product />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/categories/:slug" element={<Category />} />
+          <Route
+            path="/categories/all-categories"
+            element={<AllCategories />}
+          />
+          <Route path="/user-info" element={<InfoUser />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Login />} />
+          <Route
+            path="/checkout"
+            element={
+              user && user.token ? (
+                <CheckOut />
+              ) : (
+                <Navigate to="/login" replace={true} />
+              )
+            }
+          />
+          <Route path="*" element={<Err404 />} />
+        </Routes>
+        {hideFooterAndNavBar && <Footer />}
+      </ParallaxProvider>
     </>
   );
 }
