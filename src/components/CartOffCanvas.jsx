@@ -10,7 +10,7 @@ import {
 } from "../redux/cartSlice";
 import { Link } from "react-router-dom";
 
-import CardIconsOffCanvas from "./CardIconsOffCanvas";
+import CardIconsOffCanvas from "./CardIcons";
 import ArrowIcon from "../assets/icons/ArrowIcon";
 import "./CartOffCanvas.css";
 
@@ -135,7 +135,7 @@ function CartOffCanvas({ ...placement }) {
               </Link>
             </div>
           </div>
-          <CardIconsOffCanvas />
+          <CardIconsOffCanvas showChat={true} />
         </div>
       </Offcanvas>
     </>

@@ -7,6 +7,7 @@ import {
   decrementQuantity,
 } from "../redux/cartSlice";
 import ArrowIcon from "../assets/icons/ArrowIcon";
+import CardIconsOffCanvas from "../components/CardIcons";
 import { Link } from "react-router-dom";
 import "./Cart.css";
 
@@ -68,7 +69,7 @@ function Cart() {
                       </div>
                       <div className="px-3">
                         <p className="modelSubtitle fs-6">{item.name}</p>
-                        <p className="description">{item.totalPrice}</p>
+                        <p className="description">$ {item.totalPrice}</p>
                         <div className="d-flex justify-content-between">
                           <div className="d-flex border">
                             <i
@@ -97,18 +98,20 @@ function Cart() {
           )}
           <div className="col d-flex align-items-center justify-content-center ">
             <div className="bg-white text-center bg-body-tertiary p-5 w-75">
-              <span className="description">Subtotal:</span>
-              <span className="fs-5 modelSubtitle"> {subTotal}</span>
-              <button className="btn btn-danger rounded-0 w-100 mt-3">
-                <Link to="/checkout">
-                  <div className="d-flex justify-content-between p-1 description">
-                    <div>CHECKOUT</div>
-                    <div>
-                      <ArrowIcon />
-                    </div>
-                  </div>
-                </Link>
-              </button>
+              <span className="description">Subtotal: </span>
+              <span className="fs-5 modelSubtitle"> ${subTotal}</span>
+              <Link to="/checkout">
+                <div
+                  id="check-out-cart"
+                  className="d-flex justify-content-between"
+                >
+                  <span>CHECKOUT</span>
+                  <span>
+                    <ArrowIcon />
+                  </span>
+                </div>
+              </Link>
+              <CardIconsOffCanvas showChat={false} />
             </div>
           </div>
         </div>
