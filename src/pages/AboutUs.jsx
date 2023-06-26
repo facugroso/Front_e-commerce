@@ -8,7 +8,6 @@ import mysqlIcon from "../assets/icons/mysqlIcon.svg";
 import sequelizeIcon from "../assets/icons/sequelizeIcon.svg";
 import gitHubIcon from "../assets/icons/gitHubIcon.svg";
 import Avatar1 from "../assets/img/585e4bcdcb11b227491c3396.png";
-import FacundoGroso from "../assets/img/FacundoGroso.jpg";
 import Avatar2 from "../assets/img/585e4bc4cb11b227491c3395.png";
 import { Link } from "react-router-dom";
 
@@ -89,28 +88,28 @@ function AboutUs() {
             <div className="col-lg-3 col-md-6">
               <img width={250} src={Avatar1} alt="" />
               <h6>Facundo Groso</h6>
-              <Link>
+              <Link to="https://www.linkedin.com/in/facundogroso/">
                 <i className="bi bi-linkedin"></i>
               </Link>
             </div>
             <div className="col-lg-3 col-md-6">
               <img width={250} src={Avatar1} alt="" />
               <h6>Iván Paredes</h6>
-              <Link>
+              <Link to="https://www.linkedin.com/in/ivan-paredes-rostek/">
                 <i className="bi bi-linkedin"></i>
               </Link>
             </div>
             <div className="col-lg-3 col-md-6">
               <img width={250} src={Avatar1} alt="" />
               <h6>Guzmán García</h6>
-              <Link>
+              <Link to="https://www.linkedin.com/in/guzmangarciaj/">
                 <i className="bi bi-linkedin"></i>
               </Link>
             </div>
             <div className="col-lg-3 col-md-6">
               <img width={240} src={Avatar2} alt="" />
               <h6>Valentina Le Rose</h6>
-              <Link>
+              <Link to="https://www.linkedin.com/in/valentinalerose/">
                 <i className="bi bi-linkedin"></i>
               </Link>
             </div>
