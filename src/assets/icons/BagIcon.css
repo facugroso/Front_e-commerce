@@ -1,7 +1,10 @@
+.bag-icon {
+  position: relative;
+}
 .cart-number {
   position: absolute;
-  bottom: 13px;
-  right: 85px;
+  bottom: 0.8rem;
+  right: 5.3rem;
   background-color: #c8102e;
   color: white;
   border-radius: 50%;

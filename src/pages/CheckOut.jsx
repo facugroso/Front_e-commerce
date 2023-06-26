@@ -1,52 +1,20 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
-import axios from "axios";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-import { clearCart } from "../redux/cartSlice";
+import TimelineStatus from "../components/TimelineStatus";
+import ShippingAddress from "../components/ShippingAddress";
+import ShippingMethod from "../components/ShippingMethod";
 
 import "./CheckOut.css";
 
 function CheckOut() {
-  const dispatch = useDispatch();
-
   const cart = useSelector((state) => state.cart);
-  const user = useSelector((state) => state.user);
 
   const [subTotal, setSubTotal] = useState();
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [phone, setPhone] = useState("");
-  const [fullAddress, setFullAddress] = useState(null);
-  const [paymentData, setPaymentData] = useState(null);
-  const [paymentMethod, setPaymentMethod] = useState("");
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    await axios(
-      {
-        method: "POST",
-        url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/orders`,
-        data: {
-          firstname,
-          lastname,
-          address: fullAddress,
-          phone,
-          payment: paymentMethod,
-          paymentdata: paymentData,
-          products: cart,
-          status: "Pending",
-          userId: user.dataValues.id,
-        },
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      },
-      dispatch(clearCart()),
-      console.log("compraste")
-    );
-  }
+  const [checkoutStep, setCheckoutStep] = useState("information");
 
   useEffect(() => {
     const calculateSubTotal = () => {
@@ -62,202 +30,22 @@ function CheckOut() {
     calculateSubTotal();
   }, [cart]);
 
+  function handleNextClick() {
+    switch (checkoutStep) {
+      case "information":
+        return <ShippingAddress />;
+      case "shipping": {
+        return <ShippingMethod />;
+      }
+    }
+  }
   return (
     <div className="container">
+      <TimelineStatus />
       {cart.length !== 0 ? (
         <>
           <div className="row">
-            <div className="col">
-              <form method="POST" onSubmit={handleSubmit} className="mt-4">
-                <span className="fs-4 fw-bold">Shipping Address</span>
-                <div className="row">
-                  <div className="col">
-                    <input
-                      type="text"
-                      className="w-100 m-2"
-                      name="firstname"
-                      value={firstname}
-                      onChange={(event) => setFirstname(event.target.value)}
-                      placeholder="First Name"
-                      required
-                    ></input>
-                  </div>
-                  <div className="col">
-                    <input
-                      type="text"
-                      className="w-100 m-2"
-                      name="lastname"
-                      value={lastname}
-                      onChange={(event) => setLastname(event.target.value)}
-                      placeholder="Last Name"
-                      required
-                    ></input>
-                  </div>
-                </div>
-                <input
-                  type="text"
-                  className="w-100 m-2"
-                  name="address"
-                  onChange={(event) =>
-                    setFullAddress((prevState) => ({
-                      ...prevState,
-                      address: event.target.value,
-                    }))
-                  }
-                  placeholder="Address"
-                  required
-                ></input>
-                <div className="row">
-                  <div className="col">
-                    <input
-                      type="text"
-                      className="w-100 m-2"
-                      onChange={(event) =>
-                        setFullAddress((prevState) => ({
-                          ...prevState,
-                          city: event.target.value,
-                        }))
-                      }
-                      placeholder="City"
-                      required
-                    ></input>
-                  </div>
-                  <div className="col">
-                    <input
-                      type="text"
-                      className="w-100 m-2"
-                      placeholder="Zip Code"
-                      onChange={(event) =>
-                        setFullAddress((prevState) => ({
-                          ...prevState,
-                          zipcode: event.target.value,
-                        }))
-                      }
-                    ></input>
-                  </div>
-                </div>
-                <input
-                  type="text"
-                  className="w-100 m-2"
-                  name="phone"
-                  value={phone}
-                  onChange={(event) => setPhone(event.target.value)}
-                  placeholder="Phone"
-                ></input>
-                <span className="fs-4 fw-bold">Payment method</span>
-                <ul>
-                  <li>
-                    <input
-                      type="radio"
-                      name="payment-method"
-                      id="credit-card"
-                      value="credit-card"
-                      onClick={() => setPaymentMethod("Crédito")}
-                    ></input>
-                    <label className="ms-4">Credit card</label>
-                  </li>
-                  <li>
-                    <input
-                      type="radio"
-                      name="payment-method"
-                      id="paypal"
-                      value="paypal"
-                      onClick={() => setPaymentMethod("PayPal")}
-                    ></input>
-                    <label className="ms-4">Paypal</label>
-                  </li>
-                  <li>
-                    <input
-                      type="radio"
-                      name="payment-method"
-                      id="mercado-pago"
-                      value="mercado-pago"
-                      onClick={() => setPaymentMethod("MercadoPago")}
-                    ></input>
-                    <label className="ms-4">Mercado Pago</label>
-                  </li>
-                </ul>
-                {paymentMethod === "" ? (
-                  <></>
-                ) : (
-                  <div className="row">
-                    <div className="col">
-                      <input
-                        type="text"
-                        className="w-100 mb-2"
-                        placeholder="Card number"
-                        onChange={(event) =>
-                          setPaymentData((prevState) => ({
-                            ...prevState,
-                            cardNumber: event.target.value,
-                          }))
-                        }
-                        required
-                      ></input>
-                      <input
-                        type="text"
-                        className="w-100 mb-2"
-                        placeholder="First name"
-                        onChange={(event) =>
-                          setPaymentData((prevState) => ({
-                            ...prevState,
-                            firstname: event.target.value,
-                          }))
-                        }
-                        required
-                      ></input>
-                      <input
-                        type="text"
-                        className="w-100 mb-2"
-                        placeholder="Last name"
-                        onChange={(event) =>
-                          setPaymentData((prevState) => ({
-                            ...prevState,
-                            lastname: event.target.value,
-                          }))
-                        }
-                        required
-                      ></input>
-                      <input
-                        type="text"
-                        className="w-100 mb-2"
-                        placeholder="CI"
-                        onChange={(event) =>
-                          setPaymentData((prevState) => ({
-                            ...prevState,
-                            ci: event.target.value,
-                          }))
-                        }
-                        required
-                      ></input>
-                      <div className="d-flex">
-                        <input
-                          className="w-50 me-2"
-                          placeholder="Expiration date"
-                          type="month"
-                          min="2023-06"
-                          required
-                        ></input>
-                        <input
-                          className="w-50"
-                          placeholder="CVV"
-                          required
-                        ></input>
-                      </div>
-                    </div>
-                  </div>
-                )}
-                <div className="d-flex justify-content-end">
-                  <button
-                    type="submit"
-                    className="d-flex justify-content-end w-50 my-3 p-1 px-3"
-                    id="buy"
-                  >
-                    BUY
-                  </button>
-                </div>
-              </form>
-            </div>
+            {handleNextClick(checkoutStep)}
             <div className="col">
               {cart.map((item) => (
                 <div className="col check-out-product" key={item.id}>
@@ -281,7 +69,7 @@ function CheckOut() {
               ))}
               <div className="d-flex justify-content-between mt-4">
                 <span className="fw-semibold">Subtotal</span>
-                <span className="fw-bold">{subTotal}</span>
+                <span className="fw-bold">${subTotal}</span>
               </div>
               <div className="d-flex justify-content-between mb-4">
                 <span className="fw-semibold">Shipping</span>
@@ -289,7 +77,7 @@ function CheckOut() {
               </div>
               <div className="d-flex justify-content-between mb-2">
                 <span className="fw-bold">Total</span>
-                <span className="fw-bold">{subTotal}</span>
+                <span className="fs-2 fw-bold">${subTotal}</span>
               </div>
             </div>
           </div>

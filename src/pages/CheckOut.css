@@ -1,14 +1,54 @@
 .check-out-product img {
   max-height: 6rem;
 }
-#buy {
-  background-color: #c8102e;
+#continue-shipping {
+  background-color: #000000;
   color: white;
+  font-family: "RBNo3.1";
 }
-#buy:hover {
+#continue-shipping:hover {
   background-color: #ac0e28;
   color: white;
 }
-ul {
+ul,
+ol {
   list-style: none;
 }
+input {
+  border: none;
+  outline: none;
+}
+#return {
+  font-family: "RBNo3.1";
+}
+#return:hover {
+  color: #ac0e28;
+}
+.timeline-circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #bdc4d0;
+}
+.select-country {
+  border: none;
+  outline: none;
+}
+
+/* .placeholder-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: 0.2s ease-out;
+  color: gray;
+}
+
+input:not(:placeholder-shown) + .placeholder-label {
+  display: none;
+}
+
+input:focus + .placeholder-label {
+  display: none;
+} */
