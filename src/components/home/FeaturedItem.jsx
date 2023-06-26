@@ -3,6 +3,7 @@ import axios from "axios";
 import ArrowIcon from "../../assets/icons/ArrowIcon";
 import { Link } from "react-router-dom";
 import "./FeaturedItem.css";
+import { Parallax } from "react-scroll-parallax";
 
 function FeaturedItem() {
   const [productInfo, setProductInfo] = useState(null);
@@ -26,7 +27,9 @@ function FeaturedItem() {
               <div className="col-lg-7">
                 <div className="d-flex flex-column h-100 justify-content-center">
                   <div className="item-description">
-                    <p className="fw-semibold">Lorem ipsum dolor sit amet.</p>
+                    <p className="fw-semibold">
+                      {productInfo[0].descriptionTitle}
+                    </p>
                     <h2 className="fw-bold fs-1 modelTitle">
                       {productInfo[0].name}
                     </h2>
@@ -57,17 +60,19 @@ function FeaturedItem() {
                 <div className="background-container">
                   <div className="itembackground-top"></div>
                   <div className="itembackground-body">
-                    <img
-                      className="itemimage-first hide-bg"
-                      src={
-                        productInfo[0].image.includes("https")
-                          ? productInfo[0].image
-                          : `${import.meta.env.VITE_IMAGE_CLOUD_DIRECTION}/${
-                              productInfo[0].image
-                            }`
-                      }
-                      alt="Cloud Stinger 2 Wireless image"
-                    />
+                    <Parallax translateY={["-70px", "120px"]}>
+                      <img
+                        className="itemimage-first hide-bg"
+                        src={
+                          productInfo[0].image.includes("https")
+                            ? productInfo[0].image
+                            : `${import.meta.env.VITE_IMAGE_CLOUD_DIRECTION}/${
+                                productInfo[0].image
+                              }`
+                        }
+                        alt="Cloud Stinger 2 Wireless image"
+                      />
+                    </Parallax>
                   </div>
                   <div className="itembackground-bottom"></div>
                 </div>
@@ -80,17 +85,19 @@ function FeaturedItem() {
                   <div>
                     <div className="second-itembackground-top"></div>
                     <div className="second-itembackground-body">
-                      <img
-                        className="itemimage-second hide-bg"
-                        src={
-                          productInfo[13].image.includes("https")
-                            ? productInfo[13].image
-                            : `${import.meta.env.VITE_IMAGE_CLOUD_DIRECTION}/${
-                                productInfo[13].image
-                              }`
-                        }
-                        alt="Pulsefire Haste image"
-                      />
+                      <Parallax translateY={["-70px", "120px"]}>
+                        <img
+                          className="itemimage-second hide-bg"
+                          src={
+                            productInfo[13].image.includes("https")
+                              ? productInfo[13].image
+                              : `${
+                                  import.meta.env.VITE_IMAGE_CLOUD_DIRECTION
+                                }/${productInfo[13].image}`
+                          }
+                          alt="Pulsefire Haste image"
+                        />
+                      </Parallax>
                     </div>
                     <div className="second-itembackground-bottom"></div>
                   </div>
@@ -99,7 +106,10 @@ function FeaturedItem() {
                 <div className="col-lg-7">
                   <div className="d-flex flex-column h-100 justify-content-center second-item-description">
                     <div>
-                      <p className="fw-semibold">Lorem ipsum dolor sit amet.</p>
+                      <p className="fw-semibold">
+                        {" "}
+                        {productInfo[13].descriptionTitle}
+                      </p>
                       <h2 className="fw-bold fs-1 modelTitle">
                         {productInfo[13].name}
                       </h2>

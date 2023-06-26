@@ -22,3 +22,7 @@
 .footer-logo {
   filter: brightness(0.8);
 }
+
+#footer {
+  margin-top: 9rem !important;
+}
