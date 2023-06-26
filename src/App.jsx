@@ -14,6 +14,7 @@ import CheckOut from "./pages/CheckOut";
 import AllCategories from "./pages/AllCategories";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import InfoUser from "./pages/InfoUser";
 
 function App() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/categories/:slug" element={<Category />} />
         <Route path="/categories/all-categories" element={<AllCategories />} />
+        <Route path="/user-info" element={<InfoUser />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Login />} />
         <Route

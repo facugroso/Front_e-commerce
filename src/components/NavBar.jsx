@@ -5,6 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./NavBar.css";
 import SearchIcon from "../assets/icons/SearchIcon";
 import BagIcon from "../assets/icons/BagIcon";
+import UserInfo from "../assets/icons/UserInfo";
 import Logo from "../assets/icons/Logo";
 import ArrowIcon from "../assets/icons/ArrowIcon";
 import { useDispatch, useSelector } from "react-redux";
@@ -202,6 +203,12 @@ function NavBar() {
             <Nav.Link eventKey={2}>
               <BagIcon />
             </Nav.Link>
+
+            {user && (
+              <Nav.Link href="/user-info" className="d-none d-lg-flex">
+                <UserInfo />
+              </Nav.Link>
+            )}
           </Nav>
         </Container>
       </Navbar>
