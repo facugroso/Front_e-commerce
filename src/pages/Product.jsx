@@ -54,20 +54,24 @@ function Product() {
             <div className="row my-4">
               <div className="col-lg-1 d-none d-lg-block">
                 <div>
-                  {product.gallery.map((image, idx) => (
-                    <img
-                      key={idx}
-                      onClick={() => setImg(image)}
-                      className="btn-image"
-                      src={
-                        image.includes("https")
-                          ? image
-                          : `${
-                              import.meta.env.VITE_IMAGE_CLOUD_DIRECTION
-                            }/${image}`
-                      }
-                    ></img>
-                  ))}
+                  <swiper-container direction={"vertical"} className="mySwiper">
+                    {product.gallery.map((image, idx) => (
+                      <swiper-slide>
+                        <img
+                          key={idx}
+                          onClick={() => setImg(image)}
+                          className="btn-image"
+                          src={
+                            image.includes("https")
+                              ? image
+                              : `${
+                                  import.meta.env.VITE_IMAGE_CLOUD_DIRECTION
+                                }/${image}`
+                          }
+                        ></img>
+                      </swiper-slide>
+                    ))}
+                  </swiper-container>
                 </div>
               </div>
               <div className="col-lg-6 col-md-7 order-md-1">
@@ -91,7 +95,7 @@ function Product() {
                 >
                   {product.gallery.map((image, idx) => (
                     <SwiperSlide className="pb-5">
-                      <div className="p-3 d-flex flex-column justify-content-between">
+                      <div className="d-flex flex-column justify-content-between">
                         <div>
                           <img
                             className="img-fluid product-image"

@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import axios from "axios";
 import ArrowIcon from "../../assets/icons/ArrowIcon";
 import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/pagination";
+import "swiper/css/navigation";
 import "./NewProducts.css";
+import { FreeMode, Navigation } from "swiper";
 
 function NewProducts() {
   const [products, setProducts] = useState();
@@ -69,11 +68,9 @@ function NewProducts() {
             <Swiper
               slidesPerView={3}
               spaceBetween={0}
+              modules={[Navigation, FreeMode]}
               freeMode={true}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[FreeMode, Pagination]}
+              navigation={true}
               className="mySwiper style-max"
             >
               {products.map((item) => (
@@ -107,11 +104,9 @@ function NewProducts() {
             <Swiper
               slidesPerView={1}
               spaceBetween={0}
+              modules={[Navigation, FreeMode]}
               freeMode={true}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[FreeMode, Pagination]}
+              navigation={true}
               className="mySwiper style-min"
             >
               {products.map((item) => (
