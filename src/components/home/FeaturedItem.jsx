@@ -34,9 +34,9 @@ function FeaturedItem() {
                       {productInfo[0].name}
                     </h2>
                     <p className="fs-5 ">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Et laborum esse ipsum repellat magnam iste ipsam omnis
-                      nostrum natus qui.
+                      The HyperX Cloud III is an evolution of our legendary
+                      Cloud II, which is known for its comfort, sound quality
+                      and durability.
                     </p>
                   </div>
                   <div>
@@ -103,7 +103,7 @@ function FeaturedItem() {
                   </div>
                 </div>
 
-                <div className="col-lg-7">
+                <div className="col-lg-7 ">
                   <div className="d-flex flex-column h-100 justify-content-center second-item-description">
                     <div>
                       <p className="fw-semibold">
@@ -114,9 +114,9 @@ function FeaturedItem() {
                         {productInfo[13].name}
                       </h2>
                       <p className="fs-5 description ">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Aliquam similique facere sint, repellat impedit ut
-                        ipsum magnam quis ipsam dolorem.
+                        HyperX Pulsefire Dart™ is a gaming-grade wireless mouse
+                        with a reliable 2.4GHz RF connection that will make you
+                        wonder why you waited so long to cut the cord.
                       </p>
                       <Link to={`/products/${productInfo[13].slug}`}>
                         <button

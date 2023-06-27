@@ -28,92 +28,126 @@ function Footer() {
             <Link
               to="https://www.instagram.com/hyperx/"
               target={"_blank"}
-              className="px-2"
+              className="footer-icon px-2 footer-icon"
             >
               <InstagramIcon className="social-icon" />
             </Link>
             <Link
               to="https://www.facebook.com/hyperxcommunity"
               target={"_blank"}
-              className="px-2"
+              className="footer-icon px-2"
             >
               <FacebookIcon />
             </Link>
             <Link
               to="https://twitter.com/hyperx"
               target={"_blank"}
-              className="px-2"
+              className="footer-icon px-2"
             >
               <TwitterIcon />
             </Link>
             <Link
               to="https://discord.gg/hyperxgaming"
               target={"_blank"}
-              className="px-2"
+              className="footer-icon px-2"
             >
               <DiscordIcon />
             </Link>
             <Link
               to="https://www.tiktok.com/@hyperx?lang=en"
               target={"_blank"}
-              className="px-2"
+              className="footer-icon px-2"
             >
               <TikTokIcon />
             </Link>
             <Link
               to="https://www.twitch.tv/hyperx"
               target={"_blank"}
-              className="px-2"
+              className="footer-icon px-2"
             >
               <TwitchIcon />
             </Link>
             <Link
               to="https://www.youtube.com/c/hyperx"
               target={"_blank"}
-              className="px-2"
+              className="footer-icon px-2"
             >
               <YouTubeIcon />
             </Link>
           </div>
         </div>
       </div>
-      <div className="pt-5 footer-background">
+      <div className="py-5 footer-background">
         <div className="container">
           <div className="row">
             <div className="col-md-2">
-              <h5 className="fs-5 fw-bold modelSubtitle">Suport</h5>
-              <section className="description">
-                <p>Product Suport</p>
-                <p>Contact Suport</p>
-                <p>Shipping Information</p>
-                <p>Refund Policy</p>
-                <p>HP/HYPERX Visual Content Terms of Use</p>
+              <h5 className="fs-5 fw-bold modelSubtitle mb-3">Suport</h5>
+              <section className="description d-flex flex-column">
+                <Link to="/about-us">
+                  <p className="footer-link">Product Suport</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">Contact Suport</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">Shipping Information</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">Refund Policy</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">
+                    HP/HYPERX Visual Content Terms of Use
+                  </p>
+                </Link>
               </section>
             </div>
             <div className="col-md-2">
-              <h5 className="fs-5 fw-bold modelSubtitle">Company</h5>
-              <section className="description">
-                <p>About HyperX</p>
-                <p>About HP</p>
-                <p>Careers</p>
-                <p>Press</p>
-                <p>Privacy</p>
-                <p>Terms of Use</p>
-                <p>Limited Warranty Statement</p>
-                <p>Accessibility</p>
-                <p>Use of Cookies</p>
-                <p>Personal Data Rights</p>
-                <p>Terms of Service</p>
-                <p>Refund policy</p>
+              <h5 className="fs-5 fw-bold modelSubtitle mb-3">Company</h5>
+              <section className="description d-flex flex-column">
+                <Link to="/about-us">
+                  <p className="footer-link">About HyperX</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">About HP</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">Privacy</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">Terms of Use</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">Limited Warranty Statement</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">Accessibility</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">Use of Cookies</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">Terms of Service</p>
+                </Link>
               </section>
             </div>
             <div className="col-md-2">
-              <h5 className="fs-5 fw-bold modelSubtitle">Other Resource</h5>
-              <section className="description">
-                <p>NGENUITY Software</p>
-                <p>Blog</p>
-                <p>Partner Program</p>
-                <p>Student Discount</p>
+              <h5 className="fs-5 mb-3 fw-bold modelSubtitle">
+                Other Resource
+              </h5>
+              <section className="description d-flex flex-column">
+                <Link to="/about-us">
+                  <p className="footer-link">NGENUITY Software</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">Blog</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">Partner Program</p>
+                </Link>
+                <Link to="/about-us">
+                  <p className="footer-link">Student Discount</p>
+                </Link>
               </section>
             </div>
             <div className="col-md-6">
