@@ -18,7 +18,6 @@ function Category() {
         }`,
       });
       setCategory(response.data);
-      console.log(response.data);
     }
     getCategory();
   }, [params.slug]);
@@ -30,7 +29,6 @@ function Category() {
         url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/products`,
       });
       setProducts(response.data);
-      console.log(response.data);
     }
 
     getProducts();
