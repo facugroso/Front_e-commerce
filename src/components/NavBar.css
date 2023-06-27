@@ -82,11 +82,27 @@
   color: #e01637 !important;
   background-color: #f5f6f7 !important;
 }
-#responsive-navbar-nav a:hover .icon {
+.icon {
+  display: inline-block;
+  height: 24px;
+  vertical-align: middle;
+  width: 24px;
+}
+
+.navbar-nav a:hover .icon {
   fill: #e01637;
 }
 .icon:hover {
   fill: #e01637;
+}
+
+.navbar-nav a:hover .bagicon path {
+  fill: #e01637;
+  stroke: #e01637;
+}
+.bagicon:hover path {
+  fill: #e01637;
+  stroke: #e01637;
 }
 .category_icon {
   margin-right: 0.75rem;
@@ -110,13 +126,6 @@
 #category_dropdown li:hover a,
 #category_dropdown li a:hover {
   color: #000000 !important;
-}
-.icon {
-  display: inline-block;
-  fill: #000000;
-  height: 24px;
-  vertical-align: middle;
-  width: 24px;
 }
 
 @media screen and (min-width: 992px) {
