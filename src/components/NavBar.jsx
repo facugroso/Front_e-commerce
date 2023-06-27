@@ -192,7 +192,9 @@ function NavBar() {
                   </div>
                 </div>
               </NavDropdown>
-              <Nav.Link href="/products">CLOUD III</Nav.Link>
+              <Nav.Link href="/products/hyperx-cloud-iii-gaming-headset">
+                CLOUD III
+              </Nav.Link>
               <Nav.Link href="/about-us">About this project</Nav.Link>
             </Nav>
           </Navbar.Collapse>
