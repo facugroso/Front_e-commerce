@@ -20,7 +20,14 @@ function NewProducts() {
         method: "get",
         url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/products`,
       });
-      setProducts(response.data);
+      const productsPreview = response.data;
+      const sortedProducts = productsPreview.sort((a, b) => {
+        const dateA = new Date(a.createdAt);
+        const dateB = new Date(b.createdAt);
+        return dateA - dateB;
+      });
+      const lastTenItems = sortedProducts.reverse().slice(0, 10);
+      setProducts(lastTenItems);
     }
     getProducts();
   }, []);
