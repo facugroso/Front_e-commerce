@@ -70,7 +70,7 @@ function Footer() {
             <Link
               to="https://www.youtube.com/c/hyperx"
               target={"_blank"}
-              className="footer-icon px-2"
+              className="px-2"
             >
               <YouTubeIcon />
             </Link>

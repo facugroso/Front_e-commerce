@@ -22,6 +22,17 @@
   color: #e01637;
 }
 
+.swiper-pagination-bullet {
+  --swiper-theme-color: black;
+}
+
+@media (max-width: 1199px) {
+  .btn-image {
+    width: 55px;
+    margin-bottom: 1rem;
+  }
+}
+
 @media (max-width: 991px) {
   .style-min-product {
     display: block;

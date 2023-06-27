@@ -38,8 +38,8 @@ function TopCategories() {
             spaceBetween={0}
             freeMode={true}
             autoplay={{
-              delay: 4500,
-              disableOnInteraction: true,
+              delay: 2500,
+              disableOnInteraction: false,
             }}
             navigation={true}
             modules={[Autoplay, Navigation]}
@@ -85,8 +85,8 @@ function TopCategories() {
             spaceBetween={0}
             freeMode={true}
             autoplay={{
-              delay: 4500,
-              disableOnInteraction: true,
+              delay: 2500,
+              disableOnInteraction: false,
             }}
             navigation={true}
             modules={[Autoplay, Navigation]}

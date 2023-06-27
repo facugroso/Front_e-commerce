@@ -85,6 +85,9 @@
 #responsive-navbar-nav a:hover .icon {
   fill: #e01637;
 }
+.icon:hover {
+  fill: #e01637;
+}
 .category_icon {
   margin-right: 0.75rem;
   display: inline-block;
