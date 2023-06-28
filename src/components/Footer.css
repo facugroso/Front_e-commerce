@@ -23,6 +23,10 @@
   filter: brightness(0.8);
 }
 
-#footer {
-  margin-top: 9rem !important;
+.footer-link:hover {
+  color: #e01637;
+}
+
+.icon__tiktok:hover {
+  fill: #e01637;
 }

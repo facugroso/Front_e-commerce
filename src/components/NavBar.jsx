@@ -10,6 +10,8 @@ import Logo from "../assets/icons/Logo";
 import ArrowIcon from "../assets/icons/ArrowIcon";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userSlice";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function NavBar() {
   const dispatch = useDispatch();
@@ -21,9 +23,32 @@ function NavBar() {
   const hideDropdown = () => {
     setShow(false);
   };
-
+  async function searchBar() {
+    toast.warn("This feature is still under developement", {
+      position: "bottom-left",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  }
   return (
     <>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div id="announcement_bar">
         <Container>
           <Row>
@@ -192,15 +217,17 @@ function NavBar() {
                   </div>
                 </div>
               </NavDropdown>
-              <Nav.Link href="/products">CLOUD III</Nav.Link>
+              <Nav.Link href="/products/hyperx-cloud-iii-gaming-headset">
+                CLOUD III
+              </Nav.Link>
               <Nav.Link href="/about-us">About this project</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <Nav>
-            <Nav.Link href="#" className="d-none d-lg-flex">
+            <Nav.Link href="#" className="d-none d-lg-flex" onClick={searchBar}>
               <SearchIcon />
             </Nav.Link>
-            <Nav.Link eventKey={2}>
+            <Nav.Link className="position-relative" eventKey={2}>
               <BagIcon />
             </Nav.Link>
 

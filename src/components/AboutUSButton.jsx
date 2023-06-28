@@ -3,7 +3,7 @@ import "./AboutUSButton.css";
 
 function AboutUSButton() {
   return (
-    <div className="link-lateral">
+    <div className="link-lateral" transition-style="in:wipe:down">
       <Link to="/about-us">
         <span className="btn btn-dark">About this project</span>
       </Link>

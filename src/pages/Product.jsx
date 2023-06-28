@@ -2,6 +2,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
 
 import AddToCartButton from "../components/AddToCartButton";
 
@@ -36,32 +43,77 @@ function Product() {
       ) : (
         <>
           <div className="container">
-            <div className="row m-4">
-              <div className="col-12 col-sm-6 order-md-1 order-2">
-                {product.gallery.map((image, idx) => (
-                  <img
-                    key={idx}
-                    onClick={() => setImg(image)}
-                    className="btn-image"
-                    src={
-                      image.includes("https")
-                        ? image
-                        : `${
-                            import.meta.env.VITE_IMAGE_CLOUD_DIRECTION
-                          }/${image}`
-                    }
-                  ></img>
-                ))}
+            <div className="my-3">
+              <div className="px-3 d-flex">
+                <Link to={"/"}>
+                  <p className="redirect-link">Home</p>
+                </Link>
+                <p className="mx-1"> / {product.name}</p>
+              </div>
+            </div>
+            <div className="row my-4">
+              <div className="col-lg-1 d-none d-lg-block">
+                <div>
+                  <swiper-container direction={"vertical"} className="mySwiper">
+                    {product.gallery.map((image, idx) => (
+                      <swiper-slide>
+                        <img
+                          key={idx}
+                          onClick={() => setImg(image)}
+                          className="btn-image"
+                          src={
+                            image.includes("https")
+                              ? image
+                              : `${
+                                  import.meta.env.VITE_IMAGE_CLOUD_DIRECTION
+                                }/${image}`
+                          }
+                        ></img>
+                      </swiper-slide>
+                    ))}
+                  </swiper-container>
+                </div>
+              </div>
+              <div className="col-lg-6 col-md-7 order-md-1">
                 <img
-                  className="img-fluid"
+                  className="img-fluid style-max d-none d-lg-block"
                   src={
                     img.includes("https")
                       ? img
                       : `${import.meta.env.VITE_IMAGE_CLOUD_DIRECTION}/${img}`
                   }
                 ></img>
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={0}
+                  pagination={{
+                    clickable: true,
+                  }}
+                  modules={[Pagination]}
+                  className="mySwiper style-min-product"
+                >
+                  {product.gallery.map((image, idx) => (
+                    <SwiperSlide className="pb-5">
+                      <div className="d-flex flex-column justify-content-between">
+                        <div>
+                          <img
+                            className="img-fluid product-image"
+                            src={
+                              image.includes("https")
+                                ? image
+                                : `${
+                                    import.meta.env.VITE_IMAGE_CLOUD_DIRECTION
+                                  }/${image}`
+                            }
+                            alt={` image`}
+                          />
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
-              <div className="col-12 col-sm-6 p-4 order-md-2 order-1">
+              <div className="col-lg-5 col-md-5 p-4 order-md-2 ">
                 <h1 className="fs-2 modelSubtitle">{product.name}</h1>
                 <p className="fs-5 description">$ {product.price}</p>
                 <ul className="description d-none d-md-block">
@@ -76,13 +128,13 @@ function Product() {
           <section className="mt-3 pt-3 description-container">
             <div className="container mt-5 pb-5">
               <div className="row">
-                <div className="col-12 col-sm-6">
+                <div className="col-12 col-sm-7">
                   <h2 className="mb-2 fs-2 modelTitle fw-bolder">
                     {product.descriptionTitle}
                   </h2>
                   <p className="description">{product.description}</p>
                 </div>
-                <div className="col-12 col-sm-6">
+                <div className="col-12 col-sm-5">
                   <div className="row">
                     <div className="col-12">
                       {product.features.map((feature, idx) => (

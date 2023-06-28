@@ -6,3 +6,8 @@
   width: 40%;
   margin: 0 auto;
 }
+#credentials {
+  position: fixed;
+  top: 0;
+  right: 0;
+}

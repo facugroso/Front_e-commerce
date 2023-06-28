@@ -3,10 +3,11 @@ import axios from "axios";
 import ArrowIcon from "../../assets/icons/ArrowIcon";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Pagination } from "swiper";
+import { FreeMode, Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/free-mode";
 import "./TopCategories.css";
 
 function TopCategories() {
@@ -36,10 +37,12 @@ function TopCategories() {
             slidesPerView={4}
             spaceBetween={0}
             freeMode={true}
-            pagination={{
-              clickable: true,
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
             }}
-            modules={[FreeMode, Pagination]}
+            navigation={true}
+            modules={[Autoplay, Navigation]}
             className="mySwiper style-max"
           >
             {categories.map((category) => (
@@ -81,10 +84,12 @@ function TopCategories() {
             slidesPerView={1}
             spaceBetween={0}
             freeMode={true}
-            pagination={{
-              clickable: true,
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
             }}
-            modules={[FreeMode, Pagination]}
+            navigation={true}
+            modules={[Autoplay, Navigation]}
             className="mySwiper style-min"
           >
             {categories.map((category) => (
