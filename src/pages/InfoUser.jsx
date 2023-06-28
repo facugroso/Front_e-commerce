@@ -1,105 +1,92 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
-import Collapse from "react-bootstrap/Collapse";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 import "./InfoUser.css";
 
 function InfoUser() {
   const user = useSelector((state) => state.user);
-  const [openUno, setOpenUno] = useState(false);
-  const [openDos, setOpenDos] = useState(false);
-  const [openThree, setOpenThree] = useState(false);
+  console.log(user);
+  const [orders, setOrders] = useState();
+  const [userData, setUserData] = useState();
 
-  const [questions, setQuestions] = useState("");
-  const handleSubmit = () => {
-    console.log("Question:", questions);
-  };
+  useEffect(() => {
+    async function fetchData() {
+      const ordersResponse = await axios({
+        method: "get",
+        url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/orders`,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
+
+      const usersResponse = await axios({
+        method: "get",
+        url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/users`,
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
+      setOrders(ordersResponse.data);
+      // setUserData(usersResponse.data);
+    }
+    fetchData();
+  }, []);
+
   return (
     <>
-      <div className="container mt-3 py-5 ">
-        <div className="row">
-          <div className="col">
-            <h1>User Info</h1>
-            <div className="info-user">
-              <label htmlFor="">Name:</label>
-              <p className="border ">{user.dataValues.firstname}</p>
-              <label htmlFor="">Lastname:</label>
-              <p className="border">{user.dataValues.lastname}</p>
-              <label htmlFor="">Email:</label>
-              <p className="border">{user.dataValues.email}</p>
-              <label htmlFor="">Phone:</label>
-              <p className="border">{user.dataValues.phone}</p>
-            </div>
-          </div>
+      {orders && (
+        <div className="container mt-3 py-5 ">
           <div className="row">
-            <div className="col">
-              <h3>Frequent questions</h3>
-              <div>
-                <span
-                  className="border w-50"
-                  onClick={() => setOpenUno(!openUno)}
-                  aria-controls="example-collapse-text"
-                  aria-expanded={openUno}
-                >
-                  How much does delivery cost?
-                </span>
-                <Collapse in={openUno}>
-                  <div id="example-collapse-text">
-                    Shipping is totally free if you live within the United
-                    States.
-                  </div>
-                </Collapse>
+            <div className="col-6">
+              <h1>User Info</h1>
+              <div className="info-user">
+                <label htmlFor="">Name:</label>
+                <p className="border ">{user.dataValues.firstname}</p>
+                <label htmlFor="">Lastname:</label>
+                <p className="border">{user.dataValues.lastname}</p>
+                <label htmlFor="">Email:</label>
+                <p className="border">{user.dataValues.email}</p>
+                <label htmlFor="">Phone:</label>
+                <p className="border">{user.dataValues.phone}</p>
               </div>
-              <div>
-                <span
-                  className="border w-50"
-                  onClick={() => setOpenDos(!openDos)}
-                  aria-controls="example-collapse-text"
-                  aria-expanded={openDos}
-                >
-                  How long does shipping take?
-                </span>
-                <Collapse in={openDos}>
-                  <div id="example-collapse-text">
-                    If you are within the United States, deliveries arrive
-                    within the next 7 days
-                  </div>
-                </Collapse>
-              </div>
-              <div>
-                <span
-                  className="border w-50"
-                  onClick={() => setOpenThree(!openThree)}
-                  aria-controls="example-collapse-text"
-                  aria-expanded={openThree}
-                >
-                  Are returns allowed?
-                </span>
-                <Collapse in={openThree}>
-                  <div id="example-collapse-text">
-                    That's right, within the next 30 days of receiving the
-                    purchase. As long as the product is in the conditions you
-                    received it.
-                  </div>
-                </Collapse>
-              </div>
-              <form onSubmit={handleSubmit} className="mt-2">
-                <div>
-                  <h6 htmlFor="questions">Ask your question...</h6>
-                </div>
-                <div>
-                  <textarea
-                    type="text"
-                    id="questions"
-                    value={questions}
-                    onChange={(e) => setQuestions(e.target.value)}
-                  ></textarea>
-                </div>
-                <button type="submit">Enviar</button>
-              </form>
+            </div>
+            <div className="col-6">
+              <h1>Order List</h1>
+
+              {orders.map(
+                (order) =>
+                  user.dataValues.id === order.userId && (
+                    <>
+                      <th scope="row">{order.id}</th>
+                      <tbody>
+                        <tr key={order.id}>
+                          <td>{order.price}</td>
+                          <td>{order.products}</td>
+                          <td>
+                            $
+                            {order.products
+                              .reduce(
+                                (total, product) =>
+                                  total +
+                                  parseFloat(
+                                    (product.price * product.quantity).toFixed(
+                                      2
+                                    )
+                                  ),
+                                0
+                              )
+                              .toFixed(2)}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </>
+                  )
+              )}
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
