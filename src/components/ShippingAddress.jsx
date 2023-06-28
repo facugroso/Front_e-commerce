@@ -62,6 +62,7 @@ function ShippingAddress() {
               },
             }));
           }}
+          required
         >
           <option value=""></option>
           <option value="United States">United States</option>

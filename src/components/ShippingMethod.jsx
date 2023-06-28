@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { FormContext, TotalContext } from "../pages/CheckOut";
+import { FormContext, TotalContext, ShippingContext } from "../pages/CheckOut";
 import { useSelector } from "react-redux";
 
 function ShippingMethod({ subTotal }) {
   const { formData, setFormData } = useContext(FormContext);
   const { total, setTotal } = useContext(TotalContext);
+  const { shipping, setShipping } = useContext(ShippingContext);
   const user = useSelector((state) => state.user);
 
   return (
@@ -31,6 +32,7 @@ function ShippingMethod({ subTotal }) {
                   value="Standard"
                   onChange={(event) => {
                     setTotal(Number(subTotal)),
+                      setShipping("Free"),
                       setFormData((prevFormData) => ({
                         ...prevFormData,
                         step2: {
@@ -39,6 +41,7 @@ function ShippingMethod({ subTotal }) {
                         },
                       }));
                   }}
+                  defaultChecked
                 ></input>
                 <label className="fw-light ms-2">
                   Standard 3 To 5 Business Days - Free
@@ -54,6 +57,7 @@ function ShippingMethod({ subTotal }) {
                   value="Express"
                   onChange={() => {
                     setTotal(Number(subTotal) + 15),
+                      setShipping("Express"),
                       setFormData((prevFormData) => ({
                         ...prevFormData,
                         step2: {
@@ -77,6 +81,7 @@ function ShippingMethod({ subTotal }) {
                   value="Priority"
                   onChange={() => {
                     setTotal(Number(subTotal) + 30),
+                      setShipping("Priority"),
                       setFormData((prevFormData) => ({
                         ...prevFormData,
                         step2: {

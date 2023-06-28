@@ -1,11 +1,37 @@
-import { useState, useContext } from "react";
+import { useSelector } from "react-redux";
+import { useContext, useState } from "react";
 import Cards from "react-credit-cards-2";
 
 import { FormContext } from "../pages/CheckOut";
-import CreditCard from "./CreditCard";
+import Visa from "../assets/icons/CardIcons/Visa";
+import MasterCard from "../assets/icons/CardIcons/MasterCard";
+import Amex from "../assets/icons/CardIcons/Amex";
+import Discover from "../assets/icons/CardIcons/Discover";
+
+import "../../node_modules/react-credit-cards-2/dist/es/styles-compiled.css";
 
 function Payment() {
+  const user = useSelector((state) => state.user);
+
   const { formData, setFormData } = useContext(FormContext);
+
+  const [cardData, setCardData] = useState({
+    number: "",
+    expiry: "",
+    cvc: "",
+    name: "",
+    focus: "",
+  });
+
+  const handleInputChange = (evt) => {
+    const { name, value } = evt.target;
+
+    setCardData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleInputFocus = (evt) => {
+    setCardData((prev) => ({ ...prev, focus: evt.target.name }));
+  };
 
   console.log(formData);
   return (
@@ -25,9 +51,84 @@ function Payment() {
         </div>
       </div> */}
       <div>
-        <h3>Pyment</h3>
-        <div>
-          <CreditCard />
+        <h3>Payment</h3>
+        <p className="fw-light">All transactions are secure and encrypted.</p>
+        <div className="border">
+          <span className="d-flex p-2 mb-3">
+            <input type="radio" defaultChecked />
+            <span className="ms-2">Credit Card</span>
+            <span className="ms-auto">
+              <Visa />
+              <MasterCard />
+              <Amex />
+              <Discover />
+            </span>
+          </span>
+          <div className="pb-4">
+            <div className="p-4 border-top">
+              <Cards
+                number={cardData.number}
+                expiry={cardData.expiry}
+                cvc={cardData.cvc}
+                name={cardData.name}
+                focused={cardData.focus}
+              />
+              <div className="my-4 d-flex justify-content-between">
+                <div>
+                  <input
+                    type="number"
+                    name="number"
+                    placeholder="Card Number"
+                    className="border p-2 mb-2"
+                    value={cardData.number}
+                    onChange={(event) => {
+                      handleInputChange(event);
+                      setFormData((prevFormData) => ({
+                        ...prevFormData,
+                        step3: {
+                          ...prevFormData.step3,
+                          paymentdata: {
+                            ...prevFormData.step3.paymentdata,
+                            cardNumber: event.target.value,
+                          },
+                        },
+                      }));
+                    }}
+                    onFocus={handleInputFocus}
+                  />
+                  <input
+                    type="cvc"
+                    name="cvc"
+                    placeholder="CVC"
+                    className="border p-2 mb-2"
+                    value={cardData.cvc}
+                    onChange={handleInputChange}
+                    onFocus={handleInputFocus}
+                  />
+                </div>
+                <div className="d-flex flex-column justify-content-end">
+                  <input
+                    type="name"
+                    name="name"
+                    placeholder="Name"
+                    className="border p-2 mb-2"
+                    value={cardData.name}
+                    onChange={handleInputChange}
+                    onFocus={handleInputFocus}
+                  />
+                  <input
+                    type="month"
+                    name="expiry"
+                    placeholder="expiry"
+                    className="border p-2 mb-2"
+                    value={cardData.expiry}
+                    onChange={handleInputChange}
+                    onFocus={handleInputFocus}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

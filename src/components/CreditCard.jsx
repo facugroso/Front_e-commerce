@@ -23,7 +23,7 @@ const CreditCard = () => {
   };
 
   return (
-    <div>
+    <div className="p-4 border-top">
       <Cards
         number={cardData.number}
         expiry={cardData.expiry}
@@ -31,40 +31,48 @@ const CreditCard = () => {
         name={cardData.name}
         focused={cardData.focus}
       />
-      <form className="mt-4">
-        <input
-          type="number"
-          name="number"
-          placeholder="Card Number"
-          value={cardData.number}
-          onChange={handleInputChange}
-          onFocus={handleInputFocus}
-        />
-        <input
-          type="cvc"
-          name="cvc"
-          placeholder="CVC"
-          value={cardData.cvc}
-          onChange={handleInputChange}
-          onFocus={handleInputFocus}
-        />
-        <input
-          type="name"
-          name="name"
-          placeholder="Name"
-          value={cardData.name}
-          onChange={handleInputChange}
-          onFocus={handleInputFocus}
-        />
-        <input
-          type="month"
-          name="expiry"
-          placeholder="expiry"
-          value={cardData.expiry}
-          onChange={handleInputChange}
-          onFocus={handleInputFocus}
-        />
-      </form>
+      <div className="my-4 d-flex justify-content-between">
+        <div>
+          <input
+            type="number"
+            name="number"
+            placeholder="Card Number"
+            className="border p-2 mb-2"
+            value={cardData.number}
+            onChange={handleInputChange}
+            onFocus={handleInputFocus}
+          />
+          <input
+            type="cvc"
+            name="cvc"
+            placeholder="CVC"
+            className="border p-2 mb-2"
+            value={cardData.cvc}
+            onChange={handleInputChange}
+            onFocus={handleInputFocus}
+          />
+        </div>
+        <div className="d-flex flex-column justify-content-end">
+          <input
+            type="name"
+            name="name"
+            placeholder="Name"
+            className="border p-2 mb-2"
+            value={cardData.name}
+            onChange={handleInputChange}
+            onFocus={handleInputFocus}
+          />
+          <input
+            type="month"
+            name="expiry"
+            placeholder="expiry"
+            className="border p-2 mb-2"
+            value={cardData.expiry}
+            onChange={handleInputChange}
+            onFocus={handleInputFocus}
+          />
+        </div>
+      </div>
     </div>
   );
 };

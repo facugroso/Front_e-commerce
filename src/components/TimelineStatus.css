@@ -1,0 +1,13 @@
+#timeline-list {
+  position: relative;
+}
+#timeline-list::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: calc(100% - (29px / 2) - (60px / 2) - 32px);
+  height: 2px;
+  top: 7.5px;
+  margin-left: 7.5px;
+  background-color: #bdc4d0;
+}

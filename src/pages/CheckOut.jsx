@@ -3,6 +3,7 @@ import { useState, createContext, useRef } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import TimelineStatus from "../components/TimelineStatus";
 import ShippingAddress from "../components/ShippingAddress";
@@ -64,7 +65,7 @@ function CheckOut() {
           </FormContext.Provider>
         );
       }
-      case "payment": {
+      case 3: {
         return (
           <FormContext.Provider value={{ formData, setFormData }}>
             <Payment />;
@@ -79,21 +80,23 @@ function CheckOut() {
       case 1:
         return (
           <>
-            <Link to="/cart" className="my-4 py-2 px-1">
-              <span id="return">{"< RETURN TO CART"}</span>
-            </Link>
-            <button
-              className="btn d-flex justify-content-center my-4 py-2 px-1 rounded-0"
-              id="continue-shipping"
-              onClick={() => handleSubmitByStep()}
-            >
-              CONTINUE TO SHIPPING
-            </button>
+            <div className="w-100 d-flex justify-content-between">
+              <Link to="/cart" className="my-4 py-2 px-1">
+                <span id="return">{"< RETURN TO CART"}</span>
+              </Link>
+              <button
+                className="btn d-flex justify-content-center my-4 py-2 px-1 rounded-0"
+                id="continue-shipping"
+                onClick={() => handleSubmitByStep()}
+              >
+                CONTINUE TO SHIPPING
+              </button>
+            </div>
           </>
         );
       case 2: {
         return (
-          <div className="d-flex justify-content-between">
+          <>
             <span
               className="w-50 my-4 py-2 px-1"
               id="return"
@@ -105,27 +108,71 @@ function CheckOut() {
               type="submit"
               className="btn d-flex justify-content-center w-50 my-4 py-2 px-1 rounded-0"
               id="continue-shipping"
-              onClick={() => handleStep("payment")}
+              onClick={() => handleSubmitByStep()}
             >
               CONTINUE TO PAYMENT
             </button>
-          </div>
+          </>
+        );
+      }
+      case 3: {
+        return (
+          <>
+            <div className="w-100 d-flex justify-content-between">
+              <span
+                className="w-50 my-4 py-2 px-1"
+                id="return"
+                onClick={() => setCheckoutStep(2)}
+              >
+                {"< RETURN TO SHIPPING"}
+              </span>
+              <button
+                type="submit"
+                className="btn d-flex justify-content-center w-50 my-4 py-2 px-1 rounded-0"
+                id="continue-shipping"
+                //onClick={() => handleSubmitByStep()}
+              >
+                PAY NOW
+              </button>
+            </div>
+          </>
         );
       }
     }
   }
 
-  function handleStep(step, data) {
-    setCheckoutStep(step);
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      ...data,
-    }));
+  function handleSubmitByStep(e) {
+    const form = formRef.current;
+    //if (form.checkValidity()) {
+    setCheckoutStep(checkoutStep + 1);
+    //}
   }
 
-  const handleSubmitByStep = (e) => {
-    handleStep(checkoutStep + 1);
-  };
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await axios(
+      {
+        method: "POST",
+        url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/orders`,
+        data: {
+          firstname: formData.step1.firstname,
+          lastname: formData.step1.lastname,
+          address: formData.step1.fullAddress,
+          phone: formData.step1.phone,
+          payment: paymentMethod,
+          paymentdata: paymentData,
+          products: cart,
+          status: "Pending",
+          userId: user.dataValues.id,
+        },
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      },
+      dispatch(clearCart()),
+      console.log("compraste")
+    );
+  }
 
   return (
     <div className="container">
@@ -135,9 +182,11 @@ function CheckOut() {
       {cart.length !== 0 ? (
         <>
           <div className="row">
-            <form className="col">
-              {handleNextClick(checkoutStep)}
-              {handleRenderActions(checkoutStep)}
+            <form className="col" ref={formRef}>
+              {handleNextClick()}
+              <div className="d-flex justify-content-between">
+                {handleRenderActions()}
+              </div>
             </form>
             <div className="col">
               {cart.map((item) => (
