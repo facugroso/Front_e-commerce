@@ -60,7 +60,7 @@ function Product() {
                     direction="vertical"
                     navigation={true}
                     modules={[Navigation]}
-                    className="mySwiper"
+                    className="gallery-carrousel"
                   >
                     {product.gallery.map((image, idx) => (
                       <SwiperSlide>
