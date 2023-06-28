@@ -200,7 +200,7 @@ function NavBar() {
             <Nav.Link href="#" className="d-none d-lg-flex">
               <SearchIcon />
             </Nav.Link>
-            <Nav.Link eventKey={2}>
+            <Nav.Link className="position-relative" eventKey={2}>
               <BagIcon />
             </Nav.Link>
 
