@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, createContext, useRef } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -7,14 +7,28 @@ import { Link } from "react-router-dom";
 import TimelineStatus from "../components/TimelineStatus";
 import ShippingAddress from "../components/ShippingAddress";
 import ShippingMethod from "../components/ShippingMethod";
+import Payment from "../components/Payment";
 
 import "./CheckOut.css";
+
+export const FormContext = createContext();
+export const TotalContext = createContext();
+export const ShippingContext = createContext();
 
 function CheckOut() {
   const cart = useSelector((state) => state.cart);
 
+  const formRef = useRef(null);
+
   const [subTotal, setSubTotal] = useState();
-  const [checkoutStep, setCheckoutStep] = useState("information");
+  const [total, setTotal] = useState();
+  const [checkoutStep, setCheckoutStep] = useState(1);
+  const [formData, setFormData] = useState({
+    step1: "",
+    step2: "",
+    step3: "",
+  });
+  const [shipping, setShipping] = useState("Free");
 
   useEffect(() => {
     const calculateSubTotal = () => {
@@ -26,26 +40,105 @@ function CheckOut() {
         return accumulator;
       }, 0);
       setSubTotal(parseFloat(total).toFixed(2));
+      setTotal(parseFloat(total).toFixed(2));
     };
     calculateSubTotal();
   }, [cart]);
 
   function handleNextClick() {
     switch (checkoutStep) {
-      case "information":
-        return <ShippingAddress />;
-      case "shipping": {
-        return <ShippingMethod />;
+      case 1:
+        return (
+          <FormContext.Provider value={{ formData, setFormData }}>
+            <ShippingAddress />
+          </FormContext.Provider>
+        );
+      case 2: {
+        return (
+          <FormContext.Provider value={{ formData, setFormData }}>
+            <TotalContext.Provider value={{ total, setTotal }}>
+              <ShippingContext.Provider value={{ shipping, setShipping }}>
+                <ShippingMethod subTotal={subTotal} />
+              </ShippingContext.Provider>
+            </TotalContext.Provider>
+          </FormContext.Provider>
+        );
+      }
+      case "payment": {
+        return (
+          <FormContext.Provider value={{ formData, setFormData }}>
+            <Payment />;
+          </FormContext.Provider>
+        );
       }
     }
   }
+
+  function handleRenderActions() {
+    switch (checkoutStep) {
+      case 1:
+        return (
+          <>
+            <Link to="/cart" className="my-4 py-2 px-1">
+              <span id="return">{"< RETURN TO CART"}</span>
+            </Link>
+            <button
+              className="btn d-flex justify-content-center my-4 py-2 px-1 rounded-0"
+              id="continue-shipping"
+              onClick={() => handleSubmitByStep()}
+            >
+              CONTINUE TO SHIPPING
+            </button>
+          </>
+        );
+      case 2: {
+        return (
+          <div className="d-flex justify-content-between">
+            <span
+              className="w-50 my-4 py-2 px-1"
+              id="return"
+              onClick={() => setCheckoutStep(1)}
+            >
+              {"< RETURN TO INFORMATION"}
+            </span>
+            <button
+              type="submit"
+              className="btn d-flex justify-content-center w-50 my-4 py-2 px-1 rounded-0"
+              id="continue-shipping"
+              onClick={() => handleStep("payment")}
+            >
+              CONTINUE TO PAYMENT
+            </button>
+          </div>
+        );
+      }
+    }
+  }
+
+  function handleStep(step, data) {
+    setCheckoutStep(step);
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      ...data,
+    }));
+  }
+
+  const handleSubmitByStep = (e) => {
+    handleStep(checkoutStep + 1);
+  };
+
   return (
     <div className="container">
-      <TimelineStatus />
+      <div className="row d-flex">
+        <TimelineStatus />
+      </div>
       {cart.length !== 0 ? (
         <>
           <div className="row">
-            {handleNextClick(checkoutStep)}
+            <form className="col">
+              {handleNextClick(checkoutStep)}
+              {handleRenderActions(checkoutStep)}
+            </form>
             <div className="col">
               {cart.map((item) => (
                 <div className="col check-out-product" key={item.id}>
@@ -73,11 +166,11 @@ function CheckOut() {
               </div>
               <div className="d-flex justify-content-between mb-4">
                 <span className="fw-semibold">Shipping</span>
-                <span>sorry we don't have shipping for now</span>
+                <span>{shipping}</span>
               </div>
               <div className="d-flex justify-content-between mb-2">
                 <span className="fw-bold">Total</span>
-                <span className="fs-2 fw-bold">${subTotal}</span>
+                <span className="fs-2 fw-bold">${total}</span>
               </div>
             </div>
           </div>
