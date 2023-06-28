@@ -12,9 +12,9 @@ function BagIcon() {
     dispatch(setShow(true));
   };
   return (
-    <>
+    <div className="bagicon">
       <svg
-        className="icon bagicon"
+        className="icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
         onClick={handleShow}
@@ -32,7 +32,7 @@ function BagIcon() {
         <></>
       )}
       <CartOffCanvas placement="end" />
-    </>
+    </div>
   );
 }
 

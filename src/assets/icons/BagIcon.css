@@ -2,9 +2,9 @@
   position: relative;
 }
 .cart-number {
-  position: absolute;
+  position: absolute !important;
   bottom: 0.8rem;
-  right: 5.3rem;
+  right: 9rem;
   background-color: #c8102e;
   color: white;
   border-radius: 50%;
