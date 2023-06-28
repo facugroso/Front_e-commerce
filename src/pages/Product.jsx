@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
@@ -52,15 +52,22 @@ function Product() {
               </div>
             </div>
             <div className="row my-4">
-              <div className="col-lg-1 d-none d-lg-block">
-                <div>
-                  <swiper-container direction={"vertical"} className="mySwiper">
+              <div className="col-lg-1 px-0 d-none d-lg-block">
+                <div style={{ height: "600px" }}>
+                  <Swiper
+                    slidesPerView="5"
+                    spaceBetween={10}
+                    direction="vertical"
+                    navigation={true}
+                    modules={[Navigation]}
+                    className="mySwiper"
+                  >
                     {product.gallery.map((image, idx) => (
-                      <swiper-slide>
+                      <SwiperSlide>
                         <img
                           key={idx}
                           onClick={() => setImg(image)}
-                          className="btn-image"
+                          className="btn-image p-2 my-5"
                           src={
                             image.includes("https")
                               ? image
@@ -69,9 +76,9 @@ function Product() {
                                 }/${image}`
                           }
                         ></img>
-                      </swiper-slide>
+                      </SwiperSlide>
                     ))}
-                  </swiper-container>
+                  </Swiper>
                 </div>
               </div>
               <div className="col-lg-6 col-md-7 order-md-1">

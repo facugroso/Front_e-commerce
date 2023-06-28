@@ -6,7 +6,6 @@ import "./InfoUser.css";
 
 function InfoUser() {
   const user = useSelector((state) => state.user);
-  console.log(user);
   const [orders, setOrders] = useState();
   const [userData, setUserData] = useState();
 
@@ -20,15 +19,7 @@ function InfoUser() {
         },
       });
 
-      const usersResponse = await axios({
-        method: "get",
-        url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/users`,
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
       setOrders(ordersResponse.data);
-      // setUserData(usersResponse.data);
     }
     fetchData();
   }, []);
@@ -58,11 +49,24 @@ function InfoUser() {
                 (order) =>
                   user.dataValues.id === order.userId && (
                     <>
-                      <th scope="row">{order.id}</th>
+                      {console.log(order)}
+                      <th scope="row">Adress</th>
+                      <th scope="row">Product</th>
+                      <th scope="row">Total</th>
                       <tbody>
                         <tr key={order.id}>
-                          <td>{order.price}</td>
-                          <td>{order.products}</td>
+                          <td>{order.address}</td>
+                          <td>
+                            {order.products.map((product) => {
+                              return (
+                                <>
+                                  <div className="mb-2">
+                                    {product.name} - {product.price}
+                                  </div>
+                                </>
+                              );
+                            })}
+                          </td>
                           <td>
                             $
                             {order.products
