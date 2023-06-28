@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Pagination } from "swiper";
+import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
@@ -86,11 +86,10 @@ function Product() {
                 <Swiper
                   slidesPerView={1}
                   spaceBetween={0}
-                  freeMode={true}
                   pagination={{
                     clickable: true,
                   }}
-                  modules={[FreeMode, Pagination]}
+                  modules={[Pagination]}
                   className="mySwiper style-min-product"
                 >
                   {product.gallery.map((image, idx) => (

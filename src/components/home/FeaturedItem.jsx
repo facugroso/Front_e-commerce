@@ -60,7 +60,7 @@ function FeaturedItem() {
                 <div className="background-container">
                   <div className="itembackground-top"></div>
                   <div className="itembackground-body">
-                    <Parallax translateY={["-70px", "120px"]}>
+                    <Parallax translateY={["70px", "-150px"]}>
                       <img
                         className="itemimage-first hide-bg"
                         src={
@@ -85,7 +85,7 @@ function FeaturedItem() {
                   <div>
                     <div className="second-itembackground-top"></div>
                     <div className="second-itembackground-body">
-                      <Parallax translateY={["-70px", "120px"]}>
+                      <Parallax translateY={["70px", "-150px"]}>
                         <img
                           className="itemimage-second hide-bg"
                           src={
