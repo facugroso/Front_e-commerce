@@ -224,14 +224,14 @@ function NavBar() {
                   </div>
                 </div>
               </NavDropdown>
-              <Nav.Link href="/products/hyperx-cloud-iii-gaming-headset">
+              <Nav.Link to="/products/hyperx-cloud-iii-gaming-headset">
                 CLOUD III
               </Nav.Link>
-              <Nav.Link href="/about-us">About this project</Nav.Link>
+              <Nav.Link to="/about-us">About this project</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <Nav>
-            <Nav.Link href="#" className="d-none d-lg-flex" onClick={searchBar}>
+            <Nav.Link to="#" className="d-none d-lg-flex" onClick={searchBar}>
               <SearchIcon />
             </Nav.Link>
             <Nav.Link className="position-relative" eventKey={2}>
@@ -239,7 +239,7 @@ function NavBar() {
             </Nav.Link>
 
             {user && (
-              <Nav.Link href="/user-info" className="d-none d-lg-flex">
+              <Nav.Link to="/user-info" className="d-none d-lg-flex">
                 <UserInfo />
               </Nav.Link>
             )}
