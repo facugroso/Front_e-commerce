@@ -17,7 +17,7 @@ function TopCategories() {
     async function getCategories() {
       const response = await axios({
         method: "get",
-        url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/categories`,
+        url: `${import.meta.env.VITE_API_URL}/categories`,
       });
       setCategories(response.data);
     }
