@@ -15,9 +15,11 @@ import "./CheckOut.css";
 export const FormContext = createContext();
 export const TotalContext = createContext();
 export const ShippingContext = createContext();
+export const StepContext = createContext();
 
 function CheckOut() {
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
 
   const formRef = useRef(null);
 
@@ -105,7 +107,6 @@ function CheckOut() {
               {"< RETURN TO INFORMATION"}
             </span>
             <button
-              type="submit"
               className="btn d-flex justify-content-center w-50 my-4 py-2 px-1 rounded-0"
               id="continue-shipping"
               onClick={() => handleSubmitByStep()}
@@ -127,10 +128,9 @@ function CheckOut() {
                 {"< RETURN TO SHIPPING"}
               </span>
               <button
-                type="submit"
                 className="btn d-flex justify-content-center w-50 my-4 py-2 px-1 rounded-0"
                 id="continue-shipping"
-                //onClick={() => handleSubmitByStep()}
+                onClick={() => handleSubmit()}
               >
                 PAY NOW
               </button>
@@ -141,7 +141,7 @@ function CheckOut() {
     }
   }
 
-  function handleSubmitByStep(e) {
+  function handleSubmitByStep() {
     const form = formRef.current;
     //if (form.checkValidity()) {
     setCheckoutStep(checkoutStep + 1);
@@ -149,7 +149,7 @@ function CheckOut() {
   }
 
   async function handleSubmit(e) {
-    e.preventDefault();
+    console.log("entre");
     await axios(
       {
         method: "POST",
@@ -159,8 +159,8 @@ function CheckOut() {
           lastname: formData.step1.lastname,
           address: formData.step1.fullAddress,
           phone: formData.step1.phone,
-          payment: paymentMethod,
-          paymentdata: paymentData,
+          payment: "Credit Card",
+          paymentdata: form.step3.paymentdata,
           products: cart,
           status: "Pending",
           userId: user.dataValues.id,
@@ -174,15 +174,19 @@ function CheckOut() {
     );
   }
 
+  console.log(formData);
+
   return (
     <div className="container">
       <div className="row d-flex">
-        <TimelineStatus />
+        <StepContext.Provider value={{ checkoutStep, setCheckoutStep }}>
+          <TimelineStatus />
+        </StepContext.Provider>
       </div>
       {cart.length !== 0 ? (
         <>
           <div className="row">
-            <form className="col" ref={formRef}>
+            <form className="col" ref={formRef} method="POST">
               {handleNextClick()}
               <div className="d-flex justify-content-between">
                 {handleRenderActions()}

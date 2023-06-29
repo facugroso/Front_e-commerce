@@ -11,3 +11,16 @@
   margin-left: 7.5px;
   background-color: #bdc4d0;
 }
+.timeline-circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #bdc4d0;
+}
+.timeline-circle-red {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #e01637;
+  z-index: 99;
+}

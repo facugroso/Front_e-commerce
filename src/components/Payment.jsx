@@ -33,7 +33,6 @@ function Payment() {
     setCardData((prev) => ({ ...prev, focus: evt.target.name }));
   };
 
-  console.log(formData);
   return (
     <div className="col">
       {/* <div className="container border mb-3">
@@ -80,6 +79,7 @@ function Payment() {
                     name="number"
                     placeholder="Card Number"
                     className="border p-2 mb-2"
+                    maxLength="16"
                     value={cardData.number}
                     onChange={(event) => {
                       handleInputChange(event);
@@ -113,15 +113,40 @@ function Payment() {
                     placeholder="Name"
                     className="border p-2 mb-2"
                     value={cardData.name}
-                    onChange={handleInputChange}
+                    onChange={(event) => {
+                      handleInputChange(event);
+                      const inputName = event.target.value;
+                      const fullName = inputName.split(" ");
+                      const firstname = fullName[0];
+                      const lastname = fullName[1];
+                      setFormData((prevFormData) => ({
+                        ...prevFormData,
+                        step3: {
+                          ...prevFormData.step3,
+                          paymentdata: {
+                            ...prevFormData.step3.paymentdata,
+                            firstname: firstname,
+                            lastname: lastname,
+                          },
+                        },
+                      }));
+                    }}
                     onFocus={handleInputFocus}
                   />
                   <input
-                    type="month"
+                    type="text"
+                    id="expiryDate"
+                    pattern="(0[1-9]|1[0-2])\/[0-9]{2}"
+                    placeholder="MM/YY"
                     name="expiry"
-                    placeholder="expiry"
+                    maxLength={5}
                     className="border p-2 mb-2"
-                    value={cardData.expiry}
+                    value={
+                      cardData.expiry.length < 2 &&
+                      !cardData.expiry.includes("/")
+                        ? cardData.expiry
+                        : cardData.expiry + "/"
+                    }
                     onChange={handleInputChange}
                     onFocus={handleInputFocus}
                   />

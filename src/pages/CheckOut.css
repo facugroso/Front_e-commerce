@@ -24,15 +24,14 @@ input {
 #return:hover {
   color: #ac0e28;
 }
-.timeline-circle {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: #bdc4d0;
-}
 .select-country {
   border: none;
   outline: none;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* .placeholder-label {

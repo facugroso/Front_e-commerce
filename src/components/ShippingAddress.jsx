@@ -17,32 +17,6 @@ function ShippingAddress() {
     }
   };
 
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   await axios(
-  //     {
-  //       method: "POST",
-  //       url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/orders`,
-  //       data: {
-  //         firstname,
-  //         lastname,
-  //         address: fullAddress,
-  //         phone,
-  //         payment: paymentMethod,
-  //         paymentdata: paymentData,
-  //         products: cart,
-  //         status: "Pending",
-  //         userId: user.dataValues.id,
-  //       },
-  //       headers: {
-  //         Authorization: `Bearer ${user.token}`,
-  //       },
-  //     },
-  //     dispatch(clearCart()),
-  //     console.log("compraste")
-  //   );
-  // }
-
   return (
     <>
       <span className="fs-4 fw-bold">Shipping Address</span>
@@ -88,7 +62,6 @@ function ShippingAddress() {
                   firstname: event.target.value,
                 },
               }));
-              //setFirstName(formData.step1.firstname);
             }}
             required
           ></input>
@@ -201,7 +174,7 @@ function ShippingAddress() {
         <div className="border p-0">
           <label className="ms-2">Zip code</label>
           <input
-            type="text"
+            type="number"
             className="ms-2"
             value={
               formData.step1.fullAddress && formData.step1.fullAddress.zipcode
@@ -226,7 +199,7 @@ function ShippingAddress() {
       <div className="border mt-2">
         <label className="ms-2">Phone</label>
         <input
-          type="text"
+          type="number"
           className="w-100 ms-2"
           name="phone"
           value={
