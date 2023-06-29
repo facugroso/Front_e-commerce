@@ -30,7 +30,12 @@ function Footer() {
               target={"_blank"}
               className="footer-icon px-2 footer-icon"
             >
-              <img src={InstagramIcon} className="social-icon" alt="" />
+              <img
+                src={InstagramIcon}
+                className="social-icon "
+                alt=""
+                width={20}
+              />
             </Link>
             <Link
               to="https://www.facebook.com/hyperxcommunity"
