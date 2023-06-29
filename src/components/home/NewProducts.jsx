@@ -17,7 +17,7 @@ function NewProducts() {
     async function getProducts() {
       const response = await axios({
         method: "get",
-        url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/products`,
+        url: `${import.meta.env.VITE_API_URL}/products`,
       });
       const productsPreview = response.data;
       const sortedProducts = productsPreview.sort((a, b) => {

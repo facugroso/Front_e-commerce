@@ -159,7 +159,7 @@ function CheckOut() {
     await axios(
       {
         method: "POST",
-        url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/orders`,
+        url: `${import.meta.env.VITE_API_URL}/orders`,
         data: {
           firstname: formData.step1.firstname,
           lastname: formData.step1.lastname,

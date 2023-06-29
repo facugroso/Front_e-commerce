@@ -26,7 +26,7 @@ function Login() {
 
     const response = await axios({
       method: "POST",
-      url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/tokenUser`,
+      url: `${import.meta.env.VITE_API_URL}/tokenUser`,
       data: {
         email: emailValue,
         password: passwordValue,
@@ -55,7 +55,7 @@ function Login() {
 
     const response = await axios({
       method: "POST",
-      url: `${import.meta.env.VITE_REACT_APP_BACKEND_URL}/users`,
+      url: `${import.meta.env.VITE_API_URL}/users`,
       data: userData,
     });
 
