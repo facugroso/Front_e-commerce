@@ -2,7 +2,7 @@ import React from "react";
 import { useState, createContext, useRef } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import TimelineStatus from "../components/TimelineStatus";
@@ -10,6 +10,7 @@ import ShippingAddress from "../components/ShippingAddress";
 import ShippingMethod from "../components/ShippingMethod";
 import Payment from "../components/Payment";
 import { clearCart } from "../redux/cartSlice";
+import { setShow } from "../redux/offCanvasSlice";
 
 import "./CheckOut.css";
 
@@ -35,6 +36,8 @@ function CheckOut() {
     step3: "",
   });
   const [shipping, setShipping] = useState("Free");
+
+  dispatch(setShow(false));
 
   useEffect(() => {
     const calculateSubTotal = () => {
@@ -177,8 +180,6 @@ function CheckOut() {
     navigate("/purchase");
   }
 
-  console.log(formData);
-
   return (
     <div className="container">
       <div className="row d-flex">
@@ -200,7 +201,7 @@ function CheckOut() {
                 {handleRenderActions()}
               </div>
             </form>
-            <div className="col">
+            <div className="col d-none d-md-block">
               {cart.map((item) => (
                 <div className="col check-out-product" key={item.id}>
                   <div className=" no-margin  d-flex align-items-center ">
@@ -221,18 +222,20 @@ function CheckOut() {
                   </div>
                 </div>
               ))}
-              <div className="d-flex justify-content-between mt-4">
-                <span className="fw-semibold">Subtotal</span>
-                <span className="fw-bold">${subTotal}</span>
+              <div className="d-block">
+                <div className="d-flex justify-content-between mt-4">
+                  <span className="fw-semibold">Subtotal</span>
+                  <span className="fw-bold">${subTotal}</span>
+                </div>
+                <div className="d-flex justify-content-between mb-4">
+                  <span className="fw-semibold">Shipping</span>
+                  <span className="fw-bold">{shipping}</span>
+                </div>
               </div>
-              <div className="d-flex justify-content-between mb-4">
-                <span className="fw-semibold">Shipping</span>
-                <span className="fw-bold">{shipping}</span>
-              </div>
-              <div className="d-flex justify-content-between mb-2">
-                <span className="fw-bold">Total</span>
-                <span className="fs-2 fw-bold">${total}</span>
-              </div>
+            </div>
+            <div className="d-flex justify-content-between mb-2">
+              <span className="fw-bold">Total</span>
+              <span className="fs-2 fw-bold">${total}</span>
             </div>
           </div>
         </>

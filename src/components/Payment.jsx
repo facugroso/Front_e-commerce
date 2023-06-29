@@ -28,6 +28,12 @@ function Payment() {
 
     setCardData((prev) => ({ ...prev, [name]: value }));
   };
+  const handleInputChangeNumbers = (evt) => {
+    const { name, value } = evt.target;
+
+    /^[0-9]*$/.test(value) &&
+      setCardData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleInputFocus = (evt) => {
     setCardData((prev) => ({ ...prev, focus: evt.target.name }));
@@ -42,13 +48,14 @@ function Payment() {
         </div>
         <div className="d-flex justify-content-between p-1">
           <span className="fw-bold">Ship to</span>
-          <span>{`${formData.step1.fullAddress.country},${formData.step1.fullAddress.address},${formData.step1.fullAddress.city},${formData.step1.fullAddress.cardData}`}</span>
+          <span>{`${formData.step1.fullAddress.country}, ${formData.step1.fullAddress.address}, ${formData.step1.fullAddress.city}, ${formData.step1.fullAddress.state}`}</span>
         </div>
         <div className="d-flex justify-content-between p-1">
           <span className="fw-bold">Method</span>
-          <span>{`${formData.step1.fullAddress.country}`}</span>
+          <span>{formData.step1.fullAddress.country}</span>
         </div>
       </div>
+
       <div>
         <h3>Payment</h3>
         <p className="fw-light">All transactions are secure and encrypted.</p>
@@ -75,14 +82,14 @@ function Payment() {
               <div className="my-4 d-flex justify-content-between">
                 <div>
                   <input
-                    type="number"
+                    type="text"
                     name="number"
                     placeholder="Card Number"
                     className="border p-2 mb-2"
                     maxLength={16}
                     value={cardData.number}
                     onChange={(event) => {
-                      handleInputChange(event);
+                      handleInputChangeNumbers(event);
                       setFormData((prevFormData) => ({
                         ...prevFormData,
                         step3: {
@@ -98,12 +105,13 @@ function Payment() {
                     required
                   />
                   <input
-                    type="cvc"
+                    type="text"
                     name="cvc"
+                    maxLength={3}
                     placeholder="CVC"
                     className="border p-2 mb-2"
                     value={cardData.cvc}
-                    onChange={handleInputChange}
+                    onChange={handleInputChangeNumbers}
                     onFocus={handleInputFocus}
                     required
                   />
@@ -137,20 +145,13 @@ function Payment() {
                     required
                   />
                   <input
-                    type="number"
+                    type="text"
                     id="expiryDate"
-                    pattern="(0[1-9]|1[0-2])\/[0-9]{2}"
                     placeholder="MM/YY"
                     name="expiry"
                     maxLength={4}
                     className="border p-2 mb-2"
-                    value={
-                      cardData.expiry
-                      // cardData.expiry.length < 2 &&
-                      // !cardData.expiry.includes("/")
-                      //   ? cardData.expiry
-                      //   : cardData.expiry + "/"
-                    }
+                    value={cardData.expiry}
                     onChange={handleInputChange}
                     onFocus={handleInputFocus}
                     required
