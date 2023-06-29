@@ -1,5 +1,5 @@
 import Logo from "../assets/icons/logofooter.svg";
-import InstagramIcon from "../assets/icons/instagramicon";
+import InstagramIcon from "../assets/icons/InstagramIcon";
 import FacebookIcon from "../assets/icons/FacebookIcon";
 import TwitterIcon from "../assets/icons/TwitterIcon";
 import DiscordIcon from "../assets/icons/DiscordIcon";
