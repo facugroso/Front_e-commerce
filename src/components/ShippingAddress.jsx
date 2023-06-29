@@ -103,7 +103,7 @@ function ShippingAddress() {
           <label className="ms-2">City</label>
           <input
             type="text"
-            className="w-100 p-2"
+            className="p-2"
             value={formData.step1?.fullAddress?.city || ""}
             onChange={(event) => {
               setFormData((prevFormData) => ({
@@ -124,7 +124,7 @@ function ShippingAddress() {
           <label className="ms-2">State</label>
           <input
             type="text"
-            className="w-100 p-2"
+            className="p-2"
             value={formData.step1?.fullAddress?.state || ""}
             onChange={(event) => {
               setFormData((prevFormData) => ({
@@ -145,7 +145,7 @@ function ShippingAddress() {
           <label className="ms-2">Zip code</label>
           <input
             type="number"
-            className="w-100 p-2"
+            className="p-2"
             value={formData.step1?.fullAddress?.zipcode || ""}
             onChange={(event) => {
               setFormData((prevFormData) => ({
@@ -162,6 +162,7 @@ function ShippingAddress() {
           ></input>
         </div>
       </div>
+
       <div className="border mt-2">
         <label className="ms-2">Phone</label>
         <input

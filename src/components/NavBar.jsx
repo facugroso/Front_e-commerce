@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Col, Container, Nav, Navbar, NavDropdown, Row } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -14,6 +14,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function NavBar() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
   const user = useSelector((state) => state.user);
@@ -35,6 +36,12 @@ function NavBar() {
       theme: "dark",
     });
   }
+  const handleLogout = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+    navigate("/");
+  };
+
   return (
     <>
       <ToastContainer
@@ -65,7 +72,7 @@ function NavBar() {
               ) : (
                 <>
                   <Link>
-                    <span onClick={() => dispatch(logout())}>Log out</span>
+                    <span onClick={handleLogout}>Log out</span>
                   </Link>
                 </>
               )}
