@@ -14,4 +14,4 @@ function InstagramIcon() {
   );
 }
 
-export default InstagramIcon;
+//export default InstagramIcon;
