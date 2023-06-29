@@ -86,28 +86,44 @@ function AboutUs() {
           <h2 className="mb-3">Team</h2>
           <div className="row">
             <div className="col-lg-3 col-md-6">
-              <img width={250} src={Avatar1} alt="" />
+              <img
+                width={250}
+                src="https://i.postimg.cc/kGrx18jg/imgfacu.png"
+                alt=""
+              />
               <h6>Facundo Groso</h6>
               <Link to="https://www.linkedin.com/in/facundogroso/">
                 <i className="bi bi-linkedin"></i>
               </Link>
             </div>
             <div className="col-lg-3 col-md-6">
-              <img width={250} src={Avatar1} alt="" />
+              <img
+                width={250}
+                src="https://i.postimg.cc/DZZTjjj7/imgivan.png"
+                alt=""
+              />
               <h6>Iván Paredes</h6>
               <Link to="https://www.linkedin.com/in/ivan-paredes-rostek/">
                 <i className="bi bi-linkedin"></i>
               </Link>
             </div>
             <div className="col-lg-3 col-md-6">
-              <img width={250} src={Avatar1} alt="" />
+              <img
+                width={250}
+                src="https://i.postimg.cc/3NZcD6Dg/imgguz.png"
+                alt=""
+              />
               <h6>Guzmán García</h6>
               <Link to="https://www.linkedin.com/in/guzmangarciaj/">
                 <i className="bi bi-linkedin"></i>
               </Link>
             </div>
             <div className="col-lg-3 col-md-6">
-              <img width={240} src={Avatar2} alt="" />
+              <img
+                width={250}
+                src="https://i.postimg.cc/kgMWp7yK/imgvale.png"
+                alt=""
+              />
               <h6>Valentina Le Rose</h6>
               <Link to="https://www.linkedin.com/in/valentinalerose/">
                 <i className="bi bi-linkedin"></i>

@@ -141,12 +141,14 @@ function InfoUser() {
                           (order) =>
                             user.dataValues.id === order.userId && (
                               <>
-                                {console.log(order)}
-
                                 <tbody>
                                   <tr key={order.id}>
                                     <td className="description">
-                                      {order.address}
+                                      <>
+                                        {order.address.address},{" "}
+                                        {order.address.city},{" "}
+                                        {order.address.country}
+                                      </>
                                     </td>
                                     <td className="mb-2 description">
                                       {order.products.map((product) => {
