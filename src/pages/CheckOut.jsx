@@ -1,14 +1,15 @@
 import React from "react";
 import { useState, createContext, useRef } from "react";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import TimelineStatus from "../components/TimelineStatus";
 import ShippingAddress from "../components/ShippingAddress";
 import ShippingMethod from "../components/ShippingMethod";
 import Payment from "../components/Payment";
+import { clearCart } from "../redux/cartSlice";
 
 import "./CheckOut.css";
 
@@ -18,6 +19,8 @@ export const ShippingContext = createContext();
 export const StepContext = createContext();
 
 function CheckOut() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
 
@@ -128,9 +131,9 @@ function CheckOut() {
                 {"< RETURN TO SHIPPING"}
               </span>
               <button
+                type="submit"
                 className="btn d-flex justify-content-center w-50 my-4 py-2 px-1 rounded-0"
                 id="continue-shipping"
-                onClick={() => handleSubmit()}
               >
                 PAY NOW
               </button>
@@ -143,13 +146,13 @@ function CheckOut() {
 
   function handleSubmitByStep() {
     const form = formRef.current;
-    //if (form.checkValidity()) {
-    setCheckoutStep(checkoutStep + 1);
-    //}
+    if (form.checkValidity()) {
+      setCheckoutStep(checkoutStep + 1);
+    }
   }
 
   async function handleSubmit(e) {
-    console.log("entre");
+    e.preventDefault();
     await axios(
       {
         method: "POST",
@@ -160,7 +163,7 @@ function CheckOut() {
           address: formData.step1.fullAddress,
           phone: formData.step1.phone,
           payment: "Credit Card",
-          paymentdata: form.step3.paymentdata,
+          paymentdata: formData.step3.paymentdata,
           products: cart,
           status: "Pending",
           userId: user.dataValues.id,
@@ -169,9 +172,9 @@ function CheckOut() {
           Authorization: `Bearer ${user.token}`,
         },
       },
-      dispatch(clearCart()),
-      console.log("compraste")
+      dispatch(clearCart())
     );
+    navigate("/purchase");
   }
 
   console.log(formData);
@@ -186,7 +189,12 @@ function CheckOut() {
       {cart.length !== 0 ? (
         <>
           <div className="row">
-            <form className="col" ref={formRef} method="POST">
+            <form
+              className="col"
+              ref={formRef}
+              method="POST"
+              onSubmit={handleSubmit}
+            >
               {handleNextClick()}
               <div className="d-flex justify-content-between">
                 {handleRenderActions()}
@@ -219,7 +227,7 @@ function CheckOut() {
               </div>
               <div className="d-flex justify-content-between mb-4">
                 <span className="fw-semibold">Shipping</span>
-                <span>{shipping}</span>
+                <span className="fw-bold">{shipping}</span>
               </div>
               <div className="d-flex justify-content-between mb-2">
                 <span className="fw-bold">Total</span>

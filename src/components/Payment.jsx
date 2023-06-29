@@ -35,7 +35,7 @@ function Payment() {
 
   return (
     <div className="col">
-      {/* <div className="container border mb-3">
+      <div className="container border mb-3">
         <div className="d-flex justify-content-between p-1">
           <span className="fw-bold">Contact</span>
           <span>{user.dataValues.email}</span>
@@ -48,7 +48,7 @@ function Payment() {
           <span className="fw-bold">Method</span>
           <span>{`${formData.step1.fullAddress.country}`}</span>
         </div>
-      </div> */}
+      </div>
       <div>
         <h3>Payment</h3>
         <p className="fw-light">All transactions are secure and encrypted.</p>
@@ -79,7 +79,7 @@ function Payment() {
                     name="number"
                     placeholder="Card Number"
                     className="border p-2 mb-2"
-                    maxLength="16"
+                    maxLength={16}
                     value={cardData.number}
                     onChange={(event) => {
                       handleInputChange(event);
@@ -95,6 +95,7 @@ function Payment() {
                       }));
                     }}
                     onFocus={handleInputFocus}
+                    required
                   />
                   <input
                     type="cvc"
@@ -104,6 +105,7 @@ function Payment() {
                     value={cardData.cvc}
                     onChange={handleInputChange}
                     onFocus={handleInputFocus}
+                    required
                   />
                 </div>
                 <div className="d-flex flex-column justify-content-end">
@@ -132,23 +134,26 @@ function Payment() {
                       }));
                     }}
                     onFocus={handleInputFocus}
+                    required
                   />
                   <input
-                    type="text"
+                    type="number"
                     id="expiryDate"
                     pattern="(0[1-9]|1[0-2])\/[0-9]{2}"
                     placeholder="MM/YY"
                     name="expiry"
-                    maxLength={5}
+                    maxLength={4}
                     className="border p-2 mb-2"
                     value={
-                      cardData.expiry.length < 2 &&
-                      !cardData.expiry.includes("/")
-                        ? cardData.expiry
-                        : cardData.expiry + "/"
+                      cardData.expiry
+                      // cardData.expiry.length < 2 &&
+                      // !cardData.expiry.includes("/")
+                      //   ? cardData.expiry
+                      //   : cardData.expiry + "/"
                     }
                     onChange={handleInputChange}
                     onFocus={handleInputFocus}
+                    required
                   />
                 </div>
               </div>

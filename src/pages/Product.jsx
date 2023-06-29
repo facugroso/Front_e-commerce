@@ -63,9 +63,8 @@ function Product() {
                     className="gallery-carrousel"
                   >
                     {product.gallery.map((image, idx) => (
-                      <SwiperSlide>
+                      <SwiperSlide key={idx}>
                         <img
-                          key={idx}
                           onClick={() => setImg(image)}
                           className="btn-image p-2 my-5"
                           src={
@@ -100,7 +99,7 @@ function Product() {
                   className="mySwiper style-min-product"
                 >
                   {product.gallery.map((image, idx) => (
-                    <SwiperSlide className="pb-5">
+                    <SwiperSlide className="pb-5" key={idx}>
                       <div className="d-flex flex-column justify-content-between">
                         <div>
                           <img

@@ -11,7 +11,7 @@ function ShippingMethod({ subTotal }) {
   return (
     <>
       <div className="col">
-        {/* <div className="container border mb-3">
+        <div className="container border mb-3">
           <div className="d-flex justify-content-between p-1">
             <span className="fw-bold">Contact</span>
             <span>{user.dataValues.email}</span>
@@ -20,7 +20,7 @@ function ShippingMethod({ subTotal }) {
             <span className="fw-bold">Ship to</span>
             <span>{`${formData.step1.fullAddress.country},${formData.step1.fullAddress.address},${formData.step1.fullAddress.city},${formData.step1.fullAddress.state}`}</span>
           </div>
-        </div> */}
+        </div>
         <h3>Shipping Method</h3>
         <div className="d-flex flex-column">
           <ul className="p-0 mt-2">
@@ -56,8 +56,8 @@ function ShippingMethod({ subTotal }) {
                   name="shipping-method"
                   value="Express"
                   onChange={() => {
-                    setTotal(Number(subTotal) + 15),
-                      setShipping("Express"),
+                    setTotal(parseFloat(Number(subTotal) + 15).toFixed(2)),
+                      setShipping("Express $15"),
                       setFormData((prevFormData) => ({
                         ...prevFormData,
                         step2: {
@@ -80,8 +80,8 @@ function ShippingMethod({ subTotal }) {
                   name="shipping-method"
                   value="Priority"
                   onChange={() => {
-                    setTotal(Number(subTotal) + 30),
-                      setShipping("Priority"),
+                    setTotal(parseFloat(Number(subTotal) + 30).toFixed(2)),
+                      setShipping("Priority $30"),
                       setFormData((prevFormData) => ({
                         ...prevFormData,
                         step2: {

@@ -12,6 +12,7 @@ import Err404 from "./pages/Err404";
 import Category from "./pages/Category";
 import CheckOut from "./pages/CheckOut";
 import AllCategories from "./pages/AllCategories";
+import Purchase from "./pages/Purchase";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -53,6 +54,7 @@ function App() {
               )
             }
           />
+          <Route path="/purchase" element={<Purchase />} />
           <Route path="*" element={<Err404 />} />
         </Routes>
         {hideElements && <Footer />}

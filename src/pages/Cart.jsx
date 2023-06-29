@@ -52,7 +52,7 @@ function Cart() {
             <div className="col">
               <div className="row">
                 {cart.map((item) => (
-                  <div className="col">
+                  <div className="col" key={item.id}>
                     <div className=" no-margin  d-flex align-items-center ">
                       <div className="image py-3">
                         <img
