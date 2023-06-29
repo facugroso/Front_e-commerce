@@ -1,5 +1,5 @@
 import Logo from "../assets/icons/logofooter.svg";
-import InstagramIcon from "../assets/icons/instagramicon";
+//import InstagramIcon from "../assets/icons/instagramicon";
 import FacebookIcon from "../assets/icons/FacebookIcon";
 import TwitterIcon from "../assets/icons/TwitterIcon";
 import DiscordIcon from "../assets/icons/DiscordIcon";
@@ -30,7 +30,7 @@ function Footer() {
               target={"_blank"}
               className="footer-icon px-2 footer-icon"
             >
-              <InstagramIcon className="social-icon" />
+              {/* <InstagramIcon className="social-icon" /> */}
             </Link>
             <Link
               to="https://www.facebook.com/hyperxcommunity"
