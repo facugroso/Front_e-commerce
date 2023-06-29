@@ -190,22 +190,19 @@ function CheckOut() {
       {cart.length !== 0 ? (
         <>
           <div className="row">
-            <form
-              className="col"
-              ref={formRef}
-              method="POST"
-              onSubmit={handleSubmit}
-            >
-              {handleNextClick()}
-              <div className="d-flex justify-content-between">
-                {handleRenderActions()}
-              </div>
-            </form>
+            <div className="col">
+              <form ref={formRef} method="POST" onSubmit={handleSubmit}>
+                {handleNextClick()}
+                <div className="d-flex justify-content-between">
+                  {handleRenderActions()}
+                </div>
+              </form>
+            </div>
             <div className="col d-none d-md-block">
               {cart.map((item) => (
                 <div className="col check-out-product" key={item.id}>
                   <div className=" no-margin  d-flex align-items-center ">
-                    <div className="py-3">
+                    <div className="">
                       <img
                         src={item.image}
                         alt={`imagen ${item.name}`}
@@ -224,18 +221,18 @@ function CheckOut() {
               ))}
               <div className="d-block">
                 <div className="d-flex justify-content-between mt-4">
-                  <span className="fw-semibold">Subtotal</span>
+                  <span className="fw-semibold description">Subtotal</span>
                   <span className="fw-bold">${subTotal}</span>
                 </div>
                 <div className="d-flex justify-content-between mb-4">
-                  <span className="fw-semibold">Shipping</span>
+                  <span className="fw-semibold description">Shipping</span>
                   <span className="fw-bold">{shipping}</span>
                 </div>
               </div>
-            </div>
-            <div className="d-flex justify-content-between mb-2">
-              <span className="fw-bold">Total</span>
-              <span className="fs-2 fw-bold">${total}</span>
+              <div className="d-flex justify-content-between mb-2">
+                <span className="fw-bold description">Total</span>
+                <span className="fs-2 fw-bold">${total}</span>
+              </div>
             </div>
           </div>
         </>

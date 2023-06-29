@@ -12,13 +12,13 @@ function ShippingMethod({ subTotal }) {
     <>
       <div className="col">
         <div className="container border mb-3">
-          <div className="d-flex justify-content-between p-1">
+          <div className="d-flex justify-content-between p-3">
             <span className="fw-bold">Contact</span>
             <span>{user.dataValues.email}</span>
           </div>
-          <div className="d-flex justify-content-between p-1">
+          <div className="d-flex justify-content-between p-3">
             <span className="fw-bold">Ship to</span>
-            <span>{`${formData.step1.fullAddress.country},${formData.step1.fullAddress.address},${formData.step1.fullAddress.city},${formData.step1.fullAddress.state}`}</span>
+            <span className="text-end">{`${formData.step1.fullAddress.country},${formData.step1.fullAddress.address},${formData.step1.fullAddress.city},${formData.step1.fullAddress.state}`}</span>
           </div>
         </div>
         <h3>Shipping Method</h3>

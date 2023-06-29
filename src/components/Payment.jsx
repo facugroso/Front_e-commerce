@@ -48,7 +48,7 @@ function Payment() {
         </div>
         <div className="d-flex justify-content-between p-1">
           <span className="fw-bold">Ship to</span>
-          <span>{`${formData.step1.fullAddress.country}, ${formData.step1.fullAddress.address}, ${formData.step1.fullAddress.city}, ${formData.step1.fullAddress.state}`}</span>
+          <span className="text-end">{`${formData.step1.fullAddress.country}, ${formData.step1.fullAddress.address}, ${formData.step1.fullAddress.city}, ${formData.step1.fullAddress.state}`}</span>
         </div>
         <div className="d-flex justify-content-between p-1">
           <span className="fw-bold">Method</span>

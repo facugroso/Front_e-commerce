@@ -9,11 +9,11 @@ function ShippingAddress() {
 
   return (
     <>
-      <span className="fs-4 fw-bold">Shipping Address</span>
-      <div className="border my-2">
+      <span className="fs-4 modelSubtitle">Shipping Address</span>
+      <div className="border mt-2">
         <label className="ms-2">Country/Region</label>
         <select
-          className="w-100 select-country form-select"
+          className="w-100 border border-0"
           onChange={(event) => {
             setFormData((prevFormData) => ({
               ...prevFormData,
@@ -32,7 +32,7 @@ function ShippingAddress() {
           <option value="United States">United States</option>
         </select>
       </div>
-      <div className="row m-0 g-3">
+      <div className="row m-0 g-1">
         <div className="col-12 col-md-6 border p-0 mt-2">
           <label className="ms-2">First Name</label>
           <input
@@ -98,8 +98,8 @@ function ShippingAddress() {
         <label className="ms-2">Apartment</label>
         <input type="text" className="w-100 p-2" name="apartment"></input>
       </div>
-      <div className="mt-2 row g-3">
-        <div className="col-12 col-md-4 border p-0">
+      <div className="mt-2 row g-2 px-1">
+        <div className="col-12 col-md-4 gap-2 border p-0 m-0">
           <label className="ms-2">City</label>
           <input
             type="text"
@@ -120,7 +120,7 @@ function ShippingAddress() {
             required
           ></input>
         </div>
-        <div className="col-12 col-md-4 border p-0">
+        <div className="col-12 col-md-4 border p-0 m-0">
           <label className="ms-2">State</label>
           <input
             type="text"
@@ -141,7 +141,7 @@ function ShippingAddress() {
             required
           ></input>
         </div>
-        <div className="col-12 col-md-4 border p-0">
+        <div className="col-12 col-md-4 border p-0 m-0">
           <label className="ms-2">Zip code</label>
           <input
             type="number"
