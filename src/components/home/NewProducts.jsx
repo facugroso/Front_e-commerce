@@ -55,14 +55,16 @@ function NewProducts() {
               <p className="mb-5 featuredItemDescriptionText fs-5">
                 Check Our New Gaming Tech!
               </p>
-              <button id="button-style" className="btn rounded-0 px-3 py-2">
-                <div className="d-flex align-items-center">
-                  <span>LEARN MORE</span>
-                  <span className="d-inline-block ms-3 button_arrow">
-                    <ArrowIcon />
-                  </span>
-                </div>
-              </button>
+              <Link to={"/categories/all-categories"}>
+                <button id="button-style" className="btn rounded-0 px-3 py-2">
+                  <div className="d-flex align-items-center">
+                    <span>LEARN MORE</span>
+                    <span className="d-inline-block ms-3 button_arrow">
+                      <ArrowIcon />
+                    </span>
+                  </div>
+                </button>
+              </Link>
             </div>
 
             <Swiper
