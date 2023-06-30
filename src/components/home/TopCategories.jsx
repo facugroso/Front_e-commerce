@@ -43,7 +43,54 @@ function TopCategories() {
             }}
             navigation={true}
             modules={[Autoplay, Navigation]}
-            className="mySwiper style-max"
+            className="mySwiper style-max-category d-none d-lg-block"
+          >
+            {categories.map((category) => (
+              <SwiperSlide className="swiper-styles" key={category.id}>
+                <div className="productCard">
+                  <Link
+                    id="link-style"
+                    className="product-link"
+                    to={`/categories/${category.slug}`}
+                  >
+                    <div>
+                      <img
+                        className="img-fluid categoryImage"
+                        src={
+                          category.image.includes("https")
+                            ? category.image
+                            : `${import.meta.env.VITE_IMAGE_CLOUD_DIRECTION}/${
+                                category.image
+                              }`
+                        }
+                        alt={`${category.name} image`}
+                      />
+                    </div>
+                    <div className="d-flex align-items-center mt-3">
+                      <h3 className="fs-6 mb-0 swiper-text description">
+                        {category.name}
+                      </h3>
+                      <span className="mx-2 button_arrow">
+                        <ArrowIcon />
+                      </span>
+                    </div>
+                  </Link>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <Swiper
+            slidesPerView={3}
+            spaceBetween={0}
+            freeMode={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            navigation={true}
+            modules={[Autoplay, Navigation]}
+            className="mySwiper d-none d-md-block d-lg-none"
           >
             {categories.map((category) => (
               <SwiperSlide className="swiper-styles" key={category.id}>
