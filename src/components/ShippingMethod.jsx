@@ -13,15 +13,15 @@ function ShippingMethod({ subTotal }) {
       <div className="col">
         <div className="container border mb-3">
           <div className="d-flex justify-content-between p-3">
-            <span className="fw-bold">Contact</span>
-            <span>{user.dataValues.email}</span>
+            <span className="fw-bold description">Contact</span>
+            <span className="description">{user.dataValues.email}</span>
           </div>
           <div className="d-flex justify-content-between p-3">
-            <span className="fw-bold">Ship to</span>
-            <span className="text-end">{`${formData.step1.fullAddress.country},${formData.step1.fullAddress.address},${formData.step1.fullAddress.city},${formData.step1.fullAddress.state}`}</span>
+            <span className="fw-bold description">Ship to</span>
+            <span className="text-end description">{`${formData.step1.fullAddress.country},${formData.step1.fullAddress.address},${formData.step1.fullAddress.city},${formData.step1.fullAddress.state}`}</span>
           </div>
         </div>
-        <h3>Shipping Method</h3>
+        <h3 className="modelSubtitle fs-4">Shipping Method</h3>
         <div className="d-flex flex-column">
           <ul className="p-0 mt-2">
             <div className="border p-3">
@@ -43,10 +43,10 @@ function ShippingMethod({ subTotal }) {
                   }}
                   defaultChecked
                 ></input>
-                <label className="fw-light ms-2">
+                <label className="fw-light ms-2 description">
                   Standard 3 To 5 Business Days - Free
                 </label>
-                <span className="ms-auto">Free</span>
+                <span className="ms-auto description">Free</span>
               </li>
             </div>
             <div className="border p-3">
@@ -67,10 +67,10 @@ function ShippingMethod({ subTotal }) {
                       }));
                   }}
                 ></input>
-                <label className="fw-light ms-2">
+                <label className="fw-light ms-2 description">
                   Express 2-3 Business Days
                 </label>
-                <span className="ms-auto">$15.00</span>
+                <span className="ms-auto description">$15.00</span>
               </li>
             </div>
             <div className="border p-3">
@@ -91,10 +91,10 @@ function ShippingMethod({ subTotal }) {
                       }));
                   }}
                 ></input>
-                <label className="fw-light ms-2">
+                <label className="fw-light ms-2 description">
                   Priority 1-2 Business Day
                 </label>
-                <span className="ms-auto">$30.00</span>
+                <span className="ms-auto description">$30.00</span>
               </li>
             </div>
           </ul>
