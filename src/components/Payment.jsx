@@ -43,26 +43,30 @@ function Payment() {
     <div className="col">
       <div className="container border mb-3">
         <div className="d-flex justify-content-between p-1">
-          <span className="fw-bold">Contact</span>
-          <span>{user.dataValues.email}</span>
+          <span className="fw-bold description">Contact</span>
+          <span className="description">{user.dataValues.email}</span>
         </div>
         <div className="d-flex justify-content-between p-1">
-          <span className="fw-bold">Ship to</span>
-          <span className="text-end">{`${formData.step1.fullAddress.country}, ${formData.step1.fullAddress.address}, ${formData.step1.fullAddress.city}, ${formData.step1.fullAddress.state}`}</span>
+          <span className="fw-bold descriptiond">Ship to</span>
+          <span className="text-end description">{`${formData.step1.fullAddress.country}, ${formData.step1.fullAddress.address}, ${formData.step1.fullAddress.city}, ${formData.step1.fullAddress.state}`}</span>
         </div>
         <div className="d-flex justify-content-between p-1">
-          <span className="fw-bold">Method</span>
-          <span>{formData.step1.fullAddress.country}</span>
+          <span className="fw-bold description">Method</span>
+          <span className="description">
+            {formData.step1.fullAddress.country}
+          </span>
         </div>
       </div>
 
       <div>
-        <h3>Payment</h3>
-        <p className="fw-light">All transactions are secure and encrypted.</p>
+        <h3 className="modelSubtitle fs-4">Payment</h3>
+        <p className="fw-light description">
+          All transactions are secure and encrypted.
+        </p>
         <div className="border">
           <span className="d-flex p-2 mb-3">
             <input type="radio" defaultChecked />
-            <span className="ms-2">Credit Card</span>
+            <span className="ms-2 description">Credit Card</span>
             <span className="ms-auto">
               <Visa />
               <MasterCard />
@@ -79,13 +83,13 @@ function Payment() {
                 name={cardData.name}
                 focused={cardData.focus}
               />
-              <div className="my-4 d-flex justify-content-between">
-                <div>
+              <div className="my-4 row">
+                <div className="col-md-6">
                   <input
                     type="text"
                     name="number"
                     placeholder="Card Number"
-                    className="border p-2 mb-2"
+                    className="border p-2 mb-2 description w-100"
                     maxLength={16}
                     value={cardData.number}
                     onChange={(event) => {
@@ -109,19 +113,19 @@ function Payment() {
                     name="cvc"
                     maxLength={3}
                     placeholder="CVC"
-                    className="border p-2 mb-2"
+                    className="border p-2 mb-2 description w-100"
                     value={cardData.cvc}
                     onChange={handleInputChangeNumbers}
                     onFocus={handleInputFocus}
                     required
                   />
                 </div>
-                <div className="d-flex flex-column justify-content-end">
+                <div className="col-md-6">
                   <input
                     type="name"
                     name="name"
                     placeholder="Name"
-                    className="border p-2 mb-2"
+                    className="border p-2 mb-2 description w-100"
                     value={cardData.name}
                     onChange={(event) => {
                       handleInputChange(event);
@@ -150,7 +154,7 @@ function Payment() {
                     placeholder="MM/YY"
                     name="expiry"
                     maxLength={4}
-                    className="border p-2 mb-2"
+                    className="border p-2 mb-2 description w-100"
                     value={cardData.expiry}
                     onChange={handleInputChange}
                     onFocus={handleInputFocus}

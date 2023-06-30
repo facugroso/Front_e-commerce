@@ -11,7 +11,7 @@ function ShippingAddress() {
     <>
       <span className="fs-4 modelSubtitle">Shipping Address</span>
       <div className="border mt-2">
-        <label className="ms-2">Country/Region</label>
+        <label className="ms-2 description">Country/Region</label>
         <select
           className="w-100 border border-0"
           onChange={(event) => {
@@ -29,12 +29,12 @@ function ShippingAddress() {
           required
         >
           <option value=""></option>
-          <option value="United States">United States</option>
+          <option value="United States description">United States</option>
         </select>
       </div>
       <div className="row m-0 g-1">
         <div className="col-12 col-md-6 border p-0 mt-2">
-          <label className="ms-2">First Name</label>
+          <label className="ms-2 description">First Name</label>
           <input
             type="text"
             className="w-100 p-2"
@@ -53,7 +53,7 @@ function ShippingAddress() {
           ></input>
         </div>
         <div className="col-12 col-md-6 border p-0 mt-2">
-          <label className="ms-2">Last Name</label>
+          <label className="ms-2 description">Last Name</label>
           <input
             type="text"
             className="w-100 p-2"
@@ -73,7 +73,7 @@ function ShippingAddress() {
         </div>
       </div>
       <div className="border mt-2">
-        <label className="ms-2">Address</label>
+        <label className="ms-2 description">Address</label>
         <input
           type="text"
           className="w-100 p-2"
@@ -95,12 +95,12 @@ function ShippingAddress() {
         ></input>
       </div>
       <div className="border mt-2">
-        <label className="ms-2">Apartment</label>
+        <label className="ms-2 description">Apartment</label>
         <input type="text" className="w-100 p-2" name="apartment"></input>
       </div>
       <div className="mt-2 row g-2 px-1">
         <div className="col-12 col-md-4 gap-2 border p-0 m-0">
-          <label className="ms-2">City</label>
+          <label className="ms-2 description">City</label>
           <input
             type="text"
             className="p-2"
@@ -121,7 +121,7 @@ function ShippingAddress() {
           ></input>
         </div>
         <div className="col-12 col-md-4 border p-0 m-0">
-          <label className="ms-2">State</label>
+          <label className="ms-2 description">State</label>
           <input
             type="text"
             className="p-2"
@@ -142,7 +142,7 @@ function ShippingAddress() {
           ></input>
         </div>
         <div className="col-12 col-md-4 border p-0 m-0">
-          <label className="ms-2">Zip code</label>
+          <label className="ms-2 description">Zip code</label>
           <input
             type="number"
             className="p-2"
@@ -164,7 +164,7 @@ function ShippingAddress() {
       </div>
 
       <div className="border mt-2">
-        <label className="ms-2">Phone</label>
+        <label className="ms-2 description">Phone</label>
         <input
           type="number"
           className="w-100 p-2"

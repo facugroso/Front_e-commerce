@@ -94,7 +94,7 @@ function Login() {
         {isLoginPage ? (
           <div className="p-3 shadow-lg rounded">
             <div>
-              <h2 className="text-white">Sign In</h2>
+              <h2 className="text-white modelSubtitle fs-3">Sign In</h2>
             </div>
 
             <form
@@ -107,7 +107,7 @@ function Login() {
                 <input
                   name="email"
                   type="email"
-                  className="form-control form-control-sm bg-light mb-2"
+                  className="form-control form-control-sm bg-light mb-2 description"
                   placeholder="Email"
                   value={emailValue}
                   onChange={(event) => setEmail(event.target.value)}
@@ -119,7 +119,7 @@ function Login() {
                 <input
                   name="password"
                   type="password"
-                  className="form-control form-control-sm bg-light"
+                  className="form-control form-control-sm bg-light description"
                   placeholder="Password"
                   value={passwordValue}
                   onChange={(event) => setPassword(event.target.value)}
@@ -128,7 +128,7 @@ function Login() {
 
               <div className="mt-4 mb-3 text-center">
                 <button
-                  className="btn btn-sm btn-light col"
+                  className="btn btn-sm btn-light col description"
                   style={{ width: "40%" }}
                 >
                   Login
@@ -142,9 +142,9 @@ function Login() {
               </div>
 
               <div className="mt-5">
-                <p className="text-white text-center">
+                <p className="text-white text-center description">
                   Don't have an account?
-                  <Link to="/register" className="text-danger ms-1">
+                  <Link to="/register" className="text-danger ms-1 description">
                     Click here to register
                   </Link>
                 </p>
@@ -154,7 +154,7 @@ function Login() {
         ) : (
           <div className="p-3 shadow-lg rounded">
             <div>
-              <h2 className="text-white">Sign Up</h2>
+              <h2 className="text-white description">Sign Up</h2>
             </div>
 
             <form className="mt-4" method="POST" onSubmit={handleSignup}>
@@ -162,7 +162,7 @@ function Login() {
                 <input
                   name="firstname"
                   type="text"
-                  className="form-control form-control-sm bg-light mb-2"
+                  className="form-control form-control-sm bg-light mb-2 description"
                   placeholder="First Name"
                   value={firstnameValue}
                   onChange={(event) => setFirstname(event.target.value)}
@@ -173,7 +173,7 @@ function Login() {
                 <input
                   name="lastname"
                   type="text"
-                  className="form-control form-control-sm bg-light mb-2"
+                  className="form-control form-control-sm bg-light mb-2 description"
                   placeholder="Last Name"
                   value={lastnameValue}
                   onChange={(event) => setLastname(event.target.value)}
@@ -184,7 +184,7 @@ function Login() {
                 <input
                   name="email"
                   type="email"
-                  className="form-control form-control-sm bg-light mb-2"
+                  className="form-control form-control-sm bg-light mb-2 description"
                   placeholder="Email"
                   value={emailValue}
                   onChange={(event) => setEmail(event.target.value)}
@@ -196,7 +196,7 @@ function Login() {
                 <input
                   name="password"
                   type="password"
-                  className="form-control form-control-sm bg-light mb-2"
+                  className="form-control form-control-sm bg-light mb-2 description"
                   placeholder="Password"
                   value={passwordValue}
                   onChange={(event) => setPassword(event.target.value)}
@@ -207,7 +207,7 @@ function Login() {
                 <input
                   name="phone"
                   type="tel"
-                  className="form-control form-control-sm bg-light"
+                  className="form-control form-control-sm bg-light description"
                   placeholder="Phone Number"
                   value={phoneValue}
                   onChange={(event) => setPhone(event.target.value)}
@@ -216,7 +216,7 @@ function Login() {
               </div>
               <div className="mt-4 mb-3 text-center">
                 <button
-                  className="btn btn-sm btn-light col"
+                  className="btn btn-sm btn-light col description"
                   style={{ width: "40%" }}
                 >
                   Register
@@ -224,7 +224,7 @@ function Login() {
               </div>
 
               <div className="mt-5">
-                <p className="text-white text-center">
+                <p className="text-white text-center description">
                   Already have an account?
                   <Link to="/login" className="text-danger ms-1">
                     Click here to login
@@ -237,7 +237,7 @@ function Login() {
       </div>
       <div
         id="credentials"
-        className="bg-dark text-white p-4 shadow-sm"
+        className="bg-dark text-white p-4 shadow-sm description"
         transition-style="in:square:bottom-left"
       >
         <h5>Credentials</h5>

@@ -11,15 +11,15 @@ function TimelineStatus() {
       <ol id="timeline-list" className="d-flex justify-content-between">
         <li className="d-flex flex-column align-items-center">
           <span className="timeline-circle-red"></span>
-          <span>Cart</span>
+          <span className="description">Cart</span>
         </li>
         <li className="d-flex flex-column align-items-center">
           <span
             className={
-              checkoutStep >= 1 ? "timeline-circle-red" : "timeline-circle"
+              checkoutStep >= 1 ? "timeline-circle-red " : "timeline-circle"
             }
           ></span>
-          <span>Information</span>
+          <span className="description">Information</span>
         </li>
         <li className="d-flex flex-column align-items-center">
           <span
@@ -27,7 +27,7 @@ function TimelineStatus() {
               checkoutStep >= 2 ? "timeline-circle-red" : "timeline-circle"
             }
           ></span>
-          <span>Shipping</span>
+          <span className="description">Shipping</span>
         </li>
         <li className="d-flex flex-column align-items-center">
           <span
@@ -35,7 +35,7 @@ function TimelineStatus() {
               checkoutStep >= 3 ? "timeline-circle-red" : "timeline-circle"
             }
           ></span>
-          <span>Payment</span>
+          <span className="description">Payment</span>
         </li>
       </ol>
     </div>

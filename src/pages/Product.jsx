@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Spinner from "react-bootstrap/Spinner";
+import Err404 from "./Err404";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
@@ -18,27 +20,55 @@ function Product() {
   const params = useParams();
   const [product, setProduct] = useState();
   const [img, setImg] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     async function getProducts() {
-      const res = await axios({
-        method: "get",
-        url: `${import.meta.env.VITE_API_URL}/products/${params.slug}`,
-      });
-      setProduct(res.data);
-      setImg(res.data.image);
+      try {
+        const res = await axios({
+          method: "get",
+          url: `${import.meta.env.VITE_API_URL}/products/${params.slug}`,
+        });
+        setProduct(res.data);
+        setImg(res.data.image);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+        setIsError(true);
+        setIsLoading(false);
+      }
     }
     getProducts();
     window.scrollTo(0, 0);
   }, []);
 
+  if (isLoading) {
+    return (
+      <>
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "80vh" }}
+        >
+          <Spinner animation="border" role="status" variant="dark">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+      </>
+    );
+  }
+
+  if (isError || !product) {
+    return (
+      <>
+        <Err404 />
+      </>
+    );
+  }
+
   return (
     <>
-      {product === undefined ? (
-        <div>
-          <p>Loading....</p>
-        </div>
-      ) : (
+      {product !== undefined && (
         <>
           <div className="container">
             <div className="my-3">
