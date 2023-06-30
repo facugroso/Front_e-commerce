@@ -201,26 +201,32 @@ function CheckOut() {
             <div className="col d-none d-md-block">
               {cart.map((item) => (
                 <div className="col check-out-product" key={item.id}>
-                  <div className=" no-margin  d-flex align-items-center ">
-                    <div className="">
-                      <img
-                        src={
-                          item.image.includes("https")
-                            ? item.image
-                            : `${import.meta.env.VITE_IMAGE_CLOUD_DIRECTION}/${
-                                item.image
-                              }`
-                        }
-                        alt={`imagen ${item.name}`}
-                        className="img-fluid border"
-                      />
-                    </div>
-                    <div className="px-3 d-flex justify-content-between">
-                      <div>
-                        <p className="modelSubtitle fs-6">{item.name}</p>
-                        <span>Qty:{item.quantity}</span>
+                  <div className="no-margin d-flex align-items-center justify-content-between">
+                    <div className="d-flex align-items-center">
+                      <div className="mb-3">
+                        <img
+                          src={
+                            item.image.includes("https")
+                              ? item.image
+                              : `${
+                                  import.meta.env.VITE_IMAGE_CLOUD_DIRECTION
+                                }/${item.image}`
+                          }
+                          alt={`imagen ${item.name}`}
+                          className="img-fluid border"
+                        />
                       </div>
-                      <p className="fw-bold">${item.price}</p>
+                      <div className="mb-3 px-3">
+                        <p className="modelSubtitle fs-6 m-0">{item.name}</p>
+                        <span>Quantity: {item.quantity}</span>
+                      </div>
+                      <div className="mb-3 px-3">
+                        <p className="modelSubtitle fs-6 m-0">{item.name}</p>
+                        <span>Quantity: {item.quantity}</span>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="fw-bold text-end">${item.price}</p>
                     </div>
                   </div>
                 </div>
@@ -228,16 +234,16 @@ function CheckOut() {
               <div className="d-block">
                 <div className="d-flex justify-content-between mt-4">
                   <span className="fw-semibold description">Subtotal</span>
-                  <span className="fw-bold">${subTotal}</span>
+                  <span className="fw-bold description">${subTotal}</span>
                 </div>
                 <div className="d-flex justify-content-between mb-4">
                   <span className="fw-semibold description">Shipping</span>
-                  <span className="fw-bold">{shipping}</span>
+                  <span className="fw-bold description">{shipping}</span>
                 </div>
               </div>
               <div className="d-flex justify-content-between mb-2">
-                <span className="fw-bold description">Total</span>
-                <span className="fs-2 fw-bold">${total}</span>
+                <span className="fw-bold fs-4 modelSubtitle">Total</span>
+                <span className="fs-2 modelSubtitle">${total}</span>
               </div>
             </div>
           </div>

@@ -7,8 +7,6 @@ import expressIcon from "../assets/icons/expressIcon.svg";
 import mysqlIcon from "../assets/icons/mysqlIcon.svg";
 import sequelizeIcon from "../assets/icons/sequelizeIcon.svg";
 import gitHubIcon from "../assets/icons/gitHubIcon.svg";
-import Avatar1 from "../assets/img/585e4bcdcb11b227491c3396.png";
-import Avatar2 from "../assets/img/585e4bc4cb11b227491c3395.png";
 import { Link } from "react-router-dom";
 
 function AboutUs() {

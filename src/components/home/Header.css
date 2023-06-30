@@ -85,3 +85,39 @@
 .shopLink:hover span .icon {
   fill: #e01637;
 }
+
+@media (max-width: 767px) {
+  .main {
+    background-image: url("https://i.postimg.cc/mZc1vdpH/350527767-594345085873632-6165591538970085980-n.png");
+    background-size: cover;
+    background-position: -500px;
+    height: 36rem;
+    object-fit: cover;
+    transform: scaleX(-1);
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .main {
+    background-image: url("https://i.postimg.cc/mZc1vdpH/350527767-594345085873632-6165591538970085980-n.png");
+    background-size: cover;
+    background-position: -600px;
+    height: 36rem;
+    object-fit: cover;
+    transform: scaleX(-1);
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 460px) {
+  .main {
+    background-image: url("https://i.postimg.cc/mZc1vdpH/350527767-594345085873632-6165591538970085980-n.png");
+    background-size: cover;
+    background-position: -700px;
+    height: 36rem;
+    object-fit: cover;
+    transform: scaleX(-1);
+    padding: 0 !important;
+  }
+}

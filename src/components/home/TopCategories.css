@@ -49,4 +49,7 @@
   .categoryImage {
     width: 200px;
   }
+  .style-min {
+    padding-bottom: 1.5rem;
+  }
 }
