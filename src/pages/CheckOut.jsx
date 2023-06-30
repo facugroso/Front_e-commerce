@@ -58,26 +58,44 @@ function CheckOut() {
     switch (checkoutStep) {
       case 1:
         return (
-          <FormContext.Provider value={{ formData, setFormData }}>
-            <ShippingAddress />
-          </FormContext.Provider>
+          <>
+            <FormContext.Provider value={{ formData, setFormData }}>
+              <ShippingAddress />
+            </FormContext.Provider>
+            <div className="d-md-none d-flex justify-content-between aling-items-center mt-4">
+              <span className="fw-bold fs-4 modelSubtitle">Total</span>
+              <span className="fs-2 modelSubtitle">${total}</span>
+            </div>
+          </>
         );
       case 2: {
         return (
-          <FormContext.Provider value={{ formData, setFormData }}>
-            <TotalContext.Provider value={{ total, setTotal }}>
-              <ShippingContext.Provider value={{ shipping, setShipping }}>
-                <ShippingMethod subTotal={subTotal} />
-              </ShippingContext.Provider>
-            </TotalContext.Provider>
-          </FormContext.Provider>
+          <>
+            <FormContext.Provider value={{ formData, setFormData }}>
+              <TotalContext.Provider value={{ total, setTotal }}>
+                <ShippingContext.Provider value={{ shipping, setShipping }}>
+                  <ShippingMethod subTotal={subTotal} />
+                </ShippingContext.Provider>
+              </TotalContext.Provider>
+            </FormContext.Provider>
+            <div className="d-md-none d-flex justify-content-between aling-items-center mt-4">
+              <span className="fw-bold fs-4 modelSubtitle">Total</span>
+              <span className="fs-2 modelSubtitle">${total}</span>
+            </div>
+          </>
         );
       }
       case 3: {
         return (
-          <FormContext.Provider value={{ formData, setFormData }}>
-            <Payment />;
-          </FormContext.Provider>
+          <>
+            <FormContext.Provider value={{ formData, setFormData }}>
+              <Payment />
+            </FormContext.Provider>
+            <div className="d-md-none d-flex justify-content-between aling-items-center mt-4">
+              <span className="fw-bold fs-4 modelSubtitle">Total</span>
+              <span className="fs-2 modelSubtitle">${total}</span>
+            </div>
+          </>
         );
       }
     }
@@ -205,9 +223,16 @@ function CheckOut() {
                     <div className="d-flex align-items-center">
                       <div className="mb-3">
                         <img
-                          src={item.image}
+                          src={
+                            item.image.includes("https")
+                              ? item.image
+                              : `${
+                                  import.meta.env.VITE_IMAGE_CLOUD_DIRECTION
+                                }/${item.image}`
+                          }
                           alt={`imagen ${item.name}`}
                           className="img-fluid border"
+                          style={{ maxWidth: "80px" }}
                         />
                       </div>
                       <div className="mb-3 px-3">
