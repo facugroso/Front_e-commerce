@@ -34,7 +34,7 @@ function Footer() {
                 src={InstagramIcon}
                 className="social-icon "
                 alt=""
-                width={20}
+                width={25}
               />
             </Link>
             <Link

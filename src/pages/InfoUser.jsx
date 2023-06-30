@@ -53,6 +53,37 @@ function InfoUser() {
               <h1 className="modelTitle">MY PROFILE</h1>
             </div>
           </div>
+          {showUserInfo ? (
+            <div className="background-style-min py-3 d-lg-none">
+              <div className="container d-flex justify-content-evenly ">
+                <div>
+                  <Link onClick={handleShowUserInfo}>
+                    <h2 className="description fs-5 m-0">Account details</h2>
+                  </Link>
+                </div>
+                <div className="border-bottom border-black border-3">
+                  <Link onClick={handleShowOrders}>
+                    <h2 className="description fs-5 m-0">Orders</h2>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="background-style-min py-3 d-lg-none">
+              <div className="container d-flex justify-content-evenly ">
+                <div className="border-bottom border-black border-3">
+                  <Link onClick={handleShowUserInfo}>
+                    <h2 className="description fs-5 m-0">Account details</h2>
+                  </Link>
+                </div>
+                <div>
+                  <Link onClick={handleShowOrders}>
+                    <h2 className="description fs-5 m-0">Orders</h2>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
           <div className="background-gray-user">
             <div className="container">
               <div className="row">
@@ -72,7 +103,7 @@ function InfoUser() {
                       className="mb-5"
                       style={{ display: `${showUserInfo}` }}
                     >
-                      <h3 className="modelSubtitle fs-3 mb-5">
+                      <h3 className="modelSubtitle fs-3 mt-3 mb-5">
                         Account details
                       </h3>
                       <div>
@@ -115,7 +146,9 @@ function InfoUser() {
                       className="col-6 w-100 mb-5"
                       style={{ display: `${showOrders}` }}
                     >
-                      <h3 className="modelSubtitle fs-3 mb-5">Order List</h3>
+                      <h3 className="modelSubtitle fs-3 mt-3 mb-5">
+                        Order List
+                      </h3>
 
                       <table className="table mt-3">
                         <thead>

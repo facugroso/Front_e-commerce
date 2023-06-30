@@ -3,6 +3,10 @@
   font-size: 1.2 rem;
 }
 
+.background-style-min {
+  background-color: #f7f7f7;
+}
+
 .background-gray-user {
   background-color: #f7f7f7;
   background: linear-gradient(
@@ -10,4 +14,15 @@
     rgba(247, 247, 247, 1) 0%,
     rgba(255, 255, 255, 1) 100%
   );
+}
+
+@media (max-width: 991px) {
+  .background-gray-user {
+    background-color: white;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
 }
