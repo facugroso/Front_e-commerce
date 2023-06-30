@@ -239,6 +239,10 @@ function CheckOut() {
                         <p className="modelSubtitle fs-6 m-0">{item.name}</p>
                         <span>Quantity: {item.quantity}</span>
                       </div>
+                      <div className="mb-3 px-3">
+                        <p className="modelSubtitle fs-6 m-0">{item.name}</p>
+                        <span>Quantity: {item.quantity}</span>
+                      </div>
                     </div>
                     <div>
                       <p className="fw-bold text-end">${item.price}</p>
